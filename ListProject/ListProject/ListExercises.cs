@@ -63,10 +63,11 @@ namespace ListProject
             return temp;
         }
 
+        // returns -1 if there's an error.
         public int BinarySearch(String[] theList, String itemToSearchFor)
         {
-            int min = 0, mid;                 // the start of the array
-            int max = theList.Length - 1;  // the end of the array
+            int min = 0, mid;         
+            int max = theList.Length - 1;
             while (min <= max)
             {
                 mid = (min + max) / 2;
