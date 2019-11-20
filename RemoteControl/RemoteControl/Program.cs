@@ -12,7 +12,7 @@ namespace RemoteControl
             while (running) DisplayMenu();
         }
 
-        public static void DisplayMenu()
+        static void DisplayMenu()
         {
             Console.WriteLine("Welcome to Remote Control\n");
             Console.WriteLine("Which option do you require?");
@@ -27,7 +27,6 @@ namespace RemoteControl
                     ProgramRemote();
                     break;
                 case "2":
-                    Console.WriteLine("You have chosen to display commands: ");
                     DisplayCommands();
                     break;
                 case "3":
@@ -35,11 +34,12 @@ namespace RemoteControl
                     break;
                 case "4":
                     running = false;
+                    Console.WriteLine("Bye!");
                     break;
             }
         }
 
-        public static void DisplayCommands()
+        static void DisplayCommands()
         {
             string temp = "";
             for (int i = 0; i < commands.Length; i++)
@@ -55,7 +55,7 @@ namespace RemoteControl
             Console.WriteLine(temp);
         }
 
-        public static void ProgramRemote()
+        static void ProgramRemote()
         {
             DisplayCommands();
             Console.WriteLine("Which button?");
@@ -67,7 +67,7 @@ namespace RemoteControl
             commands[button] = function;
         }
 
-        public static void RunCommand()
+        static void RunCommand()
         {
             DisplayCommands();
             Console.WriteLine("Which button?");
