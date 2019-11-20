@@ -84,7 +84,7 @@ namespace ListProject
                     min = mid + 1;
                 }
             }
-            return -1;   // if we get here, we haven't found it, so return -1
+            return -1;
         }
 
     }
