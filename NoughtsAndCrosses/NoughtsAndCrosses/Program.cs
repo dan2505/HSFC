@@ -6,7 +6,10 @@ namespace NoughtsAndCrosses
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            OXO oxo = new OXO();
+
+            oxo.GenerateGrid();
+            Console.ReadLine();
         }
     }
 }
