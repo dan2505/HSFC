@@ -1,30 +1,22 @@
-﻿using System;
-
-namespace NoughtsAndCrosses
+﻿namespace NoughtsAndCrosses
 {
     public class Player
     {
-        private readonly String name;
+        private readonly string name;
         private readonly Piece piece;
 
-        public Player(String name, Piece piece)
+        public Player(string name, Piece piece)
         {
             this.name = name;
             this.piece = piece;
         }
 
-        public Piece GetPieceAsPiece()
+        public string GetPieceAsString()
         {
-            return piece;
+            return piece == Piece.Nought ? "O" : "X";
         }
 
-        public String GetPieceAsString()
-        {
-            if (piece == Piece.Nought) return "O";
-            return "X";
-        }
-
-        public String GetName()
+        public string GetName()
         {
             return name;
         }
