@@ -4,6 +4,7 @@
     {
         private readonly string name;
         private readonly Piece piece;
+        private int moves;
 
         public Player(string name, Piece piece)
         {
@@ -19,6 +20,16 @@
         public string GetName()
         {
             return name;
+        }
+
+        public void BumpMoves()
+        {
+            moves += 1;
+        }
+
+        public int GetMoves()
+        {
+            return moves;
         }
     }
 }

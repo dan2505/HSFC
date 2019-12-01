@@ -8,27 +8,36 @@ namespace NoughtsAndCrosses
         private readonly Player[] players = new Player[2];
 
         private readonly bool running = true;
-        private readonly int CurrentPlayer;
+        private readonly int current;
 
         private readonly Random rand = new Random();
+
+        private int total;
 
         public OXO(Player first, Player second)
         {
             players[0] = first; // Crosses player.
             players[1] = second; // Noughts player.
-            CurrentPlayer = rand.Next(0, 2); // Randomly choose a player to go first.
+            current = rand.Next(0, 2); // Randomly choose a player to go first.
             ResetGrid();
             GenerateGrid();
 
             while (running)
             {
                 PiecePlacement();
-                CurrentPlayer = 1 - CurrentPlayer;
+                current = 1 - current;
                 running &= !WinChecker();
                 GenerateGrid();
             }
 
-            Console.WriteLine("{0} is our winner, congratulations!", players[1 - CurrentPlayer].GetName());
+            if (total >= 9)
+            {
+                Console.WriteLine("This match has been a draw! Congratulations both!");
+                return;
+            }
+
+            Player winner = players[1 - current];
+            Console.WriteLine("{0} is our winner after {1} moves! Congratulations!", winner.GetName(), winner.GetMoves());
         }
 
         private void GenerateGrid()
@@ -60,19 +69,27 @@ namespace NoughtsAndCrosses
         {
             while (true)
             {
-                Player playing = players[CurrentPlayer];
+                Player playing = players[current];
 
-                Console.WriteLine("Where would you like to go, {0}?", playing.GetName());
+                Console.WriteLine("Where would you like to go, {0}? (#{1})", playing.GetName(), playing.GetMoves());
                 int selection = Convert.ToInt32(Console.ReadLine());
 
-                if (selection > game.Length - 1 || selection < 1) continue;
+                if (selection > game.Length - 1 || selection < 1)
+                {
+                    Console.WriteLine("Choose a location between 1 & 9.");
+                    continue;
+                }
                 if (game[selection] != "O" && game[selection] != "X")
                 {
                     game[selection] = playing.GetPieceAsString();
+
+                    playing.BumpMoves();
+
+                    total += 1;
                     break;
                 }
 
-                Console.WriteLine("There is already a piece here, {0}! Try another location.", playing.GetName());
+                Console.WriteLine("There is already a piece here! Try another location.");
                 continue;
             }
         }
@@ -80,11 +97,13 @@ namespace NoughtsAndCrosses
         private bool WinChecker()
         {
             return
-                //Horizontal line checks.
+                // Draw checks.
+                total >= 9 ||
+                // Horizontal line checks.
                 LineChecker(1, 1) || // First row of grid.
                 LineChecker(4, 1) || // Second row of grid.
                 LineChecker(7, 1) || // Third row of grid.
-                //Vertical line checks.
+                // Vertical line checks.
                 LineChecker(1, 3) || // First column of grid.
                 LineChecker(2, 3) || // Second column of grid.
                 LineChecker(3, 3) || // Third column of grid.
