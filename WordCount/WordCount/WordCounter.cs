@@ -3,7 +3,7 @@ namespace WordCount
 {
     class WordCounter
     {
-        private WordCountPair[] collection;
+        private readonly WordCountPair[] collection;
         private int nextFreeLocation;
 
         public WordCounter(int maxSize)
@@ -30,7 +30,7 @@ namespace WordCount
             {
                 if (collection[i].GetWord() == theWord)
                 {
-                    collection[i].SetCount(collection[i].GetCount() + 1);
+                    collection[i].BumpCount();
                     return i;
                 }
             }

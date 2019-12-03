@@ -14,17 +14,10 @@ namespace WordCount
         }
         // simple sets and gets for the class
 
-        // SetWord allows a user to set the Word element of Word Count pair
-        public void SetWord(String theWord)
-        {
-            word = theWord;
-
-        }
-
         // SetCount allows a user to set the Count element of Word Count pair
-        public void SetCount(int theCount)
+        public void BumpCount()
         {
-            count = theCount;
+            count += 1;
         }
 
         // GetWord allows a user to get the Word element of Word Count pair
@@ -44,7 +37,7 @@ namespace WordCount
         // passes back -1 if originating string is less, 0 if equal, +1 if greater than parameter
         public int CompareTo(String theWord)
         {
-            return word.CompareTo(theWord);
+            return string.Compare(word, theWord, StringComparison.Ordinal);
         }
 
     }
