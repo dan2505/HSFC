@@ -13,7 +13,7 @@ namespace WordCount
 
             for (int i = 0; i < words.Length; i++)
             {
-                dictionary.AddWordToList(words[i].ToLower());
+                dictionary.AddWordToList(words[i].ToLower()); 
             }
 
             for (int i = 0; i < dictionary.GetNextFreeLocation(); i++)

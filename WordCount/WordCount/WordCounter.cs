@@ -11,8 +11,19 @@ namespace WordCount
             collection = new WordCountPair[maxSize];
         }
 
+        // AddWordToList takes in a new word, adds it to the collection and returns current count for that word
+        // passes back -1 if it can't be added.
         public int AddWordToList(string theWord)
         {
+            for (int i = 0; i < nextFreeLocation; i++)
+            {
+                if (collection[i].GetWord() == theWord)
+                {
+                    collection[i].BumpCount();
+                    return collection[i].GetCount();
+                }
+            }
+
             if (nextFreeLocation > collection.Length) return -1;
 
             int position = 0;
@@ -26,18 +37,9 @@ namespace WordCount
                 collection[i] = collection[i - 1];
             }
 
-            for (int i = 0; i < nextFreeLocation; i++)
-            {
-                if (collection[i].GetWord() == theWord)
-                {
-                    collection[i].BumpCount();
-                    return i;
-                }
-            }
-
             collection[position] = new WordCountPair(theWord, 1);
             nextFreeLocation++;
-            return position;
+            return collection[position].GetCount();
         }
 
         public int GetNextFreeLocation()
@@ -49,6 +51,5 @@ namespace WordCount
         {
             return collection;
         }
-
     }
 }
