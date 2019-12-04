@@ -1,4 +1,6 @@
 ﻿using System;
+using System.IO;
+
 namespace WordCount
 {
     class WordCounter
@@ -50,6 +52,27 @@ namespace WordCount
         public WordCountPair[] GetList()
         {
             return collection;
+        }
+
+        // loadWordsFromFile loads a file and processes text
+        public void LoadWordsFromFile(String fileName)
+        {
+            StreamReader theInputStream = new StreamReader(fileName);
+            char[] delimiter = new char[] { ' ', '.', ',', '\n', ';', ':' };
+
+            // Now let's process the file, a line at a time
+            while (!theInputStream.EndOfStream)
+            {
+                // now process the line
+                string[] tokenizedString = theInputStream.ReadLine().Split(delimiter, StringSplitOptions.RemoveEmptyEntries);
+
+                // Now we process each String in the string array
+                for (int i = 0; i < tokenizedString.Length; i++)
+                {
+                    AddWordToList(tokenizedString[i].ToLower());
+                }
+            }
+            theInputStream.Close();
         }
     }
 }
