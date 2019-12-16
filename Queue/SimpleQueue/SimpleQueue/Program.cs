@@ -11,12 +11,14 @@ namespace QueueProject
 
             while (running)
             {
+                Console.WriteLine("");
                 Console.WriteLine("Queue Program");
                 Console.WriteLine("1 - Add to queue.");
                 Console.WriteLine("2 - Remove from queue.");
                 Console.WriteLine("3 - Length of queue.");
                 Console.WriteLine("4 - Display queue.");
                 Console.WriteLine("5 - Quit");
+                Console.WriteLine("");
 
                 switch (Console.ReadLine())
                 {
@@ -31,7 +33,7 @@ namespace QueueProject
                         Console.WriteLine(queue.GetLength());
                         break;
                     case "4":
-                        queue.ToString();
+                        Console.WriteLine(queue);
                         break;
                     case "5":
                         running = false;

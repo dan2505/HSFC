@@ -1,20 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace QueueProject
+﻿namespace QueueProject
 {
     class Queue
     {
-        private string[] queue;
+        private readonly object[] queue;
         private int front, back;
 
         public Queue(int length)
         {
-            queue = new string[length];
+            queue = new object[length];
         }
 
-        public void Enqueue(string str)
+        public void Enqueue(object str)
         {
             if (back < queue.Length)
             {
@@ -22,8 +18,8 @@ namespace QueueProject
                 back++;
             }
         }
-        
-        public string Dequeue()
+
+        public object Dequeue()
         {
             if (front != back)
             {
@@ -43,7 +39,7 @@ namespace QueueProject
             string temp = "";
             for (int i = front; i < back; i++)
             {
-                temp = temp + ", " + queue[i];
+                temp = temp + queue[i] + " ";
             }
             return temp;
         }
