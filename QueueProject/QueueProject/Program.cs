@@ -1,0 +1,43 @@
+﻿using System;
+
+namespace QueueProject
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            bool running = true;
+            Queue queue = new Queue(100);
+
+            while (running)
+            {
+                Console.WriteLine("Queue Program");
+                Console.WriteLine("1 - Add to queue.");
+                Console.WriteLine("2 - Remove from queue.");
+                Console.WriteLine("3 - Length of queue.");
+                Console.WriteLine("4 - Display queue.");
+                Console.WriteLine("5 - Quit");
+
+                switch (Console.ReadLine())
+                {
+                    case "1":
+                        Console.WriteLine("Object to add to queue: ");
+                        queue.Enqueue(Console.ReadLine());
+                        break;
+                    case "2":
+                        Console.WriteLine(queue.Dequeue());
+                        break;
+                    case "3":
+                        Console.WriteLine(queue.GetLength());
+                        break;
+                    case "4":
+                        queue.ToString();
+                        break;
+                    case "5":
+                        running = false;
+                        break;
+                }
+            }
+        }
+    }
+}
