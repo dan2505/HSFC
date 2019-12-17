@@ -7,7 +7,7 @@ namespace QueueProject
         static void Main(string[] args)
         {
             bool running = true;
-            SimpleQueue queue = new SimpleQueue(100);
+            ShuntingQueue queue = new ShuntingQueue(100);
 
             while (running)
             {
