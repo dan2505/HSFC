@@ -7,7 +7,7 @@ namespace QueueProject
         static void Main(string[] args)
         {
             bool running = true;
-            Queue queue = new Queue(100);
+            SimpleQueue queue = new SimpleQueue(100);
 
             while (running)
             {

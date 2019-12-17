@@ -1,11 +1,11 @@
 ﻿namespace QueueProject
 {
-    class Queue
+    class SimpleQueue
     {
         private readonly object[] queue;
         private int front, back;
 
-        public Queue(int length)
+        public SimpleQueue(int length)
         {
             queue = new object[length];
         }

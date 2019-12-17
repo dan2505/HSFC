@@ -1,4 +1,4 @@
-# 🧍 Queue
+﻿# 🧍 Queue
 
 A [queue](https://en.wikipedia.org/wiki/Queue_(abstract_data_type)) is an example of an abstract data type which follows a **FIFO** order _(First in, first out)_.
 
@@ -10,6 +10,6 @@ It has two primary operations:
 
 ## Queue Methods
 There are three different ways of creating a queue:
-* **[Simple](https://github.com/dan2505/HSFC/tree/master/Queue/SimpleQueue)**, which slides to the right as items are added and removed,
+* **Simple**, which slides to the right as items are added and removed,
 * **Shunting**, which shunts left every time we remove something, and
 * **Circular**, which uses the modulo operation to create a circular structure.
