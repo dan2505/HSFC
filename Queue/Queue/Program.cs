@@ -7,7 +7,7 @@ namespace QueueProject
         static void Main(string[] args)
         {
             bool running = true;
-            ShuntingQueue queue = new ShuntingQueue(100);
+            CircularQueue queue = new CircularQueue(100);
 
             while (running)
             {
