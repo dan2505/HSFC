@@ -5,18 +5,18 @@ namespace Searching
 {
     public partial class Form1 : Form
     {
-        private Searching mySearching = new Searching();
+        private Searching searching = new Searching();
 
         private enum Type { Serial, Binary }
+        private Type type = Type.Serial;
 
         private String[] theListToSearch;
-        private const int numOfItems = 100;
-        private Type type = Type.Serial;
+        private int numOfItems;
 
         public Form1()
         {
             InitializeComponent();
-            theListToSearch = new String[numOfItems];
+            theListToSearch = new String[10];
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -26,27 +26,22 @@ namespace Searching
 
         private void searchButton_Click(object sender, EventArgs e)
         {
-            resultsLabel1.Text = " ";
-            resultsLabel2.Text = " ";
-
             int result;
             if (type == Type.Binary)
             {
-                result = mySearching.binarySearch(theListToSearch, searchText.Text);
+                result = searching.binarySearch(theListToSearch, searchText.Text, numOfItems);
             } else
             {
-                result = mySearching.serialSearch(theListToSearch, searchText.Text);
+                result = searching.serialSearch(theListToSearch, searchText.Text);
             }
 
-            if (result == -1)
-            {
-                resultsLabel1.Text = "String not found";
-            }
-            else
+            if (result != -1)
             {
                 resultsLabel1.Text = "String found at: ";
                 resultsLabel2.Text = result.ToString();
+                return;
             }
+            resultsLabel1.Text = "String not found";
 
         }
 
@@ -56,20 +51,22 @@ namespace Searching
             {
                 // transfer each line into my array for searching
                 theListToSearch[lineNum] = stringList.Lines[lineNum];
+                numOfItems++;
             }
         }
 
         private void typeButton_Click(object sender, EventArgs e)
         {
-            if (typeButton.Text == "Serial")
+            if (type == Type.Serial)
             {
                 typeButton.Text = "Binary";
                 type = Type.Binary;
-            } else
-            {
-                typeButton.Text = "Serial";
-                type = Type.Serial;
+
+                return;
             }
+
+            typeButton.Text = "Serial";
+            type = Type.Serial; 
         }
     }
 }

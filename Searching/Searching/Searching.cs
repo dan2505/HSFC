@@ -1,10 +1,8 @@
-﻿using System;
-
-namespace Searching
+﻿namespace Searching
 {
     class Searching
     {
-        public int serialSearch(String[] theList, String itemToSearchFor)
+        public int serialSearch(string[] theList, string itemToSearchFor)
         {
             // check if the array is empty, if so return an error
             if (theList.Length == 0)
@@ -32,10 +30,10 @@ namespace Searching
             return -1; 
         }
 
-        public int binarySearch(String[] theList, String itemToSearchFor)
+        public int binarySearch(string[] theList, string itemToSearchFor, int numOfItems)
         {
             int min = 0;                   // the start of the array
-            int max = theList.Length - 1;  // the end of the array
+            int max = numOfItems;  // the end of the array
             int mid;
             while (min <= max)
             {
@@ -44,7 +42,8 @@ namespace Searching
                 {
                     return mid;
                 }
-                else if (itemToSearchFor.CompareTo(theList[mid]) < 0)   // found the item
+
+                if (itemToSearchFor.CompareTo(theList[mid]) < 0)   // found the item
                 {
                     max = mid - 1;
                 }
