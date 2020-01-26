@@ -1,5 +1,5 @@
 # 👨‍🏫 HSFC
-Visual Studio Work for A Level Computer Science @ HSFC
+A Level Computer Science @ HSFC
 
 ## Index
 [CoachProject](https://github.com/dan2505/HSFC/tree/master/CoachProject) - 05/11/19\
