@@ -1,4 +1,6 @@
-﻿namespace Searching
+﻿using System;
+
+namespace Searching
 {
     class Searching
     {
@@ -30,27 +32,28 @@
             return -1; 
         }
 
-        public int binarySearch(string[] theList, string itemToSearchFor, int numOfItems)
+        public int binarySearch(string[] list, string item, int count)
         {
             int min = 0;                   // the start of the array
-            int max = numOfItems;  // the end of the array
-            int mid;
+            int max = count;  // the end of the array
+
             while (min <= max)
             {
-                mid = (min + max) / 2;
-                if (itemToSearchFor == theList[mid])
-                {
-                    return mid;
-                }
-
-                if (itemToSearchFor.CompareTo(theList[mid]) < 0)   // found the item
+                int mid = (min + max) / 2;
+                
+                if (string.Compare(item, list[mid], StringComparison.Ordinal) < 0)
                 {
                     max = mid - 1;
+                    continue;
                 }
-                else
+                
+                if (string.Compare(item, list[mid], StringComparison.Ordinal) > 0)
                 {
                     min = mid + 1;
+                    continue;
                 }
+
+                return mid;
             }
             return -1;   // if we get here, we haven't found it, so return -1
         }
