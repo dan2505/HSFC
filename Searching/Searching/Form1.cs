@@ -11,7 +11,7 @@ namespace Searching
         private Type type = Type.Serial;
 
         private String[] theListToSearch;
-        private int numOfItems;
+        private int max;
 
         public Form1()
         {
@@ -29,7 +29,7 @@ namespace Searching
             int result;
             if (type == Type.Binary)
             {
-                result = searching.binarySearch(theListToSearch, searchText.Text, numOfItems);
+                result = searching.binarySearch(theListToSearch, searchText.Text, max);
             } else
             {
                 result = searching.serialSearch(theListToSearch, searchText.Text);
@@ -42,6 +42,7 @@ namespace Searching
                 return;
             }
             resultsLabel1.Text = "String not found";
+            resultsLabel2.Text = "";
 
         }
 
@@ -51,7 +52,8 @@ namespace Searching
             {
                 // transfer each line into my array for searching
                 theListToSearch[lineNum] = stringList.Lines[lineNum];
-                numOfItems++;
+
+                if (lineNum > max) max = lineNum;
             }
         }
 
