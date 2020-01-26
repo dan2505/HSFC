@@ -8,4 +8,5 @@ Visual Studio Work for A Level Computer Science @ HSFC
 [NoughtsAndCrosses](https://github.com/dan2505/HSFC/tree/master/NoughtsAndCrosses) -  25/11/19\
 [WordCount](https://github.com/dan2505/HSFC/tree/master/WordCount) -  04/12/19\
 [Stack](https://github.com/dan2505/HSFC/tree/master/Stack) -  08/12/19\
-[Queue](https://github.com/dan2505/HSFC/tree/master/Queue) -  16/12/19
+[Queue](https://github.com/dan2505/HSFC/tree/master/Queue) -  16/12/19\
+[Searching](https://github.com/dan2505/HSFC/tree/master/Searching) -  06/01/20
