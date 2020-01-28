@@ -9,9 +9,9 @@ namespace Hangman
         private String word;
         private StringBuilder display;
 
-        private char[] lettersUsed = new char[20];
+        private char[] lettersUsed;
 
-        private bool status = true;
+        private bool status;
         private int guesses = 6;
 
         public Hangman()
@@ -54,6 +54,8 @@ namespace Hangman
             {
                 display[i] = '_';
             }
+
+            lettersUsed = new char[word.Length];
         }
 
         public void makeGuess(char theLetter)
@@ -71,6 +73,10 @@ namespace Hangman
                     }
                 }
                 guesses--;
+                if (guesses == 0)
+                {
+                    status = false;
+                }
             }
         }
     }
