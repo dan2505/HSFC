@@ -116,7 +116,6 @@
             this.Controls.Add(this.searchButton);
             this.Name = "Form1";
             this.Text = "Searching";
-            this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

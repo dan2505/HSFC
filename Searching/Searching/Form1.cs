@@ -19,11 +19,6 @@ namespace Searching
             theListToSearch = new String[10];
         }
 
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void searchButton_Click(object sender, EventArgs e)
         {
             int result;
