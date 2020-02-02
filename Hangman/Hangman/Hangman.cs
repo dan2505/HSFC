@@ -8,13 +8,13 @@ namespace Hangman
     class Hangman
     {
         private bool _status = true;
-        
+
         private string _word;
-        private StringBuilder _display;
+        private readonly StringBuilder _display;
         private string _lettersUsed = "";
-        
+
         private int _guesses;
-        
+
         private readonly Random _random = new Random();
 
         public Hangman()
@@ -26,11 +26,16 @@ namespace Hangman
             _display = new StringBuilder(_word);
             for (int i = 0; i < _word.Length; i++)
             {
+                if (_word[i] == ' ')
+                {
+                    _display[i] = ' ';
+                    continue;
+                }
                 _display[i] = '_';
             }
-            
+
             // Begin actual game loop.
-            while (GetStatus())
+            while (_status)
             {
                 // Display all visual aspects.
                 ConstructGameplay();
@@ -38,34 +43,23 @@ namespace Hangman
                 PerformGameChecks();
                 // Read in a character and then attempt a guess.
                 MakeGuess(Console.ReadKey().KeyChar);
-                
+
                 Console.WriteLine();
             }
         }
 
-        private string GetUsedLetters()
-        {
-            return _lettersUsed;
-        }
-
-        public bool GetStatus()
-        {
-            return _status;
-        }
-
-        public void ConstructGameplay()
+        private void ConstructGameplay()
         {
             // Display the lines with any letters guessed.
-            Console.WriteLine(_display.ToString());
-            Console.WriteLine("");
+            Console.WriteLine(_display.ToString() + "\n");
             // Display the incorrect guesses with the amount of guesses used.
-            Console.WriteLine(GetUsedLetters() + "(" + _guesses + "/6)");
+            Console.WriteLine(_lettersUsed + "(" + _guesses + "/6)");
         }
 
-        public void MakeGuess(char theLetter)
+        private void MakeGuess(char theLetter)
         {
             // Check if they've used the letter already yet.
-            if (!GetUsedLetters().Contains(theLetter))
+            if (!_lettersUsed.Contains(theLetter))
             {
                 // Check if the word contains the letter yet.
                 if (_word.Contains(theLetter))
@@ -83,6 +77,7 @@ namespace Hangman
 
                     return;
                 }
+
                 // Add the letter to the letters used string.
                 _lettersUsed = _lettersUsed + theLetter + " ";
                 // Increment the incorrect guesses count.
@@ -96,10 +91,10 @@ namespace Hangman
             if (_display.ToString() == _word)
             {
                 _status = false;
-                Console.WriteLine("Well done! You got the word in {0} guesses!", _guesses);
+                Console.WriteLine("Well done! You got the word {0} in {1} incorrect guesses!", _word, _guesses);
                 return;
             }
-            
+
             // Check if they've run out of guesses (should this be higher?)
             if (_guesses == 6)
             {
@@ -113,18 +108,18 @@ namespace Hangman
             // Load the file.
             StreamReader theInputStream =
                 new StreamReader("/Users/danwilliams/Projects/HSFC/Hangman/Hangman/hangman.txt");
-            
+
             // Temporary dictionary to store the words.
-            string[] tempDictionary = new string[150];
+            string[] tempDictionary = new string[1800];
             // Word counter.
             int counter = 0;
-            
+
             // Process the file line by line
             while (!theInputStream.EndOfStream)
             {
                 // Split the words (I suppose this could help with any thing with multiple words in the future)
                 string[] tokenizedString = theInputStream.ReadLine().Split('\n', StringSplitOptions.RemoveEmptyEntries);
-                
+
                 // Process each string in the array.
                 for (int i = 0; i < tokenizedString.Length; i++)
                 {
@@ -133,6 +128,7 @@ namespace Hangman
                     counter++;
                 }
             }
+
             // Randomly choose a word from the list.
             _word = tempDictionary[_random.Next(0, counter)];
             theInputStream.Close();

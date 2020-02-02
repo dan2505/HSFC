@@ -6,8 +6,10 @@ namespace Hangman
     {
         static void Main(string[] args)
         {
-            Hangman game = new Hangman();
-            Console.ReadLine();
+            while (true)
+            { 
+                Hangman game = new Hangman();
+            }
         }
     }
 }
