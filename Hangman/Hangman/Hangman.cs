@@ -31,6 +31,7 @@ namespace Hangman
                     _display[i] = ' ';
                     continue;
                 }
+
                 _display[i] = '_';
             }
 
@@ -51,7 +52,7 @@ namespace Hangman
         private void ConstructGameplay()
         {
             // Display the lines with any letters guessed.
-            Console.WriteLine(_display.ToString() + "\n");
+            Console.WriteLine(_display + "\n");
             // Display the incorrect guesses with the amount of guesses used.
             Console.WriteLine(_lettersUsed + "(" + _guesses + "/6)");
         }
@@ -121,10 +122,10 @@ namespace Hangman
                 string[] tokenizedString = theInputStream.ReadLine().Split('\n', StringSplitOptions.RemoveEmptyEntries);
 
                 // Process each string in the array.
-                for (int i = 0; i < tokenizedString.Length; i++)
+                foreach (string str in tokenizedString)
                 {
                     // Add it to the temporary array/dictionary.
-                    tempDictionary[counter] = tokenizedString[i].ToLower();
+                    tempDictionary[counter] = str.ToLower();
                     counter++;
                 }
             }
