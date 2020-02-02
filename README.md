@@ -1,4 +1,4 @@
-# 👨‍🏫 HSFC
+# 💻 HSFC
 A Level Computer Science @ HSFC
 
 ## Index
