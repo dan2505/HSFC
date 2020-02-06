@@ -108,7 +108,7 @@ namespace Hangman
         {
             // Load the file.
             StreamReader theInputStream =
-                new StreamReader("/Users/danwilliams/Projects/HSFC/Hangman/Hangman/hangman.txt");
+                new StreamReader("H:/Computer Science/HSFC/Hangman/Hangman/hangman.txt");
 
             // Temporary dictionary to store the words.
             string[] tempDictionary = new string[1800];
