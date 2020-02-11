@@ -5,51 +5,51 @@ namespace BusTimetable
 {
     class Routes
     {
-        private Route[] routes = new Route[100];
-        private int nextFreeLocation = 0;
+        private readonly Route[] _routes = new Route[100];
+        private int _nextFreeLocation;
 
         public Routes()
         {
             LoadRoutesFromFile();
         }
 
-        public void AddRoute(Route route)
+        private void AddRoute(Route route)
         {
-            routes[nextFreeLocation] = route;
-            nextFreeLocation++;
+            _routes[_nextFreeLocation] = route;
+            _nextFreeLocation++;
         }
 
         public void DisplayTimetable()
         {
-            for (int i = 0; i < nextFreeLocation; i ++)
+            for (int i = 0; i < _nextFreeLocation; i ++)
             {
-                Route route = routes[i];
+                Route route = _routes[i];
 
                 string temp = "";
-                for (int times = 0; times < route.getRouteCount(); times++)
+                for (int times = 0; times < route.GetRouteCount(); times++)
                 {
-                    temp = temp + route.getStartTimes()[times] + "  ";
+                    temp = temp + route.GetStartTimes()[times] + "  ";
                 }
-                Console.WriteLine(route.getOrigin() + " --> " + route.getDestination() + " : " + temp);
+                Console.WriteLine(route.GetOrigin() + " --> " + route.GetDestination() + " : " + temp);
             }
         }
 
         public void FindJourneys(string origin, int startTime, int endTime)
         {
-            Route[] temp = new Route[nextFreeLocation];
+            Route[] temp = new Route[_nextFreeLocation];
 
             int counter = 0;
-            for (int i = 0; i < nextFreeLocation; i++)
+            for (int i = 0; i < _nextFreeLocation; i++)
             {
-                Route route = routes[i];
-                if (route.getOrigin() == origin)
+                Route route = _routes[i];
+                if (route.GetOrigin() == origin)
                 {
-                    for (int times = 0; times < route.getRouteCount(); times++)
+                    for (int times = 0; times < route.GetRouteCount(); times++)
                     {
-                        int time = Convert.ToInt32(route.getStartTimes()[times]);
+                        int time = Convert.ToInt32(route.GetStartTimes()[times]);
                         if ((time >= startTime) && (time <= endTime))
                         {
-                            temp[counter] = routes[i];
+                            temp[counter] = _routes[i];
                             counter++;
                             break;
                         }
@@ -61,13 +61,13 @@ namespace BusTimetable
             for (int i = 0; i < counter; i++)
             {
                 Route route = temp[i];
-                Console.Write(route.getDestination() + " : ");
-                for (int times = 0; times < route.getRouteCount(); times++)
+                Console.Write(route.GetDestination() + " : ");
+                for (int times = 0; times < route.GetRouteCount(); times++)
                 {
-                    int time = Convert.ToInt32(route.getStartTimes()[times]);
+                    int time = Convert.ToInt32(route.GetStartTimes()[times]);
                     if ((time >= startTime) && (time <= endTime))
                     {
-                        Console.Write(route.getStartTimes()[times] + "  ");
+                        Console.Write(route.GetStartTimes()[times] + "  ");
                     }
                 }
                 Console.WriteLine("");
@@ -76,7 +76,7 @@ namespace BusTimetable
 
         private void LoadRoutesFromFile()
         {
-            StreamReader theInputStream = new StreamReader("H:/Computer Science/HSFC/BusTimetable/BusTimetable/data.txt");
+            StreamReader theInputStream = new StreamReader("/Users/danwilliams/Projects/HSFC/BusTimetable/BusTimetable/data.txt");
 
             while (!theInputStream.EndOfStream)
             {

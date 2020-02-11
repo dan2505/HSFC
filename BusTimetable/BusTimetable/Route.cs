@@ -1,37 +1,38 @@
 ﻿namespace BusTimetable
 {
-    class Route
+    internal class Route
     {
-        private string origin, destination;
-        private string[] startTimes;
-        private int routeCount;
+        private readonly string _origin;
+        private readonly string _destination;
+        private readonly int _routeCount;
+        private readonly string[] _startTimes;
 
         public Route(string origin, string destination, string[] startTimes, int routeCount)
         {
-            this.origin = origin;
-            this.destination = destination;
-            this.startTimes = startTimes;
-            this.routeCount = routeCount;
+            _origin = origin;
+            _destination = destination;
+            _startTimes = startTimes;
+            _routeCount = routeCount;
         }
 
-        public string getOrigin()
+        public string GetOrigin()
         {
-            return origin;
+            return _origin;
         }
 
-        public string getDestination()
+        public string GetDestination()
         {
-            return destination;
+            return _destination;
         }
 
-        public string[] getStartTimes()
+        public string[] GetStartTimes()
         {
-            return startTimes;
+            return _startTimes;
         }
 
-        public int getRouteCount()
+        public int GetRouteCount()
         {
-            return routeCount;
+            return _routeCount;
         }
     }
 }
