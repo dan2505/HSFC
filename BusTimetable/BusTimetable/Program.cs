@@ -8,7 +8,20 @@ namespace BusTimetable
         {
             Routes routes = new Routes();
             routes.DisplayTimetable();
-            routes.FindJourneys("Hereford", 0800, 1300);
+
+            Console.WriteLine("\n" + "Route Origin: ");
+            string origin = Console.ReadLine();
+
+            Console.WriteLine("\n" + "Route Destination: ");
+            string destination = Console.ReadLine();
+
+            Console.WriteLine("Start Time: ");
+            int start = Convert.ToInt32(Console.ReadLine());
+
+            Console.WriteLine("End Time: ");
+            int end = Convert.ToInt32(Console.ReadLine());
+
+            routes.FindJourneys(origin, destination, start, end);
             Console.ReadLine();
         }
     }

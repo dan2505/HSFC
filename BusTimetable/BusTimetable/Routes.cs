@@ -34,15 +34,21 @@ namespace BusTimetable
             }
         }
 
-        public void FindJourneys(string origin, int startTime, int endTime)
+        public void FindJourneys(string origin, string destination, int startTime, int endTime)
         {
             Route[] temp = new Route[_nextFreeLocation];
+
+            if ((endTime > 2400) || (startTime > endTime))
+            {
+                Console.WriteLine("Invalid time.");
+                return;
+            }
 
             int counter = 0;
             for (int i = 0; i < _nextFreeLocation; i++)
             {
                 Route route = _routes[i];
-                if (route.GetOrigin() == origin)
+                if (route.GetOrigin().ToLower() == origin.ToLower())
                 {
                     for (int times = 0; times < route.GetRouteCount(); times++)
                     {
@@ -57,26 +63,35 @@ namespace BusTimetable
                 }
             }
 
+            if (counter == 0)
+            {
+                Console.WriteLine("No routes found.");
+                return;
+            }
+
             Console.WriteLine("\n" + "Routes from " + origin);
             for (int i = 0; i < counter; i++)
             {
                 Route route = temp[i];
-                Console.Write(route.GetDestination() + " : ");
-                for (int times = 0; times < route.GetRouteCount(); times++)
+                if (route.GetDestination() == destination)
                 {
-                    int time = Convert.ToInt32(route.GetStartTimes()[times]);
-                    if ((time >= startTime) && (time <= endTime))
+                    Console.Write(route.GetOrigin() + " --> " + route.GetDestination() + " : ");
+                    for (int times = 0; times < route.GetRouteCount(); times++)
                     {
-                        Console.Write(route.GetStartTimes()[times] + "  ");
+                        int time = Convert.ToInt32(route.GetStartTimes()[times]);
+                        if ((time >= startTime) && (time <= endTime))
+                        {
+                            Console.Write(route.GetStartTimes()[times] + "  ");
+                        }
                     }
+                    Console.WriteLine("");
                 }
-                Console.WriteLine("");
             }
         }
 
         private void LoadRoutesFromFile()
         {
-            StreamReader theInputStream = new StreamReader("/Users/danwilliams/Projects/HSFC/BusTimetable/BusTimetable/data.txt");
+            StreamReader theInputStream = new StreamReader("H:/Computer Science/HSFC/BusTimetable/BusTimetable/data.txt");
 
             while (!theInputStream.EndOfStream)
             {
