@@ -15,10 +15,10 @@ namespace BusTimetable
             Console.WriteLine("\n" + "Route Destination: ");
             string destination = Console.ReadLine();
 
-            Console.WriteLine("Start Time: ");
+            Console.WriteLine("\n" + "Start Time: ");
             int start = Convert.ToInt32(Console.ReadLine());
 
-            Console.WriteLine("End Time: ");
+            Console.WriteLine("\n" + "End Time: ");
             int end = Convert.ToInt32(Console.ReadLine());
 
             routes.FindJourneys(origin, destination, start, end);

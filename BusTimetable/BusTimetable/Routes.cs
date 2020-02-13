@@ -73,7 +73,7 @@ namespace BusTimetable
             for (int i = 0; i < counter; i++)
             {
                 Route route = temp[i];
-                if (route.GetDestination() == destination)
+                if (route.GetDestination().ToLower() == destination.ToLower())
                 {
                     Console.Write(route.GetOrigin() + " --> " + route.GetDestination() + " : ");
                     for (int times = 0; times < route.GetRouteCount(); times++)
