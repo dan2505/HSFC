@@ -35,6 +35,7 @@
             this.stringList = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.typeButton = new System.Windows.Forms.Button();
+            this.sortButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // searchButton
@@ -102,11 +103,22 @@
             this.typeButton.UseVisualStyleBackColor = true;
             this.typeButton.Click += new System.EventHandler(this.typeButton_Click);
             // 
+            // sortButton
+            // 
+            this.sortButton.Location = new System.Drawing.Point(41, 29);
+            this.sortButton.Name = "sortButton";
+            this.sortButton.Size = new System.Drawing.Size(75, 23);
+            this.sortButton.TabIndex = 8;
+            this.sortButton.Text = "Sort";
+            this.sortButton.UseVisualStyleBackColor = true;
+            this.sortButton.Click += new System.EventHandler(this.sortButton_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(284, 317);
+            this.Controls.Add(this.sortButton);
             this.Controls.Add(this.typeButton);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.stringList);
@@ -130,6 +142,7 @@
         private System.Windows.Forms.TextBox stringList;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button typeButton;
+        private System.Windows.Forms.Button sortButton;
     }
 }
 

@@ -65,5 +65,30 @@ namespace Searching
             typeButton.Text = "Serial";
             type = Type.Serial; 
         }
+
+        private void sortButton_Click(object sender, EventArgs e)
+        {
+            for (int i = 0; i < max; i++)
+            {
+                bool changed = false;
+                for (int j = 0; j < max - i; j++)
+                {
+                    if (string.Compare(theListToSearch[j], theListToSearch[j + 1]) > 0)
+                    {
+                        string temp = theListToSearch[j];
+
+                        theListToSearch[j] = theListToSearch[j + 1];
+                        theListToSearch[j + 1] = temp;
+
+                        changed = true;
+                    }
+                }
+
+                if (!changed)
+                {
+                    break;
+                }
+            }
+        }
     }
 }
