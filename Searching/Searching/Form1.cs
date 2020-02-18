@@ -5,29 +5,29 @@ namespace Searching
 {
     public partial class Form1 : Form
     {
-        private Searching searching = new Searching();
+        private readonly Searching _searching = new Searching();
 
         private enum Type { Serial, Binary }
-        private Type type = Type.Serial;
+        private Type _type = Type.Serial;
 
-        private String[] theListToSearch;
-        private int max;
+        private readonly String[] _theListToSearch;
+        private int _max;
 
         public Form1()
         {
             InitializeComponent();
-            theListToSearch = new String[10];
+            _theListToSearch = new String[10];
         }
 
         private void searchButton_Click(object sender, EventArgs e)
         {
             int result;
-            if (type == Type.Binary)
+            if (_type == Type.Binary)
             {
-                result = searching.binarySearch(theListToSearch, searchText.Text, max);
+                result = _searching.binarySearch(_theListToSearch, searchText.Text, _max);
             } else
             {
-                result = searching.serialSearch(theListToSearch, searchText.Text);
+                result = _searching.serialSearch(_theListToSearch, searchText.Text);
             }
 
             if (result != -1)
@@ -46,39 +46,39 @@ namespace Searching
             for (int lineNum = 0; lineNum < stringList.Lines.Length; lineNum++)
             {
                 // transfer each line into my array for searching
-                theListToSearch[lineNum] = stringList.Lines[lineNum];
+                _theListToSearch[lineNum] = stringList.Lines[lineNum];
 
-                if (lineNum > max) max = lineNum;
+                if (lineNum > _max) _max = lineNum;
             }
         }
 
         private void typeButton_Click(object sender, EventArgs e)
         {
-            if (type == Type.Serial)
+            if (_type == Type.Serial)
             {
                 typeButton.Text = "Binary";
-                type = Type.Binary;
+                _type = Type.Binary;
 
                 return;
             }
 
             typeButton.Text = "Serial";
-            type = Type.Serial; 
+            _type = Type.Serial; 
         }
 
         private void sortButton_Click(object sender, EventArgs e)
         {
-            for (int i = 0; i < max; i++)
+            for (int i = 0; i < _max; i++)
             {
                 bool changed = false;
-                for (int j = 0; j < max - i; j++)
+                for (int j = 0; j < _max - i; j++)
                 {
-                    if (string.Compare(theListToSearch[j], theListToSearch[j + 1]) > 0)
+                    if (string.CompareOrdinal(_theListToSearch[j], _theListToSearch[j + 1]) > 0)
                     {
-                        string temp = theListToSearch[j];
+                        string temp = _theListToSearch[j];
 
-                        theListToSearch[j] = theListToSearch[j + 1];
-                        theListToSearch[j + 1] = temp;
+                        _theListToSearch[j] = _theListToSearch[j + 1];
+                        _theListToSearch[j + 1] = temp;
 
                         changed = true;
                     }

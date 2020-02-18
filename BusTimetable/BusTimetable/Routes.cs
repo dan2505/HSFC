@@ -21,7 +21,7 @@ namespace BusTimetable
 
         public void DisplayTimetable()
         {
-            for (int i = 0; i < _nextFreeLocation; i ++)
+            for (int i = 0; i < _nextFreeLocation; i++)
             {
                 Route route = _routes[i];
 
@@ -48,7 +48,7 @@ namespace BusTimetable
             for (int i = 0; i < _nextFreeLocation; i++)
             {
                 Route route = _routes[i];
-                if (route.GetOrigin().ToLower() == origin.ToLower())
+                if (string.Equals(route.GetOrigin(), origin, StringComparison.CurrentCultureIgnoreCase))
                 {
                     for (int times = 0; times < route.GetRouteCount(); times++)
                     {
@@ -73,7 +73,7 @@ namespace BusTimetable
             for (int i = 0; i < counter; i++)
             {
                 Route route = temp[i];
-                if (route.GetDestination().ToLower() == destination.ToLower())
+                if (string.Equals(route.GetDestination(), destination, StringComparison.CurrentCultureIgnoreCase))
                 {
                     Console.Write(route.GetOrigin() + " --> " + route.GetDestination() + " : ");
                     for (int times = 0; times < route.GetRouteCount(); times++)
