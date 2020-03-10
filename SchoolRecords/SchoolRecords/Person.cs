@@ -1,78 +1,69 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System;
 
 namespace SchoolRecords
 {
     public class Person
     {
-        private String name = "";
-        private int age = 0;
-        private Address livesAt;
+        private string firstName, lastName;
+        private int age;
+        private Address address;
 
-        // CONSTRUCTOR - we could use the default ....
-        // But it gets long winded to have to set each name and age separately.
-        // We can change the constructor appropriately
-
-        public Person(String aName, int anAge)
+        protected Person(string firstName, string lastName, int age, Address address)
         {
-            this.setName(aName);
-            this.setAge(anAge);
+            this.firstName = firstName;
+            this.lastName = lastName;
+            this.age = age;
+            this.address = address;
         }
 
-        // But we might like to keep the DEFAULT CONSTRUCTOR too
-        public Person()
+        public void setFirstName(string firstName)
         {
-            // we dont need to do anything but if we have it, we can call it.
+            this.firstName = firstName;
         }
 
-        // setName procedure allows a user to set a Person's name
-        public void setName(String theString)
+        public string getFirstName()
         {
-            name = theString;
+            return firstName;
         }
 
-        //getName function returns a Person's name
-        public String getName()
+        public void setLastName(string lastName)
         {
-            return name;
+            this.lastName = lastName;
         }
 
-        // setAge procedure allows a user to set a Person's age
+        public string getLastName()
+        {
+            return lastName;
+        }
+
         public void setAge(int theAge)
         {
             age = theAge;
         }
 
-        //getAge function returns a Person's age
         public int getAge()
         {
             return age;
         }
 
-        // setAddress procedure allows a user to set a Person's Agdress
-        public void setAddress(Address theAddress)
+        public void setAddress(Address address)
         {
-            livesAt = theAddress;
+            this.address = address;
         }
 
-        //getAddress function returns a Person's address
         public Address getAddress()
         {
-            return livesAt;
+            return address;
         }
 
-        //toString is a standard method that we use to display (write out) an object
-        public override String ToString()
+        public override string ToString()
         {
-            return this.getName() + 
-                " is aged " + 
-                this.getAge() + 
-                Environment.NewLine + 
-                this.getAddress();
+            return firstName +
+                   lastName +
+                   " is aged " +
+                   age +
+                   Environment.NewLine +
+                   address;
         }
-
     }
 }

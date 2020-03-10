@@ -1,85 +1,64 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
 namespace SchoolRecords
 {
-    public class Address
+    public abstract class Address
     {
-        private String houseNameNumber;
-        private String street;
-        private String county;
-        private String postCode;
+        private string houseNumber;
+        private string street;
+        private string county;
+        private string postcode;
 
-        // Now define the class constructor
-        // This is called every time an Address is created e.g. new Address()
-        public Address(String thehouseNameNumber,
-                 String theStreet,
-                 String theCounty,
-                 String thePostCode)
+        protected Address(string houseNumber, string street, string county, string postcode)
         {
-            houseNameNumber = thehouseNameNumber;
-            street = theStreet;
-            county = theCounty;
-            postCode = thePostCode;
+            this.houseNumber = houseNumber;
+            this.street = street;
+            this.county = county;
+            this.postcode = postcode;
         }
 
-        // sethouseNameNumber is used to allow user to set the house, name or number
-        public void sethouseNameNumber(String theHouseNameNumber)
+        public void setHouseNumber(string houseNumber)
         {
-            houseNameNumber = theHouseNameNumber;
+            this.houseNumber = houseNumber;
         }
 
-        // setStreet is used to allow user to set the street
-        public void setStreet(String theStreet)
+        public void setStreet(string street)
         {
-            street = theStreet;
+            this.street = street;
         }
 
-        // setCounty is used to allow user to set the county
-        public void setCounty(String theCounty)
+        public void setCounty(string county)
         {
-            county = theCounty;
+            this.county = county;
         }
 
-        // setPostCode is used to allow user to set the post code
-        public void setPostCode(String thePostCode)
+        public void setPostCode(string postcode)
         {
-            postCode = thePostCode;
+            this.postcode = postcode;
         }
 
-        // gethouseNameNumber is used to allow user to get the house, name or number
-        public String getHouseNameNumber()
+        public string getHouseNumber()
         {
-            return houseNameNumber;
+            return houseNumber;
         }
 
-        // getStreet is used to allow user to get the street
-        public String getStreet()
+        public string getStreet()
         {
             return street;
         }
 
-        // getCounty is used to allow user to get the county
-        public String getCounty()
+        public string getCounty()
         {
             return county;
         }
 
-        // getPostCode is used to allow user to get the post code
-        public String getPostCode()
+        public string getPostcode()
         {
-            return postCode;
+            return postcode;
         }
 
-        // ToString produces a formatted string for an address
-
-        public override String ToString()
+        public override string ToString()
         {
-            return (houseNameNumber + ", " + street +
-                    ", " + county + ", " + postCode + ".");
+            return (houseNumber + ", " + street +
+                    ", " + county + ", " + postcode + ".");
         }
     }
 }

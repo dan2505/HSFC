@@ -1,14 +1,20 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System;
 
 namespace SchoolRecords
 {
-    class Teacher:Person   // "Teacher inherits Person"  or "Teacher extends Person"
+    public abstract class Teacher : Person
     {
-        private Subjects teaches;
+        private readonly Subjects teaches;
 
+        protected Teacher(string firstName, string lastName, int age, Address address) : base(firstName, lastName, age,
+            address)
+        {
+            teaches = new Subjects(6);
+        }
+
+        public override string ToString()
+        {
+            return base.ToString() + "Teaches:" + Environment.NewLine + teaches;
+        }
     }
 }

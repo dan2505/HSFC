@@ -2,14 +2,14 @@ using System;
 
 namespace SchoolRecords
 {
-    public class Students
+    public class Teachers
     {
-        private readonly Student[] contents;
+        private readonly Teacher[] contents;
         private int currentSize;
 
-        public Students(int maxSize)
+        public Teachers(int maxSize)
         {
-            contents = new Student[maxSize];
+            contents = new Teacher[maxSize];
         }
 
         public int getCurrentSize()
@@ -17,25 +17,16 @@ namespace SchoolRecords
             return currentSize;
         }
 
-        public int addStudent(Student theStudent)
+        public int addTeacher(ref Teacher theTeacher)
         {
             if (currentSize >= contents.Length) return -1;
-            contents[currentSize] = theStudent;
+
+            contents[currentSize] = theTeacher;
             currentSize++;
             return 0;
         }
 
-        public Student getStudent(int position)
-        {
-            if ((position < 0) | (position >= currentSize))
-            {
-                return null;
-            }
-
-            return contents[position];
-        }
-
-        public Student getStudent(string theFirstName, string theLastName)
+        public Teacher getTeacher(string theFirstName, string theLastName)
         {
             for (int i = 0; i < currentSize; i++)
             {
@@ -46,7 +37,7 @@ namespace SchoolRecords
             return null;
         }
 
-        public int removeStudent(string theFirstName, string theLastName)
+        public int removeTeacher(string theFirstName, string theLastName)
         {
             for (int i = 0; i < currentSize; i++)
             {
@@ -64,7 +55,7 @@ namespace SchoolRecords
 
         public override string ToString()
         {
-            string temp = "Students: ";
+            string temp = "";
             for (int i = 0; i < currentSize - 1; i++)
             {
                 temp = temp + contents[i];

@@ -1,45 +1,31 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
 namespace SchoolRecords
 {
-    class Student: Person
+    public abstract class Student : Person
     {
-        // student inherits everything from Person 
-
-        // Student will also have a Director of Studies
-        private Teacher DOS;
-
-        //Student also has a collection of Subjects
+        private Teacher dos;
         private Subjects studies;
 
-        public Student (String aName, int anAge, Teacher theDOS) : base(aName, anAge)
+        protected Student(string firstName, string lastName, int age, Address address, Teacher dos) : base(firstName,
+            lastName, age, address)
         {
-            DOS = theDOS;
+            this.dos = dos;
         }
 
-        // setDOS procedure allows a user to set a Student's DOS
-        public void setDOS(Teacher theDOS)
+        public void setDos(Teacher dos)
         {
-            DOS = theDOS;
+            this.dos = dos;
         }
 
-        //getDOS function returns a Student's DOS
-        public Teacher getDOS()
+        public Teacher getDos()
         {
-            return DOS;
+            return dos;
         }
 
-        // setSubjects procedure allows a user to set a Student's Subjects
-        public void setSubjects(Subjects theSubjects)
+        public void setSubjects(Subjects subjects)
         {
-            studies = theSubjects;
+            studies = subjects;
         }
 
-        // getSubjects function returns a Student's Subkects
         public Subjects getSubjects()
         {
             return studies;
