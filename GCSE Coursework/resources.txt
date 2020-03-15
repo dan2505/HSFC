@@ -1,2 +1,0 @@
-title;,text;,keywords;,age;,calculate
-Harry Potter;,Harry Potter was a wizard, who lived in Hogwarts.;,Harry Potter, Magic, Wizards, Hogwarts;,12;,9

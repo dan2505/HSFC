@@ -1,6 +1,0 @@
-user,pass
-ethan,hands
-coel,alford
-dan,williams
-aaron,ayala
-connor,mcguin
