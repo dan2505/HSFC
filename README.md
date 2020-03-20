@@ -11,5 +11,5 @@ A Level Computer Science @ HSFC
 [Queue](https://github.com/dan2505/HSFC/tree/master/Queue) -  16/12/19\
 [Searching](https://github.com/dan2505/HSFC/tree/master/Searching) -  06/01/20\
 [Hangman](https://github.com/dan2505/HSFC/tree/master/Hangman) -  20/01/20\
-[BusTimetable](https://github.com/dan2505/HSFC/tree/master/BusTimetable) -  10/02/20
+[BusTimetable](https://github.com/dan2505/HSFC/tree/master/BusTimetable) -  10/02/20\
 [SchoolRecords](https://github.com/dan2505/HSFC/tree/master/SchoolRecords) -  20/02/20
