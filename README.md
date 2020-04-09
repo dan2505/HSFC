@@ -1,7 +1,7 @@
 # 💻 HSFC
 A Level Computer Science @ HSFC
 
-## Index
+## C# Projects
 [CoachProject](https://github.com/dan2505/HSFC/tree/master/CoachProject) - 05/11/19\
 [ListProject](https://github.com/dan2505/HSFC/tree/master/ListProject) -  18/11/19\
 [RemoteControl](https://github.com/dan2505/HSFC/tree/master/RemoteControl) -  20/11/19\
@@ -13,3 +13,6 @@ A Level Computer Science @ HSFC
 [Hangman](https://github.com/dan2505/HSFC/tree/master/Hangman) -  20/01/20\
 [BusTimetable](https://github.com/dan2505/HSFC/tree/master/BusTimetable) -  10/02/20\
 [SchoolRecords](https://github.com/dan2505/HSFC/tree/master/SchoolRecords) -  20/02/20
+
+## Java Projects
+[LoginGUI](https://github.com/dan2505/HSFC/tree/master/LoginGUI) -  09/04/20
