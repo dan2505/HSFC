@@ -15,5 +15,5 @@ A Level Computer Science @ HSFC
 [SchoolRecords](https://github.com/dan2505/HSFC/tree/master/SchoolRecords) -  20/02/20
 
 ## Java Projects
-[LoginGUI](https://github.com/dan2505/HSFC/tree/master/LoginGUI) -  09/04/20\
-[TicTacToe](https://github.com/dan2505/HSFC/tree/master/TicTacToe) -  09/04/20
+[LoginGUI](https://github.com/dan2505/HSFC/tree/master/LoginGUI) -  09/04/20 (SWING)\
+[TicTacToe](https://github.com/dan2505/HSFC/tree/master/TicTacToe) -  09/04/20 (CLI)
