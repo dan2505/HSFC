@@ -21,25 +21,20 @@ package uk.ac.hereford.djw9349.speech;
 import com.google.api.gax.rpc.ClientStream;
 import com.google.api.gax.rpc.ResponseObserver;
 import com.google.api.gax.rpc.StreamController;
-import com.google.cloud.speech.v1p1beta1.RecognitionConfig;
-import com.google.cloud.speech.v1p1beta1.SpeechClient;
-import com.google.cloud.speech.v1p1beta1.SpeechRecognitionAlternative;
-import com.google.cloud.speech.v1p1beta1.StreamingRecognitionConfig;
-import com.google.cloud.speech.v1p1beta1.StreamingRecognitionResult;
-import com.google.cloud.speech.v1p1beta1.StreamingRecognizeRequest;
-import com.google.cloud.speech.v1p1beta1.StreamingRecognizeResponse;
+import com.google.cloud.speech.v1p1beta1.*;
 import com.google.protobuf.ByteString;
 import com.google.protobuf.Duration;
-import java.text.DecimalFormat;
-import java.util.ArrayList;
-import java.util.concurrent.BlockingQueue;
-import java.util.concurrent.LinkedBlockingQueue;
-import java.util.concurrent.TimeUnit;
+
 import javax.sound.sampled.AudioFormat;
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.DataLine;
 import javax.sound.sampled.DataLine.Info;
 import javax.sound.sampled.TargetDataLine;
+import java.text.DecimalFormat;
+import java.util.ArrayList;
+import java.util.concurrent.BlockingQueue;
+import java.util.concurrent.LinkedBlockingQueue;
+import java.util.concurrent.TimeUnit;
 
 public class InfiniteStreamRecognize {
 
@@ -85,7 +80,9 @@ public class InfiniteStreamRecognize {
                                 - TimeUnit.MINUTES.toSeconds(TimeUnit.MILLISECONDS.toMinutes(millis))));
     }
 
-    /** Performs infinite streaming speech recognition */
+    /**
+     * Performs infinite streaming speech recognition
+     */
     public static void infiniteStreamingRecognize(String languageCode) throws Exception {
 
         // Microphone Input buffering
@@ -156,9 +153,11 @@ public class InfiniteStreamRecognize {
                             }
                         }
 
-                        public void onComplete() {}
+                        public void onComplete() {
+                        }
 
-                        public void onError(Throwable t) {}
+                        public void onError(Throwable t) {
+                        }
                     };
             clientStream = client.streamingRecognizeCallable().splitCall(responseObserver);
 

@@ -19,7 +19,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class UserManager {
-    private Gson gson = new Gson();
     private ArrayList<User> users = new ArrayList<User>();
 
     public UserManager() throws IOException {
@@ -30,9 +29,10 @@ public class UserManager {
         File file = new File("login.json");
         if (!file.exists()) file.createNewFile();
 
-        Type type = new TypeToken<ArrayList<User>>() {}.getType();
+        Type type = new TypeToken<ArrayList<User>>() {
+        }.getType();
         List<User> local = new Gson().fromJson(new FileReader("login.json"), type);
-        users.addAll(local);
+        if (local != null) users.addAll(local);
     }
 
     private void save() throws IOException {
@@ -50,6 +50,16 @@ public class UserManager {
     public void removeUser(User user) throws IOException {
         users.remove(user);
         save();
+    }
+
+    public boolean checkLogin(String username, String password) throws InvalidKeySpecException, NoSuchAlgorithmException {
+        for (User user : users) {
+            if (user.getUsername().equals(username)) {
+                return isValid(password, user.getPassword());
+            }
+            return false;
+        }
+        return false;
     }
 
     public String getHash(String password) throws NoSuchAlgorithmException, InvalidKeySpecException {
