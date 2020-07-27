@@ -3,15 +3,18 @@ package uk.ac.hereford.djw9349.objects;
 import lombok.Getter;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
-import uk.ac.hereford.djw9349.enums.Role;
 
 @RequiredArgsConstructor
 @Getter
-public class User {
+public class Address {
     @NonNull
-    private String username;
+    private String houseName;
     @NonNull
-    private String password;
+    private String lineOne;
     @NonNull
-    private Role role;
+    private String lineTwo;
+    @NonNull
+    private String lineThree;
+    @NonNull
+    private String postcode;
 }

@@ -4,7 +4,7 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
 import org.apache.commons.codec.binary.Base64;
-import uk.ac.hereford.djw9349.objects.Role;
+import uk.ac.hereford.djw9349.enums.Role;
 import uk.ac.hereford.djw9349.objects.User;
 
 import javax.crypto.SecretKey;
