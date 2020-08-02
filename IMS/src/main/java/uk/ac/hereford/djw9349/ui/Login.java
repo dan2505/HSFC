@@ -7,6 +7,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowEvent;
 
 public class Login implements ActionListener {
 
@@ -72,6 +73,7 @@ public class Login implements ActionListener {
 
         if (IMS.userManager.checkLogin(username, password)) {
             label.setText("Welcome back, " + username);
+            frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
             // Handle login.
         } else {
             label.setText("Invalid username / password.");
