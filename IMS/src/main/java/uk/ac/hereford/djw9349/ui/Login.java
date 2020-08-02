@@ -73,7 +73,9 @@ public class Login implements ActionListener {
 
         if (IMS.userManager.checkLogin(username, password)) {
             label.setText("Welcome back, " + username);
-            frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
+            frame.setVisible(false);
+          //  frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
+            Home.main(null);
             // Handle login.
         } else {
             label.setText("Invalid username / password.");

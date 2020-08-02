@@ -464,7 +464,7 @@ public class Home extends javax.swing.JFrame {
 
         mainPanel.add(statusBar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 490, 780, -1));
 
-        getContentPane().add(mainPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 0, 780, 530));
+        getContentPane().add(mainPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 0, 530, 530));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
