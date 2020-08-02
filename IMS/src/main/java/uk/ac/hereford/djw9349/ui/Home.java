@@ -29,6 +29,7 @@ public class Home extends javax.swing.JFrame {
 
         leftBar = new javax.swing.JPanel();
         logo = new javax.swing.JPanel();
+        titleLabel1 = new javax.swing.JLabel();
         homeButton = new javax.swing.JPanel();
         homeLabel = new javax.swing.JLabel();
         stockButton = new javax.swing.JPanel();
@@ -67,18 +68,29 @@ public class Home extends javax.swing.JFrame {
         leftBar.setBackground(new java.awt.Color(255, 255, 255));
         leftBar.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        logo.setBackground(new java.awt.Color(255, 255, 255));
+
+        titleLabel1.setBackground(new java.awt.Color(255, 255, 255));
+        titleLabel1.setFont(new java.awt.Font("Segoe UI", 1, 48)); // NOI18N
+        titleLabel1.setForeground(new java.awt.Color(96, 83, 150));
+        titleLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        titleLabel1.setText("IMS");
+
         javax.swing.GroupLayout logoLayout = new javax.swing.GroupLayout(logo);
         logo.setLayout(logoLayout);
         logoLayout.setHorizontalGroup(
             logoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
+            .addComponent(titleLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 110, Short.MAX_VALUE)
         );
         logoLayout.setVerticalGroup(
             logoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
+            .addGroup(logoLayout.createSequentialGroup()
+                .addGap(17, 17, 17)
+                .addComponent(titleLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
-        leftBar.add(logo, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 30, -1, -1));
+        leftBar.add(logo, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 30, 110, -1));
 
         homeButton.setBackground(new java.awt.Color(255, 255, 255));
         homeButton.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -579,6 +591,7 @@ public class Home extends javax.swing.JFrame {
     private javax.swing.JPanel stockUsedPanel;
     private javax.swing.JLabel stockUsedTitle;
     private javax.swing.JLabel titleLabel;
+    private javax.swing.JLabel titleLabel1;
     private javax.swing.JPanel userButton;
     private javax.swing.JLabel userLabel;
     private javax.swing.JLabel usernameLabel;
