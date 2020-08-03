@@ -62,9 +62,14 @@ public class AddUser implements ActionListener {
         panel.add(roleLabel);
         
         roleSelector = new JComboBox();
+        roleSelector.addItem("OWNER");
+        roleSelector.addItem("MANAGER");
+        roleSelector.addItem("STAFF");
+        roleSelector.setBounds(100, 80, 165, 25);
+        panel.add(roleSelector);
 
         button = new JButton("Add User");
-        button.setBounds(10, 80, 80, 25);
+        button.setBounds(10, 120, 120, 25);
         button.addActionListener(this);
         panel.add(button);
 
@@ -86,6 +91,7 @@ public class AddUser implements ActionListener {
     public void actionPerformed(ActionEvent event) {
         String username = userField.getText();
         String password = passwordField.getText();
+        String role = roleSelector.getSelectedItem().toString();
 
         if (IMS.userManager.checkLogin(username, password)) {
             label.setText("Welcome back, " + username);
