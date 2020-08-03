@@ -1,26 +1,34 @@
 package uk.ac.hereford.djw9349.ui;
 
-import lombok.SneakyThrows;
-import uk.ac.hereford.djw9349.IMS;
-
-import javax.swing.*;
-import java.awt.*;
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.WindowEvent;
+import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JPasswordField;
+import javax.swing.JTextField;
+import lombok.SneakyThrows;
+import uk.ac.hereford.djw9349.IMS;
+import uk.ac.hereford.djw9349.ui.Home;
 
-public class Login implements ActionListener {
-
-    private JFrame frame = new JFrame("IMS Login");
+public class AddUser implements ActionListener {
+   private JFrame frame = new JFrame("Add User");
     private JPanel panel = new JPanel();
     private JLabel userLabel;
     private JTextField userField;
     private JLabel passwordLabel;
     private JPasswordField passwordField;
+    private JLabel roleLabel;
+    private JComboBox roleSelector;
     private JButton button;
     private JLabel label;
 
-    public Login() {
+    public AddUser() {
         Dimension size = new Dimension(300, 150);
         panel.setSize(size);
         panel.setPreferredSize(size);
@@ -46,8 +54,16 @@ public class Login implements ActionListener {
         passwordField = new JPasswordField(20);
         passwordField.setBounds(100, 50, 165, 25);
         panel.add(passwordField);
+        
+        roleLabel = new JLabel("Role");
+        roleLabel.setFont(new Font("Segoe UI", Font.PLAIN, 15));
+        roleLabel.setForeground(new Color(0, 0, 0));
+        roleLabel.setBounds(10, 80, 80, 25);
+        panel.add(roleLabel);
+        
+        roleSelector = new JComboBox();
 
-        button = new JButton("Login");
+        button = new JButton("Add User");
         button.setBounds(10, 80, 80, 25);
         button.addActionListener(this);
         panel.add(button);
@@ -80,4 +96,7 @@ public class Login implements ActionListener {
             label.setText("Invalid username / password.");
         }
     }
+    
+    
+    
 }

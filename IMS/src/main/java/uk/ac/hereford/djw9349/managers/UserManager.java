@@ -19,7 +19,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class UserManager {
-    private ArrayList<User> users = new ArrayList<User>();
+    public ArrayList<User> users = new ArrayList<User>();
+    public User loggedIn = null;
 
     public UserManager() throws IOException {
         initialise();
@@ -55,19 +56,22 @@ public class UserManager {
     public boolean checkLogin(String username, String password) throws InvalidKeySpecException, NoSuchAlgorithmException {
         for (User user : users) {
             if (user.getUsername().equals(username)) {
-                return isValid(password, user.getPassword());
+                if (isValid(password, user.getPassword())) {
+                    loggedIn = user;
+                    return true;
+                }
             }
             return false;
         }
         return false;
     }
 
-    public String getHash(String password) throws NoSuchAlgorithmException, InvalidKeySpecException {
+    private String getHash(String password) throws NoSuchAlgorithmException, InvalidKeySpecException {
         byte[] salt = SecureRandom.getInstance("SHA1PRNG").generateSeed(32);
         return Base64.encodeBase64String(salt) + "$" + hashing(password, salt);
     }
 
-    public boolean isValid(String password, String store) throws InvalidKeySpecException, NoSuchAlgorithmException {
+    private boolean isValid(String password, String store) throws InvalidKeySpecException, NoSuchAlgorithmException {
         String[] components = store.split("\\$");
         return hashing(password, Base64.decodeBase64(components[0])).equals(components[1]);
     }

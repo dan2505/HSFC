@@ -5,21 +5,38 @@
  */
 package uk.ac.hereford.djw9349.ui;
 
+import java.awt.event.ActionEvent;
 import java.awt.event.WindowEvent;
+import java.util.ArrayList;
+import javax.swing.DefaultCellEditor;
+import javax.swing.JComboBox;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableCellRenderer;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableColumn;
 import uk.ac.hereford.djw9349.IMS;
+import uk.ac.hereford.djw9349.enums.Role;
+import uk.ac.hereford.djw9349.objects.User;
 
 /**
  *
  * @author danwilliams
  */
-public class Home extends javax.swing.JFrame {
+public class UserManagement extends javax.swing.JFrame {
 
     /**
      * Creates new form Home
      */
-    public Home() {
+    public UserManagement() {
         initComponents();
         usernameLabel.setText(IMS.userManager.loggedIn.getUsername());
+        
+        DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+        for (User user : IMS.userManager.users) {
+            model.addRow(new Object[]{user.getUsername(), user.getRole().toString()});
+        }
+        
+        setUpColumn(jTable1, jTable1.getColumnModel().getColumn(1));
     }
 
     /**
@@ -45,23 +62,14 @@ public class Home extends javax.swing.JFrame {
         logoutButton = new javax.swing.JPanel();
         logoutLabel = new javax.swing.JLabel();
         mainPanel = new javax.swing.JPanel();
-        titleLabel = new javax.swing.JLabel();
-        stockUsedTitle = new javax.swing.JLabel();
-        stockUsedPanel = new javax.swing.JPanel();
-        stockUsedLabel = new javax.swing.JLabel();
-        stockUsedBar = new javax.swing.JPanel();
-        differenceTitle = new javax.swing.JLabel();
-        differencePanel = new javax.swing.JPanel();
-        differenceLabel = new javax.swing.JLabel();
-        differenceBar = new javax.swing.JPanel();
-        restockTitle = new javax.swing.JLabel();
-        restockPanel = new javax.swing.JPanel();
-        restockLabel = new javax.swing.JLabel();
-        restockBar = new javax.swing.JPanel();
+        plusLabel = new javax.swing.JLabel();
         graphPanel = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
         statusBar = new javax.swing.JPanel();
         loggedInLabel = new javax.swing.JLabel();
         usernameLabel = new javax.swing.JLabel();
+        titleLabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(204, 204, 204));
@@ -104,7 +112,7 @@ public class Home extends javax.swing.JFrame {
         });
 
         homeLabel.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        homeLabel.setForeground(new java.awt.Color(158, 144, 219));
+        homeLabel.setForeground(new java.awt.Color(54, 39, 120));
         homeLabel.setText("Home");
         homeLabel.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
@@ -204,10 +212,16 @@ public class Home extends javax.swing.JFrame {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 userButtonMouseClicked(evt);
             }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                userButtonMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                userButtonMouseExited(evt);
+            }
         });
 
         userLabel.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        userLabel.setForeground(new java.awt.Color(54, 39, 120));
+        userLabel.setForeground(new java.awt.Color(158, 144, 219));
         userLabel.setText("User Management");
 
         javax.swing.GroupLayout userButtonLayout = new javax.swing.GroupLayout(userButton);
@@ -275,161 +289,58 @@ public class Home extends javax.swing.JFrame {
         });
         mainPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        titleLabel.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        titleLabel.setForeground(new java.awt.Color(96, 83, 150));
-        titleLabel.setText("Inventory Management System");
-        mainPanel.add(titleLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 50, 290, 37));
+        plusLabel.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        plusLabel.setForeground(new java.awt.Color(96, 83, 150));
+        plusLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        plusLabel.setText("+");
+        plusLabel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                plusLabelMouseClicked(evt);
+            }
+        });
+        mainPanel.add(plusLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 60, 50, 40));
 
-        stockUsedTitle.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        stockUsedTitle.setForeground(new java.awt.Color(96, 83, 150));
-        stockUsedTitle.setText("Stock used");
-        mainPanel.add(stockUsedTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 110, 124, 41));
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
 
-        stockUsedPanel.setBackground(new java.awt.Color(255, 255, 255));
+            },
+            new String [] {
+                "Username", "Role"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, true
+            };
 
-        stockUsedLabel.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        stockUsedLabel.setForeground(new java.awt.Color(96, 83, 150));
-        stockUsedLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        stockUsedLabel.setText("500");
-
-        stockUsedBar.setBackground(new java.awt.Color(158, 144, 219));
-
-        javax.swing.GroupLayout stockUsedBarLayout = new javax.swing.GroupLayout(stockUsedBar);
-        stockUsedBar.setLayout(stockUsedBarLayout);
-        stockUsedBarLayout.setHorizontalGroup(
-            stockUsedBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 140, Short.MAX_VALUE)
-        );
-        stockUsedBarLayout.setVerticalGroup(
-            stockUsedBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 10, Short.MAX_VALUE)
-        );
-
-        javax.swing.GroupLayout stockUsedPanelLayout = new javax.swing.GroupLayout(stockUsedPanel);
-        stockUsedPanel.setLayout(stockUsedPanelLayout);
-        stockUsedPanelLayout.setHorizontalGroup(
-            stockUsedPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(stockUsedBar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(stockUsedPanelLayout.createSequentialGroup()
-                .addGap(32, 32, 32)
-                .addComponent(stockUsedLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        stockUsedPanelLayout.setVerticalGroup(
-            stockUsedPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(stockUsedPanelLayout.createSequentialGroup()
-                .addComponent(stockUsedBar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(stockUsedLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(21, 21, 21))
-        );
-
-        mainPanel.add(stockUsedPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 150, -1, 70));
-
-        differenceTitle.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        differenceTitle.setForeground(new java.awt.Color(96, 83, 150));
-        differenceTitle.setText("Difference");
-        mainPanel.add(differenceTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 110, 124, 41));
-
-        differencePanel.setBackground(new java.awt.Color(255, 255, 255));
-
-        differenceLabel.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        differenceLabel.setForeground(new java.awt.Color(96, 83, 150));
-        differenceLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        differenceLabel.setText("+23.7%");
-
-        differenceBar.setBackground(new java.awt.Color(158, 144, 219));
-
-        javax.swing.GroupLayout differenceBarLayout = new javax.swing.GroupLayout(differenceBar);
-        differenceBar.setLayout(differenceBarLayout);
-        differenceBarLayout.setHorizontalGroup(
-            differenceBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 140, Short.MAX_VALUE)
-        );
-        differenceBarLayout.setVerticalGroup(
-            differenceBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 10, Short.MAX_VALUE)
-        );
-
-        javax.swing.GroupLayout differencePanelLayout = new javax.swing.GroupLayout(differencePanel);
-        differencePanel.setLayout(differencePanelLayout);
-        differencePanelLayout.setHorizontalGroup(
-            differencePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(differenceBar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(differencePanelLayout.createSequentialGroup()
-                .addGap(22, 22, 22)
-                .addComponent(differenceLabel)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        differencePanelLayout.setVerticalGroup(
-            differencePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(differencePanelLayout.createSequentialGroup()
-                .addComponent(differenceBar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(differenceLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(21, 21, 21))
-        );
-
-        mainPanel.add(differencePanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 150, -1, 70));
-
-        restockTitle.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        restockTitle.setForeground(new java.awt.Color(96, 83, 150));
-        restockTitle.setText("Time to restock");
-        mainPanel.add(restockTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 110, 124, 41));
-
-        restockPanel.setBackground(new java.awt.Color(255, 255, 255));
-
-        restockLabel.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        restockLabel.setForeground(new java.awt.Color(96, 83, 150));
-        restockLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        restockLabel.setText("4 days");
-
-        restockBar.setBackground(new java.awt.Color(158, 144, 219));
-
-        javax.swing.GroupLayout restockBarLayout = new javax.swing.GroupLayout(restockBar);
-        restockBar.setLayout(restockBarLayout);
-        restockBarLayout.setHorizontalGroup(
-            restockBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 140, Short.MAX_VALUE)
-        );
-        restockBarLayout.setVerticalGroup(
-            restockBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 10, Short.MAX_VALUE)
-        );
-
-        javax.swing.GroupLayout restockPanelLayout = new javax.swing.GroupLayout(restockPanel);
-        restockPanel.setLayout(restockPanelLayout);
-        restockPanelLayout.setHorizontalGroup(
-            restockPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(restockBar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, restockPanelLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(restockLabel)
-                .addGap(25, 25, 25))
-        );
-        restockPanelLayout.setVerticalGroup(
-            restockPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(restockPanelLayout.createSequentialGroup()
-                .addComponent(restockBar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(restockLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(21, 21, 21))
-        );
-
-        mainPanel.add(restockPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 150, -1, 70));
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jTable1.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+                jTable1PropertyChange(evt);
+            }
+        });
+        jScrollPane1.setViewportView(jTable1);
+        if (jTable1.getColumnModel().getColumnCount() > 0) {
+            jTable1.getColumnModel().getColumn(0).setResizable(false);
+            jTable1.getColumnModel().getColumn(1).setResizable(false);
+        }
 
         javax.swing.GroupLayout graphPanelLayout = new javax.swing.GroupLayout(graphPanel);
         graphPanel.setLayout(graphPanelLayout);
         graphPanelLayout.setHorizontalGroup(
             graphPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 480, Short.MAX_VALUE)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 480, Short.MAX_VALUE)
         );
         graphPanelLayout.setVerticalGroup(
             graphPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 210, Short.MAX_VALUE)
+            .addGroup(graphPanelLayout.createSequentialGroup()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 369, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 1, Short.MAX_VALUE))
         );
 
-        mainPanel.add(graphPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 260, 480, 210));
+        mainPanel.add(graphPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 100, 480, 370));
 
         statusBar.setBackground(new java.awt.Color(237, 237, 237));
 
@@ -463,6 +374,11 @@ public class Home extends javax.swing.JFrame {
 
         mainPanel.add(statusBar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 490, 780, -1));
 
+        titleLabel.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        titleLabel.setForeground(new java.awt.Color(96, 83, 150));
+        titleLabel.setText("Inventory Management System");
+        mainPanel.add(titleLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 50, 290, 37));
+
         getContentPane().add(mainPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 0, 530, 530));
 
         pack();
@@ -478,8 +394,6 @@ public class Home extends javax.swing.JFrame {
 
     private void userButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_userButtonMouseClicked
         // TODO add your handling code here:
-        setVisible(false);
-        UserManagement.main(null);
     }//GEN-LAST:event_userButtonMouseClicked
 
     private void stockButtonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_stockButtonMouseEntered
@@ -492,6 +406,11 @@ public class Home extends javax.swing.JFrame {
         
     }//GEN-LAST:event_deliveryButtonMouseEntered
 
+    private void userButtonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_userButtonMouseEntered
+        // TODO add your handling code here:]
+        
+    }//GEN-LAST:event_userButtonMouseEntered
+
     private void stockButtonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_stockButtonMouseExited
         // TODO add your handling code here:
     }//GEN-LAST:event_stockButtonMouseExited
@@ -499,6 +418,10 @@ public class Home extends javax.swing.JFrame {
     private void deliveryButtonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_deliveryButtonMouseExited
         // TODO add your handling code here:
     }//GEN-LAST:event_deliveryButtonMouseExited
+
+    private void userButtonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_userButtonMouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_userButtonMouseExited
 
     private void mainPanelMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mainPanelMousePressed
         // TODO add your handling code here:
@@ -520,6 +443,37 @@ public class Home extends javax.swing.JFrame {
         IMS.userManager.loggedIn = null;
     }//GEN-LAST:event_logoutButtonMouseClicked
 
+    private void jTable1PropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_jTable1PropertyChange
+        // TODO add your handling code here:
+        
+        ArrayList<User> users = new ArrayList<>();    
+        for (int i = 0; i < jTable1.getRowCount(); i++) {
+            if (jTable1.getValueAt(i, 0) == "") return;
+            User user = new User(jTable1.getValueAt(i, 0).toString(), IMS.userManager.users.get(i).getPassword(), Role.valueOf(jTable1.getValueAt(i, 2).toString()));
+        }
+       // IMS.userManager.users = users;
+    }//GEN-LAST:event_jTable1PropertyChange
+
+    private void plusLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_plusLabelMouseClicked
+        new AddUser();
+    }//GEN-LAST:event_plusLabelMouseClicked
+
+    public void setUpColumn(JTable table,
+                                 TableColumn column) {
+        //Set up the editor for the sport cells.
+        JComboBox comboBox = new JComboBox();
+        comboBox.addItem("OWNER");
+        comboBox.addItem("MANAGER");
+        comboBox.addItem("STAFF");
+        column.setCellEditor(new DefaultCellEditor(comboBox));
+
+        //Set up tool tips for the sport cells.
+        DefaultTableCellRenderer renderer =
+                new DefaultTableCellRenderer();
+        renderer.setToolTipText("Click for combo box");
+        column.setCellRenderer(renderer);
+    }
+ 
     /**
      * @param args the command line arguments
      */
@@ -537,49 +491,43 @@ public class Home extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Home.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(UserManagement.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Home.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(UserManagement.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Home.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(UserManagement.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Home.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(UserManagement.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(() -> {
-            new Home().setVisible(true);
+            new UserManagement().setVisible(true);
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel deliveryButton;
     private javax.swing.JLabel deliveryLabel;
-    private javax.swing.JPanel differenceBar;
-    private javax.swing.JLabel differenceLabel;
-    private javax.swing.JPanel differencePanel;
-    private javax.swing.JLabel differenceTitle;
     private javax.swing.JPanel graphPanel;
     private javax.swing.JPanel homeButton;
     private javax.swing.JLabel homeLabel;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable jTable1;
     private javax.swing.JPanel leftBar;
     private javax.swing.JLabel loggedInLabel;
     private javax.swing.JPanel logo;
     private javax.swing.JPanel logoutButton;
     private javax.swing.JLabel logoutLabel;
     private javax.swing.JPanel mainPanel;
-    private javax.swing.JPanel restockBar;
-    private javax.swing.JLabel restockLabel;
-    private javax.swing.JPanel restockPanel;
-    private javax.swing.JLabel restockTitle;
+    private javax.swing.JLabel plusLabel;
     private javax.swing.JPanel statusBar;
     private javax.swing.JPanel stockButton;
     private javax.swing.JLabel stockLabel;
-    private javax.swing.JPanel stockUsedBar;
-    private javax.swing.JLabel stockUsedLabel;
-    private javax.swing.JPanel stockUsedPanel;
-    private javax.swing.JLabel stockUsedTitle;
     private javax.swing.JLabel titleLabel;
     private javax.swing.JLabel titleLabel1;
     private javax.swing.JPanel userButton;
