@@ -54,31 +54,45 @@ public class UserManager {
     }
 
     public boolean checkLogin(String username, String password) throws InvalidKeySpecException, NoSuchAlgorithmException {
+        // Iterate over the users loaded.
         for (User user : users) {
+            // Check if the inputted username equals that of the one currently being iterated.
             if (user.getUsername().equals(username)) {
+                // Check that the inputted password equals the one currently being iterated.
                 if (isValid(password, user.getPassword())) {
+                    // Set the user that is logged in to the one currently in the iteration.
                     loggedIn = user;
+                    // Return true as login was successful.
                     return true;
                 }
             }
+            // Return false as login was unsuccessful.
             return false;
         }
+        // Return false as login was unsuccessful.
         return false;
     }
 
     private String getHash(String password) throws NoSuchAlgorithmException, InvalidKeySpecException {
+        // Generate a SHA1PRNG salt with 32 bytes.
         byte[] salt = SecureRandom.getInstance("SHA1PRNG").generateSeed(32);
+        // Return the salt and hashed password seperated by a $ sign.
         return Base64.encodeBase64String(salt) + "$" + hashing(password, salt);
     }
 
     private boolean isValid(String password, String store) throws InvalidKeySpecException, NoSuchAlgorithmException {
+        // Split the stored password by the $ sign to get the salt and hashed password separate.
         String[] components = store.split("\\$");
+        // Hash the password again with the salt and check that it equals the stored hash.
         return hashing(password, Base64.decodeBase64(components[0])).equals(components[1]);
     }
 
     private String hashing(String password, byte[] salt) throws NoSuchAlgorithmException, InvalidKeySpecException {
+        // Generate the SecretKeyFactory for PBKDF2WithHmacSHA512.
         SecretKeyFactory factory = SecretKeyFactory.getInstance("PBKDF2WithHmacSHA512");
+        // Generate the secret key / hash for the password & salt.
         SecretKey key = factory.generateSecret(new PBEKeySpec(password.toCharArray(), salt, (20 * 1000), 256));
+        // Return the hash as a string for storage.
         return Base64.encodeBase64String(key.getEncoded());
     }
 }
