@@ -66,8 +66,8 @@ public class UserManager {
                     return true;
                 }
             }
-            // Return false as login was unsuccessful.
-            return false;
+            // Continue on to next username.
+            continue;
         }
         // Return false as login was unsuccessful.
         return false;
@@ -76,7 +76,7 @@ public class UserManager {
     private String getHash(String password) throws NoSuchAlgorithmException, InvalidKeySpecException {
         // Generate a SHA1PRNG salt with 32 bytes.
         byte[] salt = SecureRandom.getInstance("SHA1PRNG").generateSeed(32);
-        // Return the salt and hashed password seperated by a $ sign.
+        // Return the salt and hashed password separated by a $ sign.
         return Base64.encodeBase64String(salt) + "$" + hashing(password, salt);
     }
 

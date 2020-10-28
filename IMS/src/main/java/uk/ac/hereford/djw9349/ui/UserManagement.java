@@ -30,13 +30,11 @@ public class UserManagement extends javax.swing.JFrame {
     public UserManagement() {
         initComponents();
         usernameLabel.setText(IMS.userManager.loggedIn.getUsername());
-        
         DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+        model.setRowCount(0);
         for (User user : IMS.userManager.users) {
             model.addRow(new Object[]{user.getUsername(), user.getRole().toString()});
         }
-        
-        setUpColumn(jTable1, jTable1.getColumnModel().getColumn(1));
     }
 
     /**
@@ -75,6 +73,7 @@ public class UserManagement extends javax.swing.JFrame {
         setBackground(new java.awt.Color(204, 204, 204));
         setLocationByPlatform(true);
         setUndecorated(true);
+        setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         leftBar.setBackground(new java.awt.Color(255, 255, 255));
@@ -445,13 +444,6 @@ public class UserManagement extends javax.swing.JFrame {
 
     private void jTable1PropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_jTable1PropertyChange
         // TODO add your handling code here:
-        
-        ArrayList<User> users = new ArrayList<>();    
-        for (int i = 0; i < jTable1.getRowCount(); i++) {
-            if (jTable1.getValueAt(i, 0) == "") return;
-            User user = new User(jTable1.getValueAt(i, 0).toString(), IMS.userManager.users.get(i).getPassword(), Role.valueOf(jTable1.getValueAt(i, 2).toString()));
-        }
-       // IMS.userManager.users = users;
     }//GEN-LAST:event_jTable1PropertyChange
 
     private void plusLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_plusLabelMouseClicked

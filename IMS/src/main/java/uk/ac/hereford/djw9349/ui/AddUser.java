@@ -14,6 +14,8 @@ import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import lombok.SneakyThrows;
 import uk.ac.hereford.djw9349.IMS;
+import uk.ac.hereford.djw9349.enums.Role;
+import uk.ac.hereford.djw9349.managers.UserManager;
 import uk.ac.hereford.djw9349.ui.Home;
 
 public class AddUser implements ActionListener {
@@ -29,7 +31,7 @@ public class AddUser implements ActionListener {
     private JLabel label;
 
     public AddUser() {
-        Dimension size = new Dimension(300, 150);
+        Dimension size = new Dimension(300, 175);
         panel.setSize(size);
         panel.setPreferredSize(size);
         panel.setBackground(new Color(247, 247, 247));
@@ -69,14 +71,14 @@ public class AddUser implements ActionListener {
         panel.add(roleSelector);
 
         button = new JButton("Add User");
-        button.setBounds(10, 120, 120, 25);
+        button.setBounds(10, 120, 150, 25);
         button.addActionListener(this);
         panel.add(button);
 
         label = new JLabel("");
         label.setFont(new Font("Segoe UI", Font.PLAIN, 10));
         label.setForeground(new Color(0, 0, 0));
-        label.setBounds(10, 110, 300, 25);
+        label.setBounds(10, 170, 300, 25);
         panel.add(label);
 
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -92,17 +94,19 @@ public class AddUser implements ActionListener {
         String username = userField.getText();
         String password = passwordField.getText();
         String role = roleSelector.getSelectedItem().toString();
-
-        if (IMS.userManager.checkLogin(username, password)) {
-            label.setText("Welcome back, " + username);
-            frame.setVisible(false);
-            Home.main(null);
-            // Handle login.
-        } else {
-            label.setText("Invalid username / password.");
+        System.out.println(username);
+        if ((username.equals("")) || (password.equals(""))) {
+            label.setText("Please provide a username and password.");
+            return;
         }
+
+        if (IMS.userManager.users.contains(username)) {
+            label.setText("This user already exists!");
+            return;
+        }
+
+       // IMS.userManager.addUser(username, password, Role.valueOf(role));
+       // frame.setVisible(false);
+       // new UserManagement();
     }
-    
-    
-    
 }
