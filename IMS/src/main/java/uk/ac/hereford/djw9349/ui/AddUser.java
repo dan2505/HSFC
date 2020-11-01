@@ -1,22 +1,13 @@
 package uk.ac.hereford.djw9349.ui;
 
-import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.Font;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import javax.swing.JButton;
-import javax.swing.JComboBox;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.JPasswordField;
-import javax.swing.JTextField;
 import lombok.SneakyThrows;
 import uk.ac.hereford.djw9349.IMS;
 import uk.ac.hereford.djw9349.enums.Role;
-import uk.ac.hereford.djw9349.managers.UserManager;
-import uk.ac.hereford.djw9349.ui.Home;
+
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class AddUser implements ActionListener {
    private JFrame frame = new JFrame("Add User");
@@ -78,7 +69,7 @@ public class AddUser implements ActionListener {
         label = new JLabel("");
         label.setFont(new Font("Segoe UI", Font.PLAIN, 10));
         label.setForeground(new Color(0, 0, 0));
-        label.setBounds(10, 170, 300, 25);
+        label.setBounds(10, 150, 300, 25);
         panel.add(label);
 
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -94,19 +85,18 @@ public class AddUser implements ActionListener {
         String username = userField.getText();
         String password = passwordField.getText();
         String role = roleSelector.getSelectedItem().toString();
-        System.out.println(username);
-        if ((username.equals("")) || (password.equals(""))) {
+        if ((username.isEmpty()) || (password.isEmpty())) {
             label.setText("Please provide a username and password.");
             return;
         }
 
-        if (IMS.userManager.users.contains(username)) {
+        if (IMS.userManager.alreadyExists(username)) {
             label.setText("This user already exists!");
             return;
         }
 
-       // IMS.userManager.addUser(username, password, Role.valueOf(role));
-       // frame.setVisible(false);
-       // new UserManagement();
+        IMS.userManager.addUser(username, password, Role.valueOf(role));
+        frame.setVisible(false);
+        UserManagement.main(null);
     }
 }

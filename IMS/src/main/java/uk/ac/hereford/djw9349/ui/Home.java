@@ -5,8 +5,8 @@
  */
 package uk.ac.hereford.djw9349.ui;
 
-import java.awt.event.WindowEvent;
 import uk.ac.hereford.djw9349.IMS;
+import uk.ac.hereford.djw9349.enums.Role;
 
 /**
  *
@@ -20,6 +20,10 @@ public class Home extends javax.swing.JFrame {
     public Home() {
         initComponents();
         usernameLabel.setText(IMS.userManager.loggedIn.getUsername());
+        if (IMS.userManager.loggedIn.getRole() == Role.STAFF) {
+            userLabel.setVisible(false);
+            userButton.setVisible(false);
+        }
     }
 
     /**

@@ -53,6 +53,11 @@ public class UserManager {
         save();
     }
 
+    public boolean alreadyExists(String username) {
+        for (User user : users) if (user.getUsername().equals(username)) return true;
+        return false;
+    }
+
     public boolean checkLogin(String username, String password) throws InvalidKeySpecException, NoSuchAlgorithmException {
         // Iterate over the users loaded.
         for (User user : users) {

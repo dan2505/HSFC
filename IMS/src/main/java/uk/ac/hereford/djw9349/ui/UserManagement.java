@@ -5,18 +5,13 @@
  */
 package uk.ac.hereford.djw9349.ui;
 
-import java.awt.event.ActionEvent;
-import java.awt.event.WindowEvent;
-import java.util.ArrayList;
-import javax.swing.DefaultCellEditor;
-import javax.swing.JComboBox;
-import javax.swing.JTable;
+import uk.ac.hereford.djw9349.IMS;
+import uk.ac.hereford.djw9349.objects.User;
+
+import javax.swing.*;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumn;
-import uk.ac.hereford.djw9349.IMS;
-import uk.ac.hereford.djw9349.enums.Role;
-import uk.ac.hereford.djw9349.objects.User;
 
 /**
  *
@@ -32,9 +27,9 @@ public class UserManagement extends javax.swing.JFrame {
         usernameLabel.setText(IMS.userManager.loggedIn.getUsername());
         DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
         model.setRowCount(0);
-        for (User user : IMS.userManager.users) {
-            model.addRow(new Object[]{user.getUsername(), user.getRole().toString()});
-        }
+            for (User user : IMS.userManager.users) {
+                model.addRow(new Object[]{user.getUsername(), user.getRole().toString()});
+            }
     }
 
     /**
@@ -447,6 +442,7 @@ public class UserManagement extends javax.swing.JFrame {
     }//GEN-LAST:event_jTable1PropertyChange
 
     private void plusLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_plusLabelMouseClicked
+        setVisible(false);
         new AddUser();
     }//GEN-LAST:event_plusLabelMouseClicked
 
