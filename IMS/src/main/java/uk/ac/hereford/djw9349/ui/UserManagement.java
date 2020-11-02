@@ -427,7 +427,8 @@ public class UserManagement extends javax.swing.JFrame {
 
     private void homeButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_homeButtonMouseClicked
         // TODO add your handling code here:
-
+        setVisible(false);
+        new Home().main(null);
     }//GEN-LAST:event_homeButtonMouseClicked
 
     private void logoutButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logoutButtonMouseClicked
