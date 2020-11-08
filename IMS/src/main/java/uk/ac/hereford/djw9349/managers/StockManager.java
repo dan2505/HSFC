@@ -33,4 +33,15 @@ public class StockManager {
             builder.toJson(ingredients, writer);
         }
     }
+
+    public void addStock(Ingredient ingredient) throws IOException {
+        ingredients.add(ingredient);
+        save();
+    }
+
+    public void removeStock(Ingredient ingredient) throws IOException {
+        ingredients.remove(ingredient);
+        save();
+    }
+
 }

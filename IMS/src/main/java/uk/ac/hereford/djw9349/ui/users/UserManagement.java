@@ -3,22 +3,44 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package uk.ac.hereford.djw9349.ui;
+package uk.ac.hereford.djw9349.ui.users;
 
 import uk.ac.hereford.djw9349.IMS;
 import uk.ac.hereford.djw9349.objects.User;
+import uk.ac.hereford.djw9349.ui.Login;
+import uk.ac.hereford.djw9349.ui.home.Home;
 
-import javax.swing.*;
-import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumn;
 
 /**
- *
  * @author danwilliams
  */
 public class UserManagement extends javax.swing.JFrame {
 
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel deliveryButton;
+    private javax.swing.JLabel deliveryLabel;
+    private javax.swing.JPanel graphPanel;
+    private javax.swing.JPanel homeButton;
+    private javax.swing.JLabel homeLabel;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable jTable1;
+    private javax.swing.JPanel leftBar;
+    private javax.swing.JLabel loggedInLabel;
+    private javax.swing.JPanel logo;
+    private javax.swing.JPanel logoutButton;
+    private javax.swing.JLabel logoutLabel;
+    private javax.swing.JPanel mainPanel;
+    private javax.swing.JLabel minusLabel;
+    private javax.swing.JLabel plusLabel;
+    private javax.swing.JPanel statusBar;
+    private javax.swing.JPanel stockButton;
+    private javax.swing.JLabel stockLabel;
+    private javax.swing.JLabel titleLabel;
+    private javax.swing.JLabel titleLabel1;
+    private javax.swing.JPanel userButton;
+    private javax.swing.JLabel userLabel;
+    private javax.swing.JLabel usernameLabel;
     /**
      * Creates new form Home
      */
@@ -27,9 +49,45 @@ public class UserManagement extends javax.swing.JFrame {
         usernameLabel.setText(IMS.userManager.loggedIn.getUsername());
         DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
         model.setRowCount(0);
-            for (User user : IMS.userManager.users) {
-                model.addRow(new Object[]{user.getUsername(), user.getRole().toString()});
+        for (User user : IMS.userManager.users) {
+            model.addRow(new Object[]{user.getUsername(), user.getRole().toString()});
+        }
+    }
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        /* Set the Nimbus look and feel */
+        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
+         */
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Windows".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
             }
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(UserManagement.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(UserManagement.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(UserManagement.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(UserManagement.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+
+        /* Create and display the form */
+        java.awt.EventQueue.invokeLater(() -> {
+            new UserManagement().setVisible(true);
+        });
     }
 
     /**
@@ -55,7 +113,7 @@ public class UserManagement extends javax.swing.JFrame {
         logoutButton = new javax.swing.JPanel();
         logoutLabel = new javax.swing.JLabel();
         mainPanel = new javax.swing.JPanel();
-        plusLabel = new javax.swing.JLabel();
+        minusLabel = new javax.swing.JLabel();
         graphPanel = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
@@ -63,12 +121,12 @@ public class UserManagement extends javax.swing.JFrame {
         loggedInLabel = new javax.swing.JLabel();
         usernameLabel = new javax.swing.JLabel();
         titleLabel = new javax.swing.JLabel();
+        plusLabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(204, 204, 204));
         setLocationByPlatform(true);
         setUndecorated(true);
-        setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         leftBar.setBackground(new java.awt.Color(255, 255, 255));
@@ -85,15 +143,15 @@ public class UserManagement extends javax.swing.JFrame {
         javax.swing.GroupLayout logoLayout = new javax.swing.GroupLayout(logo);
         logo.setLayout(logoLayout);
         logoLayout.setHorizontalGroup(
-            logoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(titleLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 110, Short.MAX_VALUE)
+                logoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(titleLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 110, Short.MAX_VALUE)
         );
         logoLayout.setVerticalGroup(
-            logoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(logoLayout.createSequentialGroup()
-                .addGap(17, 17, 17)
-                .addComponent(titleLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
-                .addContainerGap())
+                logoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(logoLayout.createSequentialGroup()
+                                .addGap(17, 17, 17)
+                                .addComponent(titleLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
+                                .addContainerGap())
         );
 
         leftBar.add(logo, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 30, 110, -1));
@@ -113,18 +171,18 @@ public class UserManagement extends javax.swing.JFrame {
         javax.swing.GroupLayout homeButtonLayout = new javax.swing.GroupLayout(homeButton);
         homeButton.setLayout(homeButtonLayout);
         homeButtonLayout.setHorizontalGroup(
-            homeButtonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(homeButtonLayout.createSequentialGroup()
-                .addGap(59, 59, 59)
-                .addComponent(homeLabel)
-                .addGap(0, 137, Short.MAX_VALUE))
+                homeButtonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(homeButtonLayout.createSequentialGroup()
+                                .addGap(59, 59, 59)
+                                .addComponent(homeLabel)
+                                .addGap(0, 137, Short.MAX_VALUE))
         );
         homeButtonLayout.setVerticalGroup(
-            homeButtonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, homeButtonLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(homeLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 24, Short.MAX_VALUE)
-                .addContainerGap())
+                homeButtonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, homeButtonLayout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(homeLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 24, Short.MAX_VALUE)
+                                .addContainerGap())
         );
 
         leftBar.add(homeButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 175, 232, -1));
@@ -134,9 +192,11 @@ public class UserManagement extends javax.swing.JFrame {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 stockButtonMouseClicked(evt);
             }
+
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 stockButtonMouseEntered(evt);
             }
+
             public void mouseExited(java.awt.event.MouseEvent evt) {
                 stockButtonMouseExited(evt);
             }
@@ -149,18 +209,18 @@ public class UserManagement extends javax.swing.JFrame {
         javax.swing.GroupLayout stockButtonLayout = new javax.swing.GroupLayout(stockButton);
         stockButton.setLayout(stockButtonLayout);
         stockButtonLayout.setHorizontalGroup(
-            stockButtonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(stockButtonLayout.createSequentialGroup()
-                .addGap(59, 59, 59)
-                .addComponent(stockLabel)
-                .addGap(0, 55, Short.MAX_VALUE))
+                stockButtonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(stockButtonLayout.createSequentialGroup()
+                                .addGap(59, 59, 59)
+                                .addComponent(stockLabel)
+                                .addGap(0, 55, Short.MAX_VALUE))
         );
         stockButtonLayout.setVerticalGroup(
-            stockButtonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, stockButtonLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(stockLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 24, Short.MAX_VALUE)
-                .addContainerGap())
+                stockButtonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, stockButtonLayout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(stockLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 24, Short.MAX_VALUE)
+                                .addContainerGap())
         );
 
         leftBar.add(stockButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 227, 232, -1));
@@ -170,9 +230,11 @@ public class UserManagement extends javax.swing.JFrame {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 deliveryButtonMouseClicked(evt);
             }
+
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 deliveryButtonMouseEntered(evt);
             }
+
             public void mouseExited(java.awt.event.MouseEvent evt) {
                 deliveryButtonMouseExited(evt);
             }
@@ -185,18 +247,18 @@ public class UserManagement extends javax.swing.JFrame {
         javax.swing.GroupLayout deliveryButtonLayout = new javax.swing.GroupLayout(deliveryButton);
         deliveryButton.setLayout(deliveryButtonLayout);
         deliveryButtonLayout.setHorizontalGroup(
-            deliveryButtonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(deliveryButtonLayout.createSequentialGroup()
-                .addGap(59, 59, 59)
-                .addComponent(deliveryLabel)
-                .addGap(0, 38, Short.MAX_VALUE))
+                deliveryButtonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(deliveryButtonLayout.createSequentialGroup()
+                                .addGap(59, 59, 59)
+                                .addComponent(deliveryLabel)
+                                .addGap(0, 38, Short.MAX_VALUE))
         );
         deliveryButtonLayout.setVerticalGroup(
-            deliveryButtonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, deliveryButtonLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(deliveryLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 24, Short.MAX_VALUE)
-                .addContainerGap())
+                deliveryButtonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, deliveryButtonLayout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(deliveryLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 24, Short.MAX_VALUE)
+                                .addContainerGap())
         );
 
         leftBar.add(deliveryButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 279, 232, -1));
@@ -206,9 +268,11 @@ public class UserManagement extends javax.swing.JFrame {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 userButtonMouseClicked(evt);
             }
+
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 userButtonMouseEntered(evt);
             }
+
             public void mouseExited(java.awt.event.MouseEvent evt) {
                 userButtonMouseExited(evt);
             }
@@ -221,18 +285,18 @@ public class UserManagement extends javax.swing.JFrame {
         javax.swing.GroupLayout userButtonLayout = new javax.swing.GroupLayout(userButton);
         userButton.setLayout(userButtonLayout);
         userButtonLayout.setHorizontalGroup(
-            userButtonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(userButtonLayout.createSequentialGroup()
-                .addGap(59, 59, 59)
-                .addComponent(userLabel)
-                .addGap(0, 61, Short.MAX_VALUE))
+                userButtonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(userButtonLayout.createSequentialGroup()
+                                .addGap(59, 59, 59)
+                                .addComponent(userLabel)
+                                .addGap(0, 61, Short.MAX_VALUE))
         );
         userButtonLayout.setVerticalGroup(
-            userButtonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, userButtonLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(userLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 24, Short.MAX_VALUE)
-                .addContainerGap())
+                userButtonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, userButtonLayout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(userLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 24, Short.MAX_VALUE)
+                                .addContainerGap())
         );
 
         leftBar.add(userButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 331, 232, -1));
@@ -253,17 +317,17 @@ public class UserManagement extends javax.swing.JFrame {
         javax.swing.GroupLayout logoutButtonLayout = new javax.swing.GroupLayout(logoutButton);
         logoutButton.setLayout(logoutButtonLayout);
         logoutButtonLayout.setHorizontalGroup(
-            logoutButtonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(logoutButtonLayout.createSequentialGroup()
-                .addGap(48, 48, 48)
-                .addComponent(logoutLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(58, Short.MAX_VALUE))
+                logoutButtonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(logoutButtonLayout.createSequentialGroup()
+                                .addGap(48, 48, 48)
+                                .addComponent(logoutLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addContainerGap(58, Short.MAX_VALUE))
         );
         logoutButtonLayout.setVerticalGroup(
-            logoutButtonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, logoutButtonLayout.createSequentialGroup()
-                .addComponent(logoutLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                logoutButtonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, logoutButtonLayout.createSequentialGroup()
+                                .addComponent(logoutLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         leftBar.add(logoutButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 490, 230, -1));
@@ -283,31 +347,31 @@ public class UserManagement extends javax.swing.JFrame {
         });
         mainPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        plusLabel.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
-        plusLabel.setForeground(new java.awt.Color(96, 83, 150));
-        plusLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        plusLabel.setText("+");
-        plusLabel.addMouseListener(new java.awt.event.MouseAdapter() {
+        minusLabel.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        minusLabel.setForeground(new java.awt.Color(96, 83, 150));
+        minusLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        minusLabel.setText("-");
+        minusLabel.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                plusLabelMouseClicked(evt);
+                minusLabelMouseClicked(evt);
             }
         });
-        mainPanel.add(plusLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 60, 50, 40));
+        mainPanel.add(minusLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 60, 50, 40));
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
+                new Object[][]{
 
-            },
-            new String [] {
-                "Username", "Role"
-            }
+                },
+                new String[]{
+                        "Username", "Role"
+                }
         ) {
-            boolean[] canEdit = new boolean [] {
-                false, true
+            boolean[] canEdit = new boolean[]{
+                    false, true
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
+                return canEdit[columnIndex];
             }
         });
         jTable1.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
@@ -324,14 +388,14 @@ public class UserManagement extends javax.swing.JFrame {
         javax.swing.GroupLayout graphPanelLayout = new javax.swing.GroupLayout(graphPanel);
         graphPanel.setLayout(graphPanelLayout);
         graphPanelLayout.setHorizontalGroup(
-            graphPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 480, Short.MAX_VALUE)
+                graphPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 480, Short.MAX_VALUE)
         );
         graphPanelLayout.setVerticalGroup(
-            graphPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(graphPanelLayout.createSequentialGroup()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 369, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 1, Short.MAX_VALUE))
+                graphPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(graphPanelLayout.createSequentialGroup()
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 369, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 1, Short.MAX_VALUE))
         );
 
         mainPanel.add(graphPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 100, 480, 370));
@@ -349,21 +413,21 @@ public class UserManagement extends javax.swing.JFrame {
         javax.swing.GroupLayout statusBarLayout = new javax.swing.GroupLayout(statusBar);
         statusBar.setLayout(statusBarLayout);
         statusBarLayout.setHorizontalGroup(
-            statusBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(statusBarLayout.createSequentialGroup()
-                .addGap(21, 21, 21)
-                .addComponent(loggedInLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(usernameLabel)
-                .addContainerGap(542, Short.MAX_VALUE))
+                statusBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(statusBarLayout.createSequentialGroup()
+                                .addGap(21, 21, 21)
+                                .addComponent(loggedInLabel)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(usernameLabel)
+                                .addContainerGap(542, Short.MAX_VALUE))
         );
         statusBarLayout.setVerticalGroup(
-            statusBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, statusBarLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addGroup(statusBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(loggedInLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(usernameLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                statusBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, statusBarLayout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addGroup(statusBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(loggedInLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(usernameLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
 
         mainPanel.add(statusBar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 490, 780, -1));
@@ -372,6 +436,17 @@ public class UserManagement extends javax.swing.JFrame {
         titleLabel.setForeground(new java.awt.Color(96, 83, 150));
         titleLabel.setText("Inventory Management System");
         mainPanel.add(titleLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 50, 290, 37));
+
+        plusLabel.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        plusLabel.setForeground(new java.awt.Color(96, 83, 150));
+        plusLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        plusLabel.setText("+");
+        plusLabel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                plusLabelMouseClicked(evt);
+            }
+        });
+        mainPanel.add(plusLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 60, 50, 40));
 
         getContentPane().add(mainPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 0, 530, 530));
 
@@ -392,17 +467,17 @@ public class UserManagement extends javax.swing.JFrame {
 
     private void stockButtonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_stockButtonMouseEntered
         // TODO add your handling code here:
-        
+
     }//GEN-LAST:event_stockButtonMouseEntered
 
     private void deliveryButtonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_deliveryButtonMouseEntered
         // TODO add your handling code here:
-        
+
     }//GEN-LAST:event_deliveryButtonMouseEntered
 
     private void userButtonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_userButtonMouseEntered
         // TODO add your handling code here:]
-        
+
     }//GEN-LAST:event_userButtonMouseEntered
 
     private void stockButtonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_stockButtonMouseExited
@@ -442,85 +517,15 @@ public class UserManagement extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTable1PropertyChange
 
+    private void minusLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_minusLabelMouseClicked
+        setVisible(false);
+        new RemoveUser();
+    }//GEN-LAST:event_minusLabelMouseClicked
+
     private void plusLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_plusLabelMouseClicked
+        // TODO add your handling code here:
         setVisible(false);
         new AddUser();
     }//GEN-LAST:event_plusLabelMouseClicked
-
-    public void setUpColumn(JTable table,
-                                 TableColumn column) {
-        //Set up the editor for the sport cells.
-        JComboBox comboBox = new JComboBox();
-        comboBox.addItem("OWNER");
-        comboBox.addItem("MANAGER");
-        comboBox.addItem("STAFF");
-        column.setCellEditor(new DefaultCellEditor(comboBox));
-
-        //Set up tool tips for the sport cells.
-        DefaultTableCellRenderer renderer =
-                new DefaultTableCellRenderer();
-        renderer.setToolTipText("Click for combo box");
-        column.setCellRenderer(renderer);
-    }
- 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Windows".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(UserManagement.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(UserManagement.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(UserManagement.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(UserManagement.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(() -> {
-            new UserManagement().setVisible(true);
-        });
-    }
-
-    // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel deliveryButton;
-    private javax.swing.JLabel deliveryLabel;
-    private javax.swing.JPanel graphPanel;
-    private javax.swing.JPanel homeButton;
-    private javax.swing.JLabel homeLabel;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JPanel leftBar;
-    private javax.swing.JLabel loggedInLabel;
-    private javax.swing.JPanel logo;
-    private javax.swing.JPanel logoutButton;
-    private javax.swing.JLabel logoutLabel;
-    private javax.swing.JPanel mainPanel;
-    private javax.swing.JLabel plusLabel;
-    private javax.swing.JPanel statusBar;
-    private javax.swing.JPanel stockButton;
-    private javax.swing.JLabel stockLabel;
-    private javax.swing.JLabel titleLabel;
-    private javax.swing.JLabel titleLabel1;
-    private javax.swing.JPanel userButton;
-    private javax.swing.JLabel userLabel;
-    private javax.swing.JLabel usernameLabel;
     // End of variables declaration//GEN-END:variables
 }

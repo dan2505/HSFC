@@ -53,6 +53,15 @@ public class UserManager {
         save();
     }
 
+    public void removeUser(String user) throws IOException {
+        removeUser(getUserFromString(user));
+    }
+
+    private User getUserFromString(String username) {
+        for (User user : users) if (user.getUsername().equals(username)) return user;
+        return null;
+    }
+
     public boolean alreadyExists(String username) {
         for (User user : users) if (user.getUsername().equals(username)) return true;
         return false;

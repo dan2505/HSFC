@@ -3,17 +3,50 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package uk.ac.hereford.djw9349.ui;
+package uk.ac.hereford.djw9349.ui.home;
 
 import uk.ac.hereford.djw9349.IMS;
 import uk.ac.hereford.djw9349.enums.Role;
+import uk.ac.hereford.djw9349.ui.Login;
+import uk.ac.hereford.djw9349.ui.users.UserManagement;
 
 /**
- *
  * @author danwilliams
  */
 public class Home extends javax.swing.JFrame {
 
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel deliveryButton;
+    private javax.swing.JLabel deliveryLabel;
+    private javax.swing.JPanel differenceBar;
+    private javax.swing.JLabel differenceLabel;
+    private javax.swing.JPanel differencePanel;
+    private javax.swing.JLabel differenceTitle;
+    private javax.swing.JPanel graphPanel;
+    private javax.swing.JPanel homeButton;
+    private javax.swing.JLabel homeLabel;
+    private javax.swing.JPanel leftBar;
+    private javax.swing.JLabel loggedInLabel;
+    private javax.swing.JPanel logo;
+    private javax.swing.JPanel logoutButton;
+    private javax.swing.JLabel logoutLabel;
+    private javax.swing.JPanel mainPanel;
+    private javax.swing.JPanel restockBar;
+    private javax.swing.JLabel restockLabel;
+    private javax.swing.JPanel restockPanel;
+    private javax.swing.JLabel restockTitle;
+    private javax.swing.JPanel statusBar;
+    private javax.swing.JPanel stockButton;
+    private javax.swing.JLabel stockLabel;
+    private javax.swing.JPanel stockUsedBar;
+    private javax.swing.JLabel stockUsedLabel;
+    private javax.swing.JPanel stockUsedPanel;
+    private javax.swing.JLabel stockUsedTitle;
+    private javax.swing.JLabel titleLabel;
+    private javax.swing.JLabel titleLabel1;
+    private javax.swing.JPanel userButton;
+    private javax.swing.JLabel userLabel;
+    private javax.swing.JLabel usernameLabel;
     /**
      * Creates new form Home
      */
@@ -24,6 +57,39 @@ public class Home extends javax.swing.JFrame {
             userLabel.setVisible(false);
             userButton.setVisible(false);
         }
+    }
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        /* Set the Nimbus look and feel */
+        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
+         */
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Windows".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(Home.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(Home.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(Home.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(Home.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        //</editor-fold>
+
+        /* Create and display the form */
+        java.awt.EventQueue.invokeLater(() -> {
+            new Home().setVisible(true);
+        });
     }
 
     /**
@@ -87,15 +153,15 @@ public class Home extends javax.swing.JFrame {
         javax.swing.GroupLayout logoLayout = new javax.swing.GroupLayout(logo);
         logo.setLayout(logoLayout);
         logoLayout.setHorizontalGroup(
-            logoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(titleLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 110, Short.MAX_VALUE)
+                logoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(titleLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 110, Short.MAX_VALUE)
         );
         logoLayout.setVerticalGroup(
-            logoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(logoLayout.createSequentialGroup()
-                .addGap(17, 17, 17)
-                .addComponent(titleLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
-                .addContainerGap())
+                logoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(logoLayout.createSequentialGroup()
+                                .addGap(17, 17, 17)
+                                .addComponent(titleLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
+                                .addContainerGap())
         );
 
         leftBar.add(logo, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 30, 110, -1));
@@ -115,18 +181,18 @@ public class Home extends javax.swing.JFrame {
         javax.swing.GroupLayout homeButtonLayout = new javax.swing.GroupLayout(homeButton);
         homeButton.setLayout(homeButtonLayout);
         homeButtonLayout.setHorizontalGroup(
-            homeButtonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(homeButtonLayout.createSequentialGroup()
-                .addGap(59, 59, 59)
-                .addComponent(homeLabel)
-                .addGap(0, 137, Short.MAX_VALUE))
+                homeButtonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(homeButtonLayout.createSequentialGroup()
+                                .addGap(59, 59, 59)
+                                .addComponent(homeLabel)
+                                .addGap(0, 137, Short.MAX_VALUE))
         );
         homeButtonLayout.setVerticalGroup(
-            homeButtonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, homeButtonLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(homeLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 24, Short.MAX_VALUE)
-                .addContainerGap())
+                homeButtonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, homeButtonLayout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(homeLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 24, Short.MAX_VALUE)
+                                .addContainerGap())
         );
 
         leftBar.add(homeButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 175, 232, -1));
@@ -136,9 +202,11 @@ public class Home extends javax.swing.JFrame {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 stockButtonMouseClicked(evt);
             }
+
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 stockButtonMouseEntered(evt);
             }
+
             public void mouseExited(java.awt.event.MouseEvent evt) {
                 stockButtonMouseExited(evt);
             }
@@ -151,18 +219,18 @@ public class Home extends javax.swing.JFrame {
         javax.swing.GroupLayout stockButtonLayout = new javax.swing.GroupLayout(stockButton);
         stockButton.setLayout(stockButtonLayout);
         stockButtonLayout.setHorizontalGroup(
-            stockButtonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(stockButtonLayout.createSequentialGroup()
-                .addGap(59, 59, 59)
-                .addComponent(stockLabel)
-                .addGap(0, 55, Short.MAX_VALUE))
+                stockButtonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(stockButtonLayout.createSequentialGroup()
+                                .addGap(59, 59, 59)
+                                .addComponent(stockLabel)
+                                .addGap(0, 55, Short.MAX_VALUE))
         );
         stockButtonLayout.setVerticalGroup(
-            stockButtonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, stockButtonLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(stockLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 24, Short.MAX_VALUE)
-                .addContainerGap())
+                stockButtonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, stockButtonLayout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(stockLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 24, Short.MAX_VALUE)
+                                .addContainerGap())
         );
 
         leftBar.add(stockButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 227, 232, -1));
@@ -172,9 +240,11 @@ public class Home extends javax.swing.JFrame {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 deliveryButtonMouseClicked(evt);
             }
+
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 deliveryButtonMouseEntered(evt);
             }
+
             public void mouseExited(java.awt.event.MouseEvent evt) {
                 deliveryButtonMouseExited(evt);
             }
@@ -187,18 +257,18 @@ public class Home extends javax.swing.JFrame {
         javax.swing.GroupLayout deliveryButtonLayout = new javax.swing.GroupLayout(deliveryButton);
         deliveryButton.setLayout(deliveryButtonLayout);
         deliveryButtonLayout.setHorizontalGroup(
-            deliveryButtonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(deliveryButtonLayout.createSequentialGroup()
-                .addGap(59, 59, 59)
-                .addComponent(deliveryLabel)
-                .addGap(0, 38, Short.MAX_VALUE))
+                deliveryButtonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(deliveryButtonLayout.createSequentialGroup()
+                                .addGap(59, 59, 59)
+                                .addComponent(deliveryLabel)
+                                .addGap(0, 38, Short.MAX_VALUE))
         );
         deliveryButtonLayout.setVerticalGroup(
-            deliveryButtonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, deliveryButtonLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(deliveryLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 24, Short.MAX_VALUE)
-                .addContainerGap())
+                deliveryButtonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, deliveryButtonLayout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(deliveryLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 24, Short.MAX_VALUE)
+                                .addContainerGap())
         );
 
         leftBar.add(deliveryButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 279, 232, -1));
@@ -217,18 +287,18 @@ public class Home extends javax.swing.JFrame {
         javax.swing.GroupLayout userButtonLayout = new javax.swing.GroupLayout(userButton);
         userButton.setLayout(userButtonLayout);
         userButtonLayout.setHorizontalGroup(
-            userButtonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(userButtonLayout.createSequentialGroup()
-                .addGap(59, 59, 59)
-                .addComponent(userLabel)
-                .addGap(0, 61, Short.MAX_VALUE))
+                userButtonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(userButtonLayout.createSequentialGroup()
+                                .addGap(59, 59, 59)
+                                .addComponent(userLabel)
+                                .addGap(0, 61, Short.MAX_VALUE))
         );
         userButtonLayout.setVerticalGroup(
-            userButtonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, userButtonLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(userLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 24, Short.MAX_VALUE)
-                .addContainerGap())
+                userButtonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, userButtonLayout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(userLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 24, Short.MAX_VALUE)
+                                .addContainerGap())
         );
 
         leftBar.add(userButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 331, 232, -1));
@@ -249,17 +319,17 @@ public class Home extends javax.swing.JFrame {
         javax.swing.GroupLayout logoutButtonLayout = new javax.swing.GroupLayout(logoutButton);
         logoutButton.setLayout(logoutButtonLayout);
         logoutButtonLayout.setHorizontalGroup(
-            logoutButtonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(logoutButtonLayout.createSequentialGroup()
-                .addGap(48, 48, 48)
-                .addComponent(logoutLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(58, Short.MAX_VALUE))
+                logoutButtonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(logoutButtonLayout.createSequentialGroup()
+                                .addGap(48, 48, 48)
+                                .addComponent(logoutLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addContainerGap(58, Short.MAX_VALUE))
         );
         logoutButtonLayout.setVerticalGroup(
-            logoutButtonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, logoutButtonLayout.createSequentialGroup()
-                .addComponent(logoutLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                logoutButtonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, logoutButtonLayout.createSequentialGroup()
+                                .addComponent(logoutLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         leftBar.add(logoutButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 490, 230, -1));
@@ -301,31 +371,31 @@ public class Home extends javax.swing.JFrame {
         javax.swing.GroupLayout stockUsedBarLayout = new javax.swing.GroupLayout(stockUsedBar);
         stockUsedBar.setLayout(stockUsedBarLayout);
         stockUsedBarLayout.setHorizontalGroup(
-            stockUsedBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 140, Short.MAX_VALUE)
+                stockUsedBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGap(0, 140, Short.MAX_VALUE)
         );
         stockUsedBarLayout.setVerticalGroup(
-            stockUsedBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 10, Short.MAX_VALUE)
+                stockUsedBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGap(0, 10, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout stockUsedPanelLayout = new javax.swing.GroupLayout(stockUsedPanel);
         stockUsedPanel.setLayout(stockUsedPanelLayout);
         stockUsedPanelLayout.setHorizontalGroup(
-            stockUsedPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(stockUsedBar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(stockUsedPanelLayout.createSequentialGroup()
-                .addGap(32, 32, 32)
-                .addComponent(stockUsedLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                stockUsedPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(stockUsedBar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(stockUsedPanelLayout.createSequentialGroup()
+                                .addGap(32, 32, 32)
+                                .addComponent(stockUsedLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         stockUsedPanelLayout.setVerticalGroup(
-            stockUsedPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(stockUsedPanelLayout.createSequentialGroup()
-                .addComponent(stockUsedBar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(stockUsedLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(21, 21, 21))
+                stockUsedPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(stockUsedPanelLayout.createSequentialGroup()
+                                .addComponent(stockUsedBar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(stockUsedLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGap(21, 21, 21))
         );
 
         mainPanel.add(stockUsedPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 150, -1, 70));
@@ -347,31 +417,31 @@ public class Home extends javax.swing.JFrame {
         javax.swing.GroupLayout differenceBarLayout = new javax.swing.GroupLayout(differenceBar);
         differenceBar.setLayout(differenceBarLayout);
         differenceBarLayout.setHorizontalGroup(
-            differenceBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 140, Short.MAX_VALUE)
+                differenceBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGap(0, 140, Short.MAX_VALUE)
         );
         differenceBarLayout.setVerticalGroup(
-            differenceBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 10, Short.MAX_VALUE)
+                differenceBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGap(0, 10, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout differencePanelLayout = new javax.swing.GroupLayout(differencePanel);
         differencePanel.setLayout(differencePanelLayout);
         differencePanelLayout.setHorizontalGroup(
-            differencePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(differenceBar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(differencePanelLayout.createSequentialGroup()
-                .addGap(22, 22, 22)
-                .addComponent(differenceLabel)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                differencePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(differenceBar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(differencePanelLayout.createSequentialGroup()
+                                .addGap(22, 22, 22)
+                                .addComponent(differenceLabel)
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         differencePanelLayout.setVerticalGroup(
-            differencePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(differencePanelLayout.createSequentialGroup()
-                .addComponent(differenceBar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(differenceLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(21, 21, 21))
+                differencePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(differencePanelLayout.createSequentialGroup()
+                                .addComponent(differenceBar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(differenceLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGap(21, 21, 21))
         );
 
         mainPanel.add(differencePanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 150, -1, 70));
@@ -393,31 +463,31 @@ public class Home extends javax.swing.JFrame {
         javax.swing.GroupLayout restockBarLayout = new javax.swing.GroupLayout(restockBar);
         restockBar.setLayout(restockBarLayout);
         restockBarLayout.setHorizontalGroup(
-            restockBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 140, Short.MAX_VALUE)
+                restockBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGap(0, 140, Short.MAX_VALUE)
         );
         restockBarLayout.setVerticalGroup(
-            restockBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 10, Short.MAX_VALUE)
+                restockBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGap(0, 10, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout restockPanelLayout = new javax.swing.GroupLayout(restockPanel);
         restockPanel.setLayout(restockPanelLayout);
         restockPanelLayout.setHorizontalGroup(
-            restockPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(restockBar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, restockPanelLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(restockLabel)
-                .addGap(25, 25, 25))
+                restockPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(restockBar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, restockPanelLayout.createSequentialGroup()
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(restockLabel)
+                                .addGap(25, 25, 25))
         );
         restockPanelLayout.setVerticalGroup(
-            restockPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(restockPanelLayout.createSequentialGroup()
-                .addComponent(restockBar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(restockLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(21, 21, 21))
+                restockPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(restockPanelLayout.createSequentialGroup()
+                                .addComponent(restockBar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(restockLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGap(21, 21, 21))
         );
 
         mainPanel.add(restockPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 150, -1, 70));
@@ -425,12 +495,12 @@ public class Home extends javax.swing.JFrame {
         javax.swing.GroupLayout graphPanelLayout = new javax.swing.GroupLayout(graphPanel);
         graphPanel.setLayout(graphPanelLayout);
         graphPanelLayout.setHorizontalGroup(
-            graphPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 480, Short.MAX_VALUE)
+                graphPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGap(0, 480, Short.MAX_VALUE)
         );
         graphPanelLayout.setVerticalGroup(
-            graphPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 210, Short.MAX_VALUE)
+                graphPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGap(0, 210, Short.MAX_VALUE)
         );
 
         mainPanel.add(graphPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 260, 480, 210));
@@ -448,21 +518,21 @@ public class Home extends javax.swing.JFrame {
         javax.swing.GroupLayout statusBarLayout = new javax.swing.GroupLayout(statusBar);
         statusBar.setLayout(statusBarLayout);
         statusBarLayout.setHorizontalGroup(
-            statusBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(statusBarLayout.createSequentialGroup()
-                .addGap(21, 21, 21)
-                .addComponent(loggedInLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(usernameLabel)
-                .addContainerGap(542, Short.MAX_VALUE))
+                statusBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(statusBarLayout.createSequentialGroup()
+                                .addGap(21, 21, 21)
+                                .addComponent(loggedInLabel)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(usernameLabel)
+                                .addContainerGap(542, Short.MAX_VALUE))
         );
         statusBarLayout.setVerticalGroup(
-            statusBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, statusBarLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addGroup(statusBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(loggedInLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(usernameLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                statusBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, statusBarLayout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addGroup(statusBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(loggedInLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(usernameLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
 
         mainPanel.add(statusBar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 490, 780, -1));
@@ -488,12 +558,12 @@ public class Home extends javax.swing.JFrame {
 
     private void stockButtonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_stockButtonMouseEntered
         // TODO add your handling code here:
-        
+
     }//GEN-LAST:event_stockButtonMouseEntered
 
     private void deliveryButtonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_deliveryButtonMouseEntered
         // TODO add your handling code here:
-        
+
     }//GEN-LAST:event_deliveryButtonMouseEntered
 
     private void stockButtonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_stockButtonMouseExited
@@ -523,71 +593,5 @@ public class Home extends javax.swing.JFrame {
         new Login();
         IMS.userManager.loggedIn = null;
     }//GEN-LAST:event_logoutButtonMouseClicked
-
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Windows".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Home.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Home.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Home.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Home.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(() -> {
-            new Home().setVisible(true);
-        });
-    }
-
-    // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel deliveryButton;
-    private javax.swing.JLabel deliveryLabel;
-    private javax.swing.JPanel differenceBar;
-    private javax.swing.JLabel differenceLabel;
-    private javax.swing.JPanel differencePanel;
-    private javax.swing.JLabel differenceTitle;
-    private javax.swing.JPanel graphPanel;
-    private javax.swing.JPanel homeButton;
-    private javax.swing.JLabel homeLabel;
-    private javax.swing.JPanel leftBar;
-    private javax.swing.JLabel loggedInLabel;
-    private javax.swing.JPanel logo;
-    private javax.swing.JPanel logoutButton;
-    private javax.swing.JLabel logoutLabel;
-    private javax.swing.JPanel mainPanel;
-    private javax.swing.JPanel restockBar;
-    private javax.swing.JLabel restockLabel;
-    private javax.swing.JPanel restockPanel;
-    private javax.swing.JLabel restockTitle;
-    private javax.swing.JPanel statusBar;
-    private javax.swing.JPanel stockButton;
-    private javax.swing.JLabel stockLabel;
-    private javax.swing.JPanel stockUsedBar;
-    private javax.swing.JLabel stockUsedLabel;
-    private javax.swing.JPanel stockUsedPanel;
-    private javax.swing.JLabel stockUsedTitle;
-    private javax.swing.JLabel titleLabel;
-    private javax.swing.JLabel titleLabel1;
-    private javax.swing.JPanel userButton;
-    private javax.swing.JLabel userLabel;
-    private javax.swing.JLabel usernameLabel;
     // End of variables declaration//GEN-END:variables
 }

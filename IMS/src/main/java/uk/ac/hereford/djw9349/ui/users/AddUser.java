@@ -1,4 +1,4 @@
-package uk.ac.hereford.djw9349.ui;
+package uk.ac.hereford.djw9349.ui.users;
 
 import lombok.SneakyThrows;
 import uk.ac.hereford.djw9349.IMS;
@@ -10,7 +10,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class AddUser implements ActionListener {
-   private JFrame frame = new JFrame("Add User");
+    private JFrame frame = new JFrame("Add User");
     private JPanel panel = new JPanel();
     private JLabel userLabel;
     private JTextField userField;
@@ -47,13 +47,13 @@ public class AddUser implements ActionListener {
         passwordField = new JPasswordField(20);
         passwordField.setBounds(100, 50, 165, 25);
         panel.add(passwordField);
-        
+
         roleLabel = new JLabel("Role");
         roleLabel.setFont(new Font("Segoe UI", Font.PLAIN, 15));
         roleLabel.setForeground(new Color(0, 0, 0));
         roleLabel.setBounds(10, 80, 80, 25);
         panel.add(roleLabel);
-        
+
         roleSelector = new JComboBox();
         roleSelector.addItem("OWNER");
         roleSelector.addItem("MANAGER");
