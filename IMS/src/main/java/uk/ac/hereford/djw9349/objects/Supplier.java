@@ -4,8 +4,6 @@ import lombok.Getter;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 
-import java.util.ArrayList;
-
 @RequiredArgsConstructor
 @Getter
 public class Supplier {
@@ -17,6 +15,4 @@ public class Supplier {
     private String emailAddress;
     @NonNull
     private String phoneNumber;
-    @NonNull
-    private ArrayList<Ingredient> ingredients = new ArrayList<Ingredient>();
 }

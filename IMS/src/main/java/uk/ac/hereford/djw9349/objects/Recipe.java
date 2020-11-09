@@ -11,6 +11,4 @@ import java.util.ArrayList;
 public class Recipe {
     @NonNull
     private String name;
-    @NonNull
-    private ArrayList<Ingredient> ingredients = new ArrayList<Ingredient>();
 }

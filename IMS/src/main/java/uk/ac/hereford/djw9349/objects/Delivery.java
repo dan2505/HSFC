@@ -16,7 +16,11 @@ public class Delivery {
     @NonNull
     private Date date;
     @NonNull
-    private ArrayList<Ingredient> ingredients = new ArrayList<Ingredient>();
-    @NonNull
     private Supplier supplier;
+    @NonNull
+    private ArrayList<Ingredient> ingredients = new ArrayList<Ingredient>();
+
+    void addIngredient(Ingredient ingredient) {
+        ingredients.add(ingredient);
+    }
 }
