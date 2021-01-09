@@ -28,7 +28,7 @@ public class UserManagement extends javax.swing.JFrame {
         usernameLabel.setText(IMS.userManager.loggedIn.getUsername());
         DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
         model.setRowCount(0);
-        for (User user : IMS.userManager.users) {
+        for (User user : IMS.userManager.getUsers()) {
             model.addRow(new Object[]{user.getUsername(), user.getRole().toString()});
         }
     }

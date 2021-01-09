@@ -30,11 +30,6 @@ public class IMS {
         deliveryManager = new DeliveryManager();
         supplierManager = new SupplierManager();
         
-        supplierManager.addSupplier(new Supplier("Douglas Willis", new Address("5", "Grange Industrial Estate", "Cwmbran", "NP44 8HQ"), "01633 877777"));
-        Delivery delivery = new Delivery(Status.PENDING, new Date(), "Douglas Willis");
-        delivery.addIngredient(new Ingredient("8oz Rump Steak", 5, Category.MEAT));
-        deliveryManager.addDelivery(delivery);
-        Login login = new Login();
-        
+        new Login();  
     }
 }

@@ -7,11 +7,10 @@ package uk.ac.hereford.djw9349.ui.stock;
 
 import uk.ac.hereford.djw9349.ui.users.*;
 import uk.ac.hereford.djw9349.IMS;
-import uk.ac.hereford.djw9349.objects.User;
 import uk.ac.hereford.djw9349.ui.Login;
 import uk.ac.hereford.djw9349.ui.home.Home;
 
-import javax.swing.table.DefaultTableModel;
+import uk.ac.hereford.djw9349.enums.Category;
 import uk.ac.hereford.djw9349.enums.Role;
 import uk.ac.hereford.djw9349.ui.delivery.DeliveryManagement;
 
@@ -465,7 +464,7 @@ public class StockManagement extends javax.swing.JFrame {
         fruitBar.setLayout(fruitBarLayout);
         fruitBarLayout.setHorizontalGroup(
             fruitBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 158, Short.MAX_VALUE)
+            .addGap(0, 140, Short.MAX_VALUE)
         );
         fruitBarLayout.setVerticalGroup(
             fruitBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -478,7 +477,7 @@ public class StockManagement extends javax.swing.JFrame {
             fruitPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(fruitBar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(fruitPanelLayout.createSequentialGroup()
-                .addGap(27, 27, 27)
+                .addGap(18, 18, 18)
                 .addComponent(fruitLabel)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -491,7 +490,7 @@ public class StockManagement extends javax.swing.JFrame {
                 .addGap(21, 21, 21))
         );
 
-        mainPanel.add(fruitPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 150, -1, 70));
+        mainPanel.add(fruitPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 150, 140, 70));
 
         herbsPanel.setBackground(new java.awt.Color(255, 255, 255));
         herbsPanel.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -582,7 +581,7 @@ public class StockManagement extends javax.swing.JFrame {
                 .addContainerGap(18, Short.MAX_VALUE))
         );
 
-        mainPanel.add(bakeryPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 260, -1, 70));
+        mainPanel.add(bakeryPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 300, -1, 70));
 
         dairyPanel.setBackground(new java.awt.Color(255, 255, 255));
         dairyPanel.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -628,7 +627,7 @@ public class StockManagement extends javax.swing.JFrame {
                 .addGap(21, 21, 21))
         );
 
-        mainPanel.add(dairyPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 260, -1, 70));
+        mainPanel.add(dairyPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 300, -1, 70));
 
         pastaPanel.setBackground(new java.awt.Color(255, 255, 255));
         pastaPanel.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -674,7 +673,7 @@ public class StockManagement extends javax.swing.JFrame {
                 .addGap(21, 21, 21))
         );
 
-        mainPanel.add(pastaPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 260, 140, 70));
+        mainPanel.add(pastaPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 300, 140, 70));
 
         stockUsedPanel2.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -715,7 +714,7 @@ public class StockManagement extends javax.swing.JFrame {
                 .addContainerGap(18, Short.MAX_VALUE))
         );
 
-        mainPanel.add(stockUsedPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 260, -1, 70));
+        mainPanel.add(stockUsedPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 300, -1, 70));
 
         getContentPane().add(mainPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 0, 530, 530));
 
@@ -724,26 +723,44 @@ public class StockManagement extends javax.swing.JFrame {
 
     private void meatPanelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_meatPanelMouseClicked
         // TODO add your handling code here:
+        setVisible(false);
+        IMS.stockManager.category = Category.MEAT;
+        new CategoryManagement().main(null);
     }//GEN-LAST:event_meatPanelMouseClicked
 
     private void fruitPanelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_fruitPanelMouseClicked
         // TODO add your handling code here:
+        setVisible(false);
+        IMS.stockManager.category = Category.FRUIT;
+        new CategoryManagement().main(null);
     }//GEN-LAST:event_fruitPanelMouseClicked
 
     private void herbsPanelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_herbsPanelMouseClicked
         // TODO add your handling code here:
+        setVisible(false);
+        IMS.stockManager.category = Category.HERBSANDSPICES;
+        new CategoryManagement().main(null);
     }//GEN-LAST:event_herbsPanelMouseClicked
 
     private void bakeryPanelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bakeryPanelMouseClicked
         // TODO add your handling code here:
+        setVisible(false);
+        IMS.stockManager.category = Category.BAKERY;
+        new CategoryManagement().main(null);
     }//GEN-LAST:event_bakeryPanelMouseClicked
 
     private void dairyPanelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_dairyPanelMouseClicked
         // TODO add your handling code here:
+        setVisible(false);
+        IMS.stockManager.category = Category.DAIRY;
+        new CategoryManagement().main(null);
     }//GEN-LAST:event_dairyPanelMouseClicked
 
     private void pastaPanelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pastaPanelMouseClicked
         // TODO add your handling code here:
+        setVisible(false);
+        IMS.stockManager.category = Category.PASTA;
+        new CategoryManagement().main(null);
     }//GEN-LAST:event_pastaPanelMouseClicked
 
     /**

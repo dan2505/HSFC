@@ -15,4 +15,9 @@ public class Address {
     private String lineTwo;
     @NonNull
     private String postcode;
+    
+    @Override
+    public String toString() {
+        return (houseName + ", " + lineOne +", " + lineTwo + ", " + postcode + ".");
+    }
 }

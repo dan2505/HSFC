@@ -22,4 +22,12 @@ public class Ingredient {
     public void addRecipe(Recipe recipe) {
         recipes.add(recipe);
     }
+    
+    public String getRecipes() {
+        String temp = "";
+        for (Recipe recipe : recipes) {
+            temp = temp + recipe.getName() + ",";
+        }
+        return temp;
+    }
 }

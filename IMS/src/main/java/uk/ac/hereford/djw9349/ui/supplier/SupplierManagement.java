@@ -3,51 +3,46 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package uk.ac.hereford.djw9349.ui.delivery;
+package uk.ac.hereford.djw9349.ui.supplier;
 
 import uk.ac.hereford.djw9349.ui.users.*;
 import uk.ac.hereford.djw9349.IMS;
-import uk.ac.hereford.djw9349.objects.User;
 import uk.ac.hereford.djw9349.ui.Login;
 import uk.ac.hereford.djw9349.ui.home.Home;
 
 import javax.swing.table.DefaultTableModel;
-import uk.ac.hereford.djw9349.enums.Role;
+import uk.ac.hereford.djw9349.objects.Supplier;
+import uk.ac.hereford.djw9349.ui.delivery.DeliveryManagement;
 import uk.ac.hereford.djw9349.ui.stock.StockManagement;
 
 /**
  *
  * @author danwilliams
  */
-public class DeliveryManagement extends javax.swing.JFrame {
+public class SupplierManagement extends javax.swing.JFrame {
 
     /**
      * Creates new form UserManagement
      */
-    public DeliveryManagement() {
+    public SupplierManagement() {
         initComponents();
         usernameLabel.setText(IMS.userManager.loggedIn.getUsername());
-        if (IMS.userManager.loggedIn.getRole() == Role.STAFF) {
-            userLabel.setVisible(false);
-            userButton.setVisible(false);
-        }
-        
         DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
         model.setRowCount(0);
-        for (User user : IMS.userManager.getUsers()) {
-            model.addRow(new Object[]{user.getUsername(), user.getRole().toString()});
+        for (Supplier supplier : IMS.supplierManager.getSuppliers()) {
+            model.addRow(new Object[]{supplier.getName(), supplier.getAddress().toString(), supplier.getPhoneNumber()});
         }
     }
     
     private void plusLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_plusLabelMouseClicked
         // TODO add your handling code here:
         setVisible(false);
-        new AddUser();
+        new AddSupplier();
     }//GEN-LAST:event_plusLabelMouseClicked
     
     private void minusLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_minusLabelMouseClicked
         setVisible(false);
-        new RemoveUser();
+        new RemoveSupplier();
     }//GEN-LAST:event_minusLabelMouseClicked
     
     private void stockButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_stockButtonMouseClicked
@@ -58,6 +53,7 @@ public class DeliveryManagement extends javax.swing.JFrame {
 
     private void deliveryButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_deliveryButtonMouseClicked
         // TODO add your handling code here:
+        
     }//GEN-LAST:event_deliveryButtonMouseClicked
 
     private void userButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_userButtonMouseClicked
@@ -82,7 +78,7 @@ public class DeliveryManagement extends javax.swing.JFrame {
     }//GEN-LAST:event_userButtonMouseEntered
 
     private void stockButtonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_stockButtonMouseExited
- 
+        
     }//GEN-LAST:event_stockButtonMouseExited
 
     private void deliveryButtonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_deliveryButtonMouseExited
@@ -385,11 +381,11 @@ public class DeliveryManagement extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Status", "Date", "Contents", "Supplier"
+                "Name", "Address", "Phone Number"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false
+                false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -406,7 +402,6 @@ public class DeliveryManagement extends javax.swing.JFrame {
             jTable1.getColumnModel().getColumn(0).setResizable(false);
             jTable1.getColumnModel().getColumn(1).setResizable(false);
             jTable1.getColumnModel().getColumn(2).setResizable(false);
-            jTable1.getColumnModel().getColumn(3).setResizable(false);
         }
 
         javax.swing.GroupLayout graphPanelLayout = new javax.swing.GroupLayout(graphPanel);
@@ -494,13 +489,13 @@ public class DeliveryManagement extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(DeliveryManagement.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(SupplierManagement.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(DeliveryManagement.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(SupplierManagement.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(DeliveryManagement.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(SupplierManagement.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(DeliveryManagement.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(SupplierManagement.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
         //</editor-fold>
@@ -508,7 +503,7 @@ public class DeliveryManagement extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new DeliveryManagement().setVisible(true);
+                new SupplierManagement().setVisible(true);
             }
         });
     }

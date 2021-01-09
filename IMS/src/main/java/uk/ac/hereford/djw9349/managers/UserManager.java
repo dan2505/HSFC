@@ -19,7 +19,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class UserManager {
-    public ArrayList<User> users = new ArrayList<User>();
+    private ArrayList<User> users = new ArrayList<User>();
     public User loggedIn = null;
 
     public UserManager() throws IOException {
@@ -108,5 +108,9 @@ public class UserManager {
         SecretKey key = factory.generateSecret(new PBEKeySpec(password.toCharArray(), salt, (20 * 1000), 256));
         // Return the hash as a string for storage.
         return Base64.encodeBase64String(key.getEncoded());
+    }
+    
+    public ArrayList<User> getUsers() {
+        return users;
     }
 }

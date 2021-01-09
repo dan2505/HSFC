@@ -1,5 +1,6 @@
-package uk.ac.hereford.djw9349.ui.users;
+package uk.ac.hereford.djw9349.ui.stock;
 
+import uk.ac.hereford.djw9349.ui.users.*;
 import lombok.SneakyThrows;
 import uk.ac.hereford.djw9349.IMS;
 import uk.ac.hereford.djw9349.objects.User;
@@ -9,7 +10,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class RemoveUser implements ActionListener {
+public class RemoveStock implements ActionListener {
     private JFrame frame = new JFrame("Remove User");
     private JPanel panel = new JPanel();
     private JLabel userLabel;
@@ -21,7 +22,7 @@ public class RemoveUser implements ActionListener {
     private JButton button;
     private JLabel label;
 
-    public RemoveUser() {
+    public RemoveStock() {
         Dimension size = new Dimension(300, 100);
         panel.setSize(size);
         panel.setPreferredSize(size);

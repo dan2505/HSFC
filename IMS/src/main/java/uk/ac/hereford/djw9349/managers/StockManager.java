@@ -9,9 +9,12 @@ import java.io.*;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
+import uk.ac.hereford.djw9349.enums.Category;
 
 public class StockManager {
     private ArrayList<Ingredient> ingredients = new ArrayList<Ingredient>();
+    // Temporary storage of the category from search.
+    public Category category;
 
     public StockManager() throws IOException {
         initialise();
@@ -42,6 +45,10 @@ public class StockManager {
     public void removeStock(Ingredient ingredient) throws IOException {
         ingredients.remove(ingredient);
         save();
+    }
+    
+    public ArrayList<Ingredient> getStock() {
+        return ingredients;
     }
 
 }

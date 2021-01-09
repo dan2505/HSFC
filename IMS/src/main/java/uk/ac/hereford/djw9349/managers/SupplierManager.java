@@ -46,8 +46,16 @@ public class SupplierManager {
         save();
     }
     
+    public void removeSupplier(String string) throws IOException {
+        removeSupplier(getSupplierFromString(string));
+    }
+    
     private Supplier getSupplierFromString(String name) {
         for (Supplier supplier : suppliers) if (supplier.getName().equals(name)) return supplier;
         return null;
+    }
+    
+    public ArrayList<Supplier> getSuppliers() {
+        return suppliers;
     }
 }
