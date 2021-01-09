@@ -34,12 +34,12 @@ public class DeliveryManager {
         }
     }
 
-    public void addStock(Delivery delivery) throws IOException {
+    public void addDelivery(Delivery delivery) throws IOException {
         deliveries.add(delivery);
         save();
     }
 
-    public void removeStock(Delivery delivery) throws IOException {
+    public void removeDelivery(Delivery delivery) throws IOException {
         deliveries.remove(delivery);
         save();
     }

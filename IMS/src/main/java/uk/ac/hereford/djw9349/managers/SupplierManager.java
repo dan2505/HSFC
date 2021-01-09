@@ -10,6 +10,7 @@ import java.io.*;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
+import uk.ac.hereford.djw9349.objects.User;
 
 public class SupplierManager {
     private ArrayList<Supplier> suppliers = new ArrayList<Supplier>();
@@ -35,7 +36,7 @@ public class SupplierManager {
         }
     }
 
-    public void addStock(Supplier supplier) throws IOException {
+    public void addSupplier(Supplier supplier) throws IOException {
         suppliers.add(supplier);
         save();
     }
@@ -44,5 +45,9 @@ public class SupplierManager {
         suppliers.remove(supplier);
         save();
     }
-
+    
+    private Supplier getSupplierFromString(String name) {
+        for (Supplier supplier : suppliers) if (supplier.getName().equals(name)) return supplier;
+        return null;
+    }
 }

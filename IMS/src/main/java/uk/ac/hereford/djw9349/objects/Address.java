@@ -14,7 +14,5 @@ public class Address {
     @NonNull
     private String lineTwo;
     @NonNull
-    private String lineThree;
-    @NonNull
     private String postcode;
 }

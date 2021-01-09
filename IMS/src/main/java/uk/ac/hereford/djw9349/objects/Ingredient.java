@@ -5,6 +5,7 @@ import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 
 import java.util.ArrayList;
+import uk.ac.hereford.djw9349.enums.Category;
 
 @RequiredArgsConstructor
 @Getter

@@ -385,11 +385,11 @@ public class DeliveryManagement extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Username", "Role"
+                "Status", "Date", "Contents", "Supplier"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, true
+                false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -405,6 +405,8 @@ public class DeliveryManagement extends javax.swing.JFrame {
         if (jTable1.getColumnModel().getColumnCount() > 0) {
             jTable1.getColumnModel().getColumn(0).setResizable(false);
             jTable1.getColumnModel().getColumn(1).setResizable(false);
+            jTable1.getColumnModel().getColumn(2).setResizable(false);
+            jTable1.getColumnModel().getColumn(3).setResizable(false);
         }
 
         javax.swing.GroupLayout graphPanelLayout = new javax.swing.GroupLayout(graphPanel);
