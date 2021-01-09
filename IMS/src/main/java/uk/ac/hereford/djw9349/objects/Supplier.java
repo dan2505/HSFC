@@ -12,7 +12,5 @@ public class Supplier {
     @NonNull
     private Address address;
     @NonNull
-    private String emailAddress;
-    @NonNull
     private String phoneNumber;
 }

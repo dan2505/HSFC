@@ -9,6 +9,7 @@ import uk.ac.hereford.djw9349.IMS;
 import uk.ac.hereford.djw9349.objects.User;
 import uk.ac.hereford.djw9349.ui.Login;
 import uk.ac.hereford.djw9349.ui.home.Home;
+import uk.ac.hereford.djw9349.ui.stock.StockManagement;
 
 import javax.swing.table.DefaultTableModel;
 
@@ -481,7 +482,8 @@ public class UserManagement extends javax.swing.JFrame {
     }//GEN-LAST:event_userButtonMouseEntered
 
     private void stockButtonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_stockButtonMouseExited
-        // TODO add your handling code here:
+        setVisible(false);
+        StockManagement.main(null);
     }//GEN-LAST:event_stockButtonMouseExited
 
     private void deliveryButtonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_deliveryButtonMouseExited

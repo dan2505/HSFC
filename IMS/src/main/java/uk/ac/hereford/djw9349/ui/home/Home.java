@@ -8,6 +8,7 @@ package uk.ac.hereford.djw9349.ui.home;
 import uk.ac.hereford.djw9349.IMS;
 import uk.ac.hereford.djw9349.enums.Role;
 import uk.ac.hereford.djw9349.ui.Login;
+import uk.ac.hereford.djw9349.ui.stock.StockManagement;
 import uk.ac.hereford.djw9349.ui.users.UserManagement;
 
 /**
@@ -543,7 +544,8 @@ public class Home extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void stockButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_stockButtonMouseClicked
-        // TODO add your handling code here:
+        setVisible(false);
+        StockManagement.main(null);
     }//GEN-LAST:event_stockButtonMouseClicked
 
     private void deliveryButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_deliveryButtonMouseClicked
@@ -557,8 +559,6 @@ public class Home extends javax.swing.JFrame {
     }//GEN-LAST:event_userButtonMouseClicked
 
     private void stockButtonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_stockButtonMouseEntered
-        // TODO add your handling code here:
-
     }//GEN-LAST:event_stockButtonMouseEntered
 
     private void deliveryButtonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_deliveryButtonMouseEntered
