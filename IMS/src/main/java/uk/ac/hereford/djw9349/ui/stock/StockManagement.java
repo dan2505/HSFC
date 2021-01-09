@@ -31,25 +31,8 @@ public class StockManagement extends javax.swing.JFrame {
             userLabel.setVisible(false);
             userButton.setVisible(false);
         }
-        
-        DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
-        model.setRowCount(0);
-        for (User user : IMS.userManager.users) {
-            model.addRow(new Object[]{user.getUsername(), user.getRole().toString()});
-        }
     }
-    
-    private void plusLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_plusLabelMouseClicked
-        // TODO add your handling code here:
-        setVisible(false);
-        new AddUser();
-    }//GEN-LAST:event_plusLabelMouseClicked
-    
-    private void minusLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_minusLabelMouseClicked
-        setVisible(false);
-        new RemoveUser();
-    }//GEN-LAST:event_minusLabelMouseClicked
-    
+            
     private void stockButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_stockButtonMouseClicked
         // TODO add your handling code here:
     }//GEN-LAST:event_stockButtonMouseClicked
@@ -113,10 +96,6 @@ public class StockManagement extends javax.swing.JFrame {
         new Login();
         IMS.userManager.loggedIn = null;
     }//GEN-LAST:event_logoutButtonMouseClicked
-
-    private void jTable1PropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_jTable1PropertyChange
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTable1PropertyChange
     
     /**
      * This method is called from within the constructor to initialize the form.
@@ -141,15 +120,31 @@ public class StockManagement extends javax.swing.JFrame {
         logoutButton = new javax.swing.JPanel();
         logoutLabel = new javax.swing.JLabel();
         mainPanel = new javax.swing.JPanel();
-        minusLabel = new javax.swing.JLabel();
-        graphPanel = new javax.swing.JPanel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
         statusBar = new javax.swing.JPanel();
         loggedInLabel = new javax.swing.JLabel();
         usernameLabel = new javax.swing.JLabel();
         titleLabel = new javax.swing.JLabel();
-        plusLabel = new javax.swing.JLabel();
+        meatPanel = new javax.swing.JPanel();
+        meatLabel = new javax.swing.JLabel();
+        meatBar = new javax.swing.JPanel();
+        fruitPanel = new javax.swing.JPanel();
+        fruitLabel = new javax.swing.JLabel();
+        fruitBar = new javax.swing.JPanel();
+        herbsPanel = new javax.swing.JPanel();
+        herbsLabel = new javax.swing.JLabel();
+        herbsBar = new javax.swing.JPanel();
+        bakeryPanel = new javax.swing.JPanel();
+        bakeryLabel = new javax.swing.JLabel();
+        bakeryBar = new javax.swing.JPanel();
+        dairyPanel = new javax.swing.JPanel();
+        dairyLabel = new javax.swing.JLabel();
+        dairyBar = new javax.swing.JPanel();
+        pastaPanel = new javax.swing.JPanel();
+        pastaLabel = new javax.swing.JLabel();
+        pastaBar = new javax.swing.JPanel();
+        stockUsedPanel2 = new javax.swing.JPanel();
+        stockUsedLabel2 = new javax.swing.JLabel();
+        stockUsedBar2 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(204, 204, 204));
@@ -369,59 +364,6 @@ public class StockManagement extends javax.swing.JFrame {
         });
         mainPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        minusLabel.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
-        minusLabel.setForeground(new java.awt.Color(96, 83, 150));
-        minusLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        minusLabel.setText("-");
-        minusLabel.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                minusLabelMouseClicked(evt);
-            }
-        });
-        mainPanel.add(minusLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 60, 50, 40));
-
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-                "Username", "Role"
-            }
-        ) {
-            boolean[] canEdit = new boolean [] {
-                false, true
-            };
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
-        jTable1.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
-            public void propertyChange(java.beans.PropertyChangeEvent evt) {
-                jTable1PropertyChange(evt);
-            }
-        });
-        jScrollPane1.setViewportView(jTable1);
-        if (jTable1.getColumnModel().getColumnCount() > 0) {
-            jTable1.getColumnModel().getColumn(0).setResizable(false);
-            jTable1.getColumnModel().getColumn(1).setResizable(false);
-        }
-
-        javax.swing.GroupLayout graphPanelLayout = new javax.swing.GroupLayout(graphPanel);
-        graphPanel.setLayout(graphPanelLayout);
-        graphPanelLayout.setHorizontalGroup(
-            graphPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 480, Short.MAX_VALUE)
-        );
-        graphPanelLayout.setVerticalGroup(
-            graphPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(graphPanelLayout.createSequentialGroup()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 369, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 1, Short.MAX_VALUE))
-        );
-
-        mainPanel.add(graphPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 100, 480, 370));
-
         statusBar.setBackground(new java.awt.Color(237, 237, 237));
 
         loggedInLabel.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -459,21 +401,350 @@ public class StockManagement extends javax.swing.JFrame {
         titleLabel.setText("Inventory Management System");
         mainPanel.add(titleLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 50, 290, 37));
 
-        plusLabel.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
-        plusLabel.setForeground(new java.awt.Color(96, 83, 150));
-        plusLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        plusLabel.setText("+");
-        plusLabel.addMouseListener(new java.awt.event.MouseAdapter() {
+        meatPanel.setBackground(new java.awt.Color(255, 255, 255));
+        meatPanel.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                plusLabelMouseClicked(evt);
+                meatPanelMouseClicked(evt);
             }
         });
-        mainPanel.add(plusLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 60, 50, 40));
+
+        meatLabel.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        meatLabel.setForeground(new java.awt.Color(96, 83, 150));
+        meatLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        meatLabel.setText("Meat + Fish");
+
+        meatBar.setBackground(new java.awt.Color(158, 144, 219));
+
+        javax.swing.GroupLayout meatBarLayout = new javax.swing.GroupLayout(meatBar);
+        meatBar.setLayout(meatBarLayout);
+        meatBarLayout.setHorizontalGroup(
+            meatBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 140, Short.MAX_VALUE)
+        );
+        meatBarLayout.setVerticalGroup(
+            meatBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 10, Short.MAX_VALUE)
+        );
+
+        javax.swing.GroupLayout meatPanelLayout = new javax.swing.GroupLayout(meatPanel);
+        meatPanel.setLayout(meatPanelLayout);
+        meatPanelLayout.setHorizontalGroup(
+            meatPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(meatBar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(meatPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(meatLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        meatPanelLayout.setVerticalGroup(
+            meatPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(meatPanelLayout.createSequentialGroup()
+                .addComponent(meatBar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(meatLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(18, Short.MAX_VALUE))
+        );
+
+        mainPanel.add(meatPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 150, -1, 70));
+
+        fruitPanel.setBackground(new java.awt.Color(255, 255, 255));
+        fruitPanel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                fruitPanelMouseClicked(evt);
+            }
+        });
+
+        fruitLabel.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        fruitLabel.setForeground(new java.awt.Color(96, 83, 150));
+        fruitLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        fruitLabel.setText("Fruit + Veg");
+
+        fruitBar.setBackground(new java.awt.Color(158, 144, 219));
+
+        javax.swing.GroupLayout fruitBarLayout = new javax.swing.GroupLayout(fruitBar);
+        fruitBar.setLayout(fruitBarLayout);
+        fruitBarLayout.setHorizontalGroup(
+            fruitBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 158, Short.MAX_VALUE)
+        );
+        fruitBarLayout.setVerticalGroup(
+            fruitBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 10, Short.MAX_VALUE)
+        );
+
+        javax.swing.GroupLayout fruitPanelLayout = new javax.swing.GroupLayout(fruitPanel);
+        fruitPanel.setLayout(fruitPanelLayout);
+        fruitPanelLayout.setHorizontalGroup(
+            fruitPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(fruitBar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(fruitPanelLayout.createSequentialGroup()
+                .addGap(27, 27, 27)
+                .addComponent(fruitLabel)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        fruitPanelLayout.setVerticalGroup(
+            fruitPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(fruitPanelLayout.createSequentialGroup()
+                .addComponent(fruitBar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(fruitLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(21, 21, 21))
+        );
+
+        mainPanel.add(fruitPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 150, -1, 70));
+
+        herbsPanel.setBackground(new java.awt.Color(255, 255, 255));
+        herbsPanel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                herbsPanelMouseClicked(evt);
+            }
+        });
+
+        herbsLabel.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        herbsLabel.setForeground(new java.awt.Color(96, 83, 150));
+        herbsLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        herbsLabel.setText("Herbs + Spices");
+
+        herbsBar.setBackground(new java.awt.Color(158, 144, 219));
+
+        javax.swing.GroupLayout herbsBarLayout = new javax.swing.GroupLayout(herbsBar);
+        herbsBar.setLayout(herbsBarLayout);
+        herbsBarLayout.setHorizontalGroup(
+            herbsBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+        herbsBarLayout.setVerticalGroup(
+            herbsBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 10, Short.MAX_VALUE)
+        );
+
+        javax.swing.GroupLayout herbsPanelLayout = new javax.swing.GroupLayout(herbsPanel);
+        herbsPanel.setLayout(herbsPanelLayout);
+        herbsPanelLayout.setHorizontalGroup(
+            herbsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(herbsBar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(herbsPanelLayout.createSequentialGroup()
+                .addComponent(herbsLabel)
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+        herbsPanelLayout.setVerticalGroup(
+            herbsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(herbsPanelLayout.createSequentialGroup()
+                .addComponent(herbsBar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(herbsLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(21, 21, 21))
+        );
+
+        mainPanel.add(herbsPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 150, 140, 70));
+
+        bakeryPanel.setBackground(new java.awt.Color(255, 255, 255));
+        bakeryPanel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                bakeryPanelMouseClicked(evt);
+            }
+        });
+
+        bakeryLabel.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        bakeryLabel.setForeground(new java.awt.Color(96, 83, 150));
+        bakeryLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        bakeryLabel.setText("Bakery");
+
+        bakeryBar.setBackground(new java.awt.Color(158, 144, 219));
+
+        javax.swing.GroupLayout bakeryBarLayout = new javax.swing.GroupLayout(bakeryBar);
+        bakeryBar.setLayout(bakeryBarLayout);
+        bakeryBarLayout.setHorizontalGroup(
+            bakeryBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 140, Short.MAX_VALUE)
+        );
+        bakeryBarLayout.setVerticalGroup(
+            bakeryBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 10, Short.MAX_VALUE)
+        );
+
+        javax.swing.GroupLayout bakeryPanelLayout = new javax.swing.GroupLayout(bakeryPanel);
+        bakeryPanel.setLayout(bakeryPanelLayout);
+        bakeryPanelLayout.setHorizontalGroup(
+            bakeryPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(bakeryBar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(bakeryPanelLayout.createSequentialGroup()
+                .addGap(32, 32, 32)
+                .addComponent(bakeryLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        bakeryPanelLayout.setVerticalGroup(
+            bakeryPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(bakeryPanelLayout.createSequentialGroup()
+                .addComponent(bakeryBar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(bakeryLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(18, Short.MAX_VALUE))
+        );
+
+        mainPanel.add(bakeryPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 260, -1, 70));
+
+        dairyPanel.setBackground(new java.awt.Color(255, 255, 255));
+        dairyPanel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                dairyPanelMouseClicked(evt);
+            }
+        });
+
+        dairyLabel.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        dairyLabel.setForeground(new java.awt.Color(96, 83, 150));
+        dairyLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        dairyLabel.setText("Dairy");
+
+        dairyBar.setBackground(new java.awt.Color(158, 144, 219));
+
+        javax.swing.GroupLayout dairyBarLayout = new javax.swing.GroupLayout(dairyBar);
+        dairyBar.setLayout(dairyBarLayout);
+        dairyBarLayout.setHorizontalGroup(
+            dairyBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 140, Short.MAX_VALUE)
+        );
+        dairyBarLayout.setVerticalGroup(
+            dairyBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 10, Short.MAX_VALUE)
+        );
+
+        javax.swing.GroupLayout dairyPanelLayout = new javax.swing.GroupLayout(dairyPanel);
+        dairyPanel.setLayout(dairyPanelLayout);
+        dairyPanelLayout.setHorizontalGroup(
+            dairyPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(dairyBar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, dairyPanelLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(dairyLabel)
+                .addGap(47, 47, 47))
+        );
+        dairyPanelLayout.setVerticalGroup(
+            dairyPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(dairyPanelLayout.createSequentialGroup()
+                .addComponent(dairyBar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(dairyLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(21, 21, 21))
+        );
+
+        mainPanel.add(dairyPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 260, -1, 70));
+
+        pastaPanel.setBackground(new java.awt.Color(255, 255, 255));
+        pastaPanel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                pastaPanelMouseClicked(evt);
+            }
+        });
+
+        pastaLabel.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        pastaLabel.setForeground(new java.awt.Color(96, 83, 150));
+        pastaLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        pastaLabel.setText("Pasta");
+
+        pastaBar.setBackground(new java.awt.Color(158, 144, 219));
+
+        javax.swing.GroupLayout pastaBarLayout = new javax.swing.GroupLayout(pastaBar);
+        pastaBar.setLayout(pastaBarLayout);
+        pastaBarLayout.setHorizontalGroup(
+            pastaBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 140, Short.MAX_VALUE)
+        );
+        pastaBarLayout.setVerticalGroup(
+            pastaBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 10, Short.MAX_VALUE)
+        );
+
+        javax.swing.GroupLayout pastaPanelLayout = new javax.swing.GroupLayout(pastaPanel);
+        pastaPanel.setLayout(pastaPanelLayout);
+        pastaPanelLayout.setHorizontalGroup(
+            pastaPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(pastaBar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pastaPanelLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(pastaLabel)
+                .addGap(44, 44, 44))
+        );
+        pastaPanelLayout.setVerticalGroup(
+            pastaPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pastaPanelLayout.createSequentialGroup()
+                .addComponent(pastaBar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(pastaLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(21, 21, 21))
+        );
+
+        mainPanel.add(pastaPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 260, 140, 70));
+
+        stockUsedPanel2.setBackground(new java.awt.Color(255, 255, 255));
+
+        stockUsedLabel2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        stockUsedLabel2.setForeground(new java.awt.Color(96, 83, 150));
+        stockUsedLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        stockUsedLabel2.setText("Dairy");
+
+        stockUsedBar2.setBackground(new java.awt.Color(158, 144, 219));
+
+        javax.swing.GroupLayout stockUsedBar2Layout = new javax.swing.GroupLayout(stockUsedBar2);
+        stockUsedBar2.setLayout(stockUsedBar2Layout);
+        stockUsedBar2Layout.setHorizontalGroup(
+            stockUsedBar2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 140, Short.MAX_VALUE)
+        );
+        stockUsedBar2Layout.setVerticalGroup(
+            stockUsedBar2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 10, Short.MAX_VALUE)
+        );
+
+        javax.swing.GroupLayout stockUsedPanel2Layout = new javax.swing.GroupLayout(stockUsedPanel2);
+        stockUsedPanel2.setLayout(stockUsedPanel2Layout);
+        stockUsedPanel2Layout.setHorizontalGroup(
+            stockUsedPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(stockUsedBar2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(stockUsedPanel2Layout.createSequentialGroup()
+                .addGap(32, 32, 32)
+                .addComponent(stockUsedLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        stockUsedPanel2Layout.setVerticalGroup(
+            stockUsedPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(stockUsedPanel2Layout.createSequentialGroup()
+                .addComponent(stockUsedBar2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(stockUsedLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(18, Short.MAX_VALUE))
+        );
+
+        mainPanel.add(stockUsedPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 260, -1, 70));
 
         getContentPane().add(mainPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 0, 530, 530));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void meatPanelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_meatPanelMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_meatPanelMouseClicked
+
+    private void fruitPanelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_fruitPanelMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_fruitPanelMouseClicked
+
+    private void herbsPanelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_herbsPanelMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_herbsPanelMouseClicked
+
+    private void bakeryPanelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bakeryPanelMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_bakeryPanelMouseClicked
+
+    private void dairyPanelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_dairyPanelMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_dairyPanelMouseClicked
+
+    private void pastaPanelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pastaPanelMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_pastaPanelMouseClicked
 
     /**
      * @param args the command line arguments
@@ -512,24 +783,40 @@ public class StockManagement extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel bakeryBar;
+    private javax.swing.JLabel bakeryLabel;
+    private javax.swing.JPanel bakeryPanel;
+    private javax.swing.JPanel dairyBar;
+    private javax.swing.JLabel dairyLabel;
+    private javax.swing.JPanel dairyPanel;
     private javax.swing.JPanel deliveryButton;
     private javax.swing.JLabel deliveryLabel;
-    private javax.swing.JPanel graphPanel;
+    private javax.swing.JPanel fruitBar;
+    private javax.swing.JLabel fruitLabel;
+    private javax.swing.JPanel fruitPanel;
+    private javax.swing.JPanel herbsBar;
+    private javax.swing.JLabel herbsLabel;
+    private javax.swing.JPanel herbsPanel;
     private javax.swing.JPanel homeButton;
     private javax.swing.JLabel homeLabel;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
     private javax.swing.JPanel leftBar;
     private javax.swing.JLabel loggedInLabel;
     private javax.swing.JPanel logo;
     private javax.swing.JPanel logoutButton;
     private javax.swing.JLabel logoutLabel;
     private javax.swing.JPanel mainPanel;
-    private javax.swing.JLabel minusLabel;
-    private javax.swing.JLabel plusLabel;
+    private javax.swing.JPanel meatBar;
+    private javax.swing.JLabel meatLabel;
+    private javax.swing.JPanel meatPanel;
+    private javax.swing.JPanel pastaBar;
+    private javax.swing.JLabel pastaLabel;
+    private javax.swing.JPanel pastaPanel;
     private javax.swing.JPanel statusBar;
     private javax.swing.JPanel stockButton;
     private javax.swing.JLabel stockLabel;
+    private javax.swing.JPanel stockUsedBar2;
+    private javax.swing.JLabel stockUsedLabel2;
+    private javax.swing.JPanel stockUsedPanel2;
     private javax.swing.JLabel titleLabel;
     private javax.swing.JLabel titleLabel1;
     private javax.swing.JPanel userButton;
