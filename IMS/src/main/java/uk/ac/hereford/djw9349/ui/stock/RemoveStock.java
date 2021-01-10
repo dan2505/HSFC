@@ -24,7 +24,7 @@ public class RemoveStock implements ActionListener {
     private JLabel label;
 
     public RemoveStock() {
-        Dimension size = new Dimension(300, 100);
+        Dimension size = new Dimension(300, 120);
         panel.setSize(size);
         panel.setPreferredSize(size);
         panel.setBackground(new Color(247, 247, 247));

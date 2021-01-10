@@ -30,7 +30,7 @@ public class DeliveryManager {
         if (local != null) deliveries.addAll(local);
     }
 
-    private void save() throws IOException {
+    public void save() throws IOException {
         try (Writer writer = new FileWriter("delivery.json")) {
             Gson builder = new GsonBuilder().create();
             builder.toJson(deliveries, writer);
@@ -48,7 +48,7 @@ public class DeliveryManager {
     }
 
     public Delivery getDeliveryFromString(String date) {
-        for (Delivery delivery : deliveries) if (delivery.getDate().equals(date)) return delivery;
+        for (Delivery delivery : deliveries) if (delivery.getDate().toString().contains(date)) return delivery;
         return null;
     }
 

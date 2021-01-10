@@ -19,10 +19,14 @@ public class Delivery {
     private Date date;
     @NonNull
     private String supplier;
+    @NonNull
     private ArrayList<Ingredient> ingredients = new ArrayList<Ingredient>();
 
     public void addIngredient(Ingredient ingredient) {
         ingredients.add(ingredient);
+    }
+    public void removeIngredient(Ingredient ingredient) {
+        ingredients.remove(ingredient);
     }
     
     public String getIngredients() {

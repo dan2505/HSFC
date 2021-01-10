@@ -112,7 +112,7 @@ public class Home extends javax.swing.JFrame {
         stockUsedBar = new javax.swing.JPanel();
         differenceTitle = new javax.swing.JLabel();
         differencePanel = new javax.swing.JPanel();
-        differenceLabel = new javax.swing.JLabel();
+        pendingLabel = new javax.swing.JLabel();
         differenceBar = new javax.swing.JPanel();
         restockTitle = new javax.swing.JLabel();
         restockPanel = new javax.swing.JPanel();
@@ -342,7 +342,7 @@ public class Home extends javax.swing.JFrame {
 
         stockUsedTitle.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         stockUsedTitle.setForeground(new java.awt.Color(96, 83, 150));
-        stockUsedTitle.setText("Stock used");
+        stockUsedTitle.setText("Stock");
         mainPanel.add(stockUsedTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 110, 124, 41));
 
         stockUsedPanel.setBackground(new java.awt.Color(255, 255, 255));
@@ -388,15 +388,15 @@ public class Home extends javax.swing.JFrame {
 
         differenceTitle.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         differenceTitle.setForeground(new java.awt.Color(96, 83, 150));
-        differenceTitle.setText("Difference");
+        differenceTitle.setText("Pending Deliveries");
         mainPanel.add(differenceTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 110, 124, 41));
 
         differencePanel.setBackground(new java.awt.Color(255, 255, 255));
 
-        differenceLabel.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        differenceLabel.setForeground(new java.awt.Color(96, 83, 150));
-        differenceLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        differenceLabel.setText("+23.7%");
+        pendingLabel.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        pendingLabel.setForeground(new java.awt.Color(96, 83, 150));
+        pendingLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        pendingLabel.setText("500");
 
         differenceBar.setBackground(new java.awt.Color(158, 144, 219));
 
@@ -417,8 +417,8 @@ public class Home extends javax.swing.JFrame {
             differencePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(differenceBar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(differencePanelLayout.createSequentialGroup()
-                .addGap(22, 22, 22)
-                .addComponent(differenceLabel)
+                .addGap(44, 44, 44)
+                .addComponent(pendingLabel)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         differencePanelLayout.setVerticalGroup(
@@ -426,7 +426,7 @@ public class Home extends javax.swing.JFrame {
             .addGroup(differencePanelLayout.createSequentialGroup()
                 .addComponent(differenceBar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(differenceLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(pendingLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(21, 21, 21))
         );
 
@@ -567,7 +567,6 @@ public class Home extends javax.swing.JFrame {
     private javax.swing.JPanel deliveryButton;
     private javax.swing.JLabel deliveryLabel;
     private javax.swing.JPanel differenceBar;
-    private javax.swing.JLabel differenceLabel;
     private javax.swing.JPanel differencePanel;
     private javax.swing.JLabel differenceTitle;
     private javax.swing.JPanel graphPanel;
@@ -579,6 +578,7 @@ public class Home extends javax.swing.JFrame {
     private javax.swing.JPanel logoutButton;
     private javax.swing.JLabel logoutLabel;
     private javax.swing.JPanel mainPanel;
+    private javax.swing.JLabel pendingLabel;
     private javax.swing.JPanel restockBar;
     private javax.swing.JLabel restockLabel;
     private javax.swing.JPanel restockPanel;

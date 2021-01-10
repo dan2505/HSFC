@@ -1,19 +1,15 @@
 package uk.ac.hereford.djw9349.ui.stock;
 
+import lombok.SneakyThrows;
+import uk.ac.hereford.djw9349.IMS;
 import uk.ac.hereford.djw9349.enums.Category;
 import uk.ac.hereford.djw9349.objects.Delivery;
 import uk.ac.hereford.djw9349.objects.Ingredient;
-import uk.ac.hereford.djw9349.objects.User;
-import uk.ac.hereford.djw9349.ui.users.*;
-import lombok.SneakyThrows;
-import uk.ac.hereford.djw9349.IMS;
-import uk.ac.hereford.djw9349.enums.Role;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.ArrayList;
 import java.util.Objects;
 
 public class AddStock implements ActionListener {
@@ -81,7 +77,8 @@ public class AddStock implements ActionListener {
 
         deliverySelector = new JComboBox();
         deliverySelector.addItem("None");
-        for (Delivery delivery : IMS.deliveryManager.getDeliveries()) deliverySelector.addItem(delivery.getSupplier() + " - " + delivery.getDate());
+        for (Delivery delivery : IMS.deliveryManager.getDeliveries())
+            deliverySelector.addItem(delivery.getSupplier() + " - " + delivery.getDate());
         deliverySelector.setBounds(100, 110, 165, 25);
         panel.add(deliverySelector);
 
@@ -119,13 +116,17 @@ public class AddStock implements ActionListener {
         if (category.contains("HERBS")) category = "HERBSANDSPICES";
 
         if (!Objects.requireNonNull(deliverySelector.getSelectedItem()).toString().equals("None")) {
-            Delivery delivery = IMS.deliveryManager.getDeliveryFromString(deliverySelector.getSelectedItem().toString());
+            Delivery delivery = IMS.deliveryManager.getDeliveryFromString(deliverySelector.getSelectedItem().toString().split(" - ")[1]);
             boolean found = false;
-            for (Ingredient ingredient : delivery.getArray()) {
-                if (ingredient.getName().equals(name)) {
-                    ingredient.setQuantity(ingredient.getQuantity() + Integer.parseInt(quantity));
-                    found = true;
-                    break;
+            if (delivery.getArray() != null) {
+                for (Ingredient ingredient : delivery.getArray()) {
+                    if (ingredient.getName().equals(name)) {
+                        delivery.removeIngredient(ingredient);
+                        ingredient.setQuantity(ingredient.getQuantity() + Integer.parseInt(quantity));
+                        delivery.addIngredient(ingredient);
+                        found = true;
+                        break;
+                    }
                 }
             }
 
@@ -136,13 +137,15 @@ public class AddStock implements ActionListener {
             if (IMS.stockManager.alreadyExists(name)) {
                 Ingredient ingredient = IMS.stockManager.getStockFromString(name);
                 IMS.stockManager.changeQuantity(ingredient, Integer.valueOf(quantity));
+                frame.setVisible(false);
                 StockManagement.main(null);
+                IMS.deliveryManager.save();
                 return;
             }
-
             IMS.stockManager.addStock(new Ingredient(name, Integer.valueOf(quantity), Category.valueOf(category)));
-            frame.setVisible(false);
-            StockManagement.main(null);
         }
+        frame.setVisible(false);
+        StockManagement.main(null);
+        IMS.deliveryManager.save();
     }
 }

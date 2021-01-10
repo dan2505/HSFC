@@ -56,7 +56,7 @@ public class StockManager {
     public void changeQuantity(Ingredient ingredient, Integer quantity) throws IOException {
         Ingredient temp = ingredient;
         removeStock(ingredient);
-        temp.setQuantity(temp.getQuantity() - quantity);
+        temp.setQuantity(temp.getQuantity() + quantity);
 
         if (!(temp.getQuantity() <= 0)) {
             addStock(temp);
