@@ -17,6 +17,7 @@ import jiconfont.swing.IconFontSwing;
 import uk.ac.hereford.djw9349.enums.Role;
 import uk.ac.hereford.djw9349.objects.Delivery;
 import uk.ac.hereford.djw9349.ui.stock.StockManagement;
+import uk.ac.hereford.djw9349.ui.supplier.SupplierManagement;
 
 /**
  *
@@ -42,11 +43,11 @@ public class DeliveryManagement extends javax.swing.JFrame {
         }
     }
     
-    private void plusLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_plusLabelMouseClicked
+    private void supplierLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_supplierLabelMouseClicked
         // TODO add your handling code here:
         setVisible(false);
-        new AddUser();
-    }//GEN-LAST:event_plusLabelMouseClicked
+        SupplierManagement.main(null);
+    }//GEN-LAST:event_supplierLabelMouseClicked
     
     private void minusLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_minusLabelMouseClicked
         setVisible(false);
@@ -155,9 +156,9 @@ public class DeliveryManagement extends javax.swing.JFrame {
         titleLabel = new javax.swing.JLabel();
         IconFontSwing.register(FontAwesome.getIconFont());
 
-        Icon icon = IconFontSwing.buildIcon(FontAwesome.SMILE_O, 40, new Color(0, 150, 0));
-        plusLabel = new javax.swing.JLabel(icon);
-        plusLabel2 = new javax.swing.JLabel();
+        Icon icon = IconFontSwing.buildIcon(FontAwesome.ADDRESS_BOOK, 40, new Color(96, 83, 150));
+        supplierLabel = new javax.swing.JLabel(icon);
+        plusLabel = new javax.swing.JLabel();
 
         plusLabel1.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
         plusLabel1.setForeground(new java.awt.Color(96, 83, 150));
@@ -479,26 +480,26 @@ public class DeliveryManagement extends javax.swing.JFrame {
         titleLabel.setText("Inventory Management System");
         mainPanel.add(titleLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 50, 290, 37));
 
+        supplierLabel.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        supplierLabel.setForeground(new java.awt.Color(96, 83, 150));
+        supplierLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        supplierLabel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                supplierLabelMouseClicked(evt);
+            }
+        });
+        mainPanel.add(supplierLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 20, 40, 30));
+
         plusLabel.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
         plusLabel.setForeground(new java.awt.Color(96, 83, 150));
         plusLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        plusLabel.setText("+");
         plusLabel.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 plusLabelMouseClicked(evt);
             }
         });
-        mainPanel.add(plusLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 60, 50, 40));
-
-        plusLabel2.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
-        plusLabel2.setForeground(new java.awt.Color(96, 83, 150));
-        plusLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        plusLabel2.setText("+");
-        plusLabel2.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                plusLabel2MouseClicked(evt);
-            }
-        });
-        mainPanel.add(plusLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 60, 50, 40));
+        mainPanel.add(plusLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 60, 50, 40));
 
         getContentPane().add(mainPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 0, 530, 530));
 
@@ -509,9 +510,11 @@ public class DeliveryManagement extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_plusLabel1MouseClicked
 
-    private void plusLabel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_plusLabel2MouseClicked
+    private void plusLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_plusLabelMouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_plusLabel2MouseClicked
+        setVisible(false);
+        new AddUser();
+    }//GEN-LAST:event_plusLabelMouseClicked
 
     /**
      * @param args the command line arguments
@@ -566,10 +569,10 @@ public class DeliveryManagement extends javax.swing.JFrame {
     private javax.swing.JLabel minusLabel;
     private javax.swing.JLabel plusLabel;
     private javax.swing.JLabel plusLabel1;
-    private javax.swing.JLabel plusLabel2;
     private javax.swing.JPanel statusBar;
     private javax.swing.JPanel stockButton;
     private javax.swing.JLabel stockLabel;
+    private javax.swing.JLabel supplierLabel;
     private javax.swing.JLabel titleLabel;
     private javax.swing.JLabel titleLabel1;
     private javax.swing.JPanel userButton;

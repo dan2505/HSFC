@@ -3,14 +3,12 @@ package uk.ac.hereford.djw9349.managers;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
-import uk.ac.hereford.djw9349.objects.Delivery;
 import uk.ac.hereford.djw9349.objects.Supplier;
 
 import java.io.*;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
-import uk.ac.hereford.djw9349.objects.User;
 
 public class SupplierManager {
     private ArrayList<Supplier> suppliers = new ArrayList<Supplier>();
@@ -23,7 +21,7 @@ public class SupplierManager {
         File file = new File("supplier.json");
         if (!file.exists()) file.createNewFile();
 
-        Type type = new TypeToken<ArrayList<Delivery>>() {
+        Type type = new TypeToken<ArrayList<Supplier>>() {
         }.getType();
         List<Supplier> local = new Gson().fromJson(new FileReader("supplier.json"), type);
         if (local != null) suppliers.addAll(local);

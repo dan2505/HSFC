@@ -13,6 +13,7 @@ import javax.swing.table.DefaultTableModel;
 import uk.ac.hereford.djw9349.enums.Category;
 import uk.ac.hereford.djw9349.objects.Ingredient;
 import uk.ac.hereford.djw9349.ui.delivery.DeliveryManagement;
+import uk.ac.hereford.djw9349.ui.users.UserManagement;
 
 /**
  *
@@ -63,11 +64,12 @@ public class CategoryManagement extends javax.swing.JFrame {
 
     private void userButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_userButtonMouseClicked
         // TODO add your handling code here:
+        setVisible(false);
+        UserManagement.main(null);
     }//GEN-LAST:event_userButtonMouseClicked
 
     private void stockButtonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_stockButtonMouseEntered
         // TODO add your handling code here:
-
     }//GEN-LAST:event_stockButtonMouseEntered
 
     private void deliveryButtonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_deliveryButtonMouseEntered
