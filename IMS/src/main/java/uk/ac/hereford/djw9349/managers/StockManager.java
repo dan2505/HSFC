@@ -53,14 +53,18 @@ public class StockManager {
         return null;
     }
 
-    public void deductQuantity(Ingredient ingredient) throws IOException {
+    public void changeQuantity(Ingredient ingredient, Integer quantity) throws IOException {
         Ingredient temp = ingredient;
         removeStock(ingredient);
-        temp.setQuantity(temp.getQuantity() - 1);
+        temp.setQuantity(temp.getQuantity() - quantity);
 
-        if (temp.getQuantity() != 0) {
+        if (!(temp.getQuantity() <= 0)) {
             addStock(temp);
         }
+    }
+
+    public void deductQuantity(Ingredient ingredient) throws IOException {
+        changeQuantity(ingredient, -1);
     }
     
     public ArrayList<Ingredient> getStock() {

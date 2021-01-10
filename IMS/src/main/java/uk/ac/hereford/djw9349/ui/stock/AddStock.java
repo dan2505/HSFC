@@ -1,7 +1,9 @@
 package uk.ac.hereford.djw9349.ui.stock;
 
 import uk.ac.hereford.djw9349.enums.Category;
+import uk.ac.hereford.djw9349.objects.Delivery;
 import uk.ac.hereford.djw9349.objects.Ingredient;
+import uk.ac.hereford.djw9349.objects.User;
 import uk.ac.hereford.djw9349.ui.users.*;
 import lombok.SneakyThrows;
 import uk.ac.hereford.djw9349.IMS;
@@ -11,6 +13,8 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import java.util.Objects;
 
 public class AddStock implements ActionListener {
     private JFrame frame = new JFrame("Add Stock");
@@ -21,6 +25,8 @@ public class AddStock implements ActionListener {
     private JTextField quantityField;
     private JLabel categoryLabel;
     private JComboBox categorySelector;
+    private JLabel deliveryLabel;
+    private JComboBox deliverySelector;
     private JButton button;
     private JLabel label;
 
@@ -67,15 +73,27 @@ public class AddStock implements ActionListener {
         categorySelector.setBounds(100, 80, 165, 25);
         panel.add(categorySelector);
 
+        deliveryLabel = new JLabel("Delivery");
+        deliveryLabel.setFont(new Font("Segoe UI", Font.PLAIN, 15));
+        deliveryLabel.setForeground(new Color(0, 0, 0));
+        deliveryLabel.setBounds(10, 110, 80, 25);
+        panel.add(deliveryLabel);
+
+        deliverySelector = new JComboBox();
+        deliverySelector.addItem("None");
+        for (Delivery delivery : IMS.deliveryManager.getDeliveries()) deliverySelector.addItem(delivery.getSupplier() + " - " + delivery.getDate());
+        deliverySelector.setBounds(100, 110, 165, 25);
+        panel.add(deliverySelector);
+
         button = new JButton("Add Stock");
-        button.setBounds(10, 120, 150, 25);
+        button.setBounds(10, 140, 150, 25);
         button.addActionListener(this);
         panel.add(button);
 
         label = new JLabel("");
         label.setFont(new Font("Segoe UI", Font.PLAIN, 10));
         label.setForeground(new Color(0, 0, 0));
-        label.setBounds(10, 150, 300, 25);
+        label.setBounds(10, 160, 300, 25);
         panel.add(label);
 
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -90,22 +108,41 @@ public class AddStock implements ActionListener {
     public void actionPerformed(ActionEvent event) {
         String name = nameField.getText();
         String quantity = quantityField.getText();
-        String category = categorySelector.getSelectedItem().toString();
+        String category = Objects.requireNonNull(categorySelector.getSelectedItem()).toString();
         if ((name.isEmpty()) || (quantity.isEmpty())) {
             label.setText("Please provide the appropriate fields.");
-            return;
-        }
-
-        if (IMS.stockManager.alreadyExists(name)) {
-            label.setText("This item already exists!");
             return;
         }
 
         if (category.contains("MEAT")) category = "MEAT";
         if (category.contains("FRUIT")) category = "FRUIT";
         if (category.contains("HERBS")) category = "HERBSANDSPICES";
-        IMS.stockManager.addStock(new Ingredient(name, Integer.valueOf(quantity), Category.valueOf(category)));
-        frame.setVisible(false);
-        StockManagement.main(null);
+
+        if (!Objects.requireNonNull(deliverySelector.getSelectedItem()).toString().equals("None")) {
+            Delivery delivery = IMS.deliveryManager.getDeliveryFromString(deliverySelector.getSelectedItem().toString());
+            boolean found = false;
+            for (Ingredient ingredient : delivery.getArray()) {
+                if (ingredient.getName().equals(name)) {
+                    ingredient.setQuantity(ingredient.getQuantity() + Integer.parseInt(quantity));
+                    found = true;
+                    break;
+                }
+            }
+
+            if (found = false) {
+                delivery.addIngredient(new Ingredient(name, Integer.valueOf(quantity), Category.valueOf(category)));
+            }
+        } else {
+            if (IMS.stockManager.alreadyExists(name)) {
+                Ingredient ingredient = IMS.stockManager.getStockFromString(name);
+                IMS.stockManager.changeQuantity(ingredient, Integer.valueOf(quantity));
+                StockManagement.main(null);
+                return;
+            }
+
+            IMS.stockManager.addStock(new Ingredient(name, Integer.valueOf(quantity), Category.valueOf(category)));
+            frame.setVisible(false);
+            StockManagement.main(null);
+        }
     }
 }

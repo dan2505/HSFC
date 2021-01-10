@@ -51,7 +51,7 @@ public class DeliveryManagement extends javax.swing.JFrame {
     
     private void minusLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_minusLabelMouseClicked
         setVisible(false);
-        new RemoveUser();
+        new CancelDelivery();
     }//GEN-LAST:event_minusLabelMouseClicked
     
     private void stockButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_stockButtonMouseClicked
@@ -513,7 +513,7 @@ public class DeliveryManagement extends javax.swing.JFrame {
     private void plusLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_plusLabelMouseClicked
         // TODO add your handling code here:
         setVisible(false);
-        new AddUser();
+        new AddDelivery();
     }//GEN-LAST:event_plusLabelMouseClicked
 
     /**

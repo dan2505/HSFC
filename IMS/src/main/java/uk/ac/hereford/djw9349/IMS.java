@@ -16,6 +16,7 @@ import uk.ac.hereford.djw9349.objects.Address;
 import uk.ac.hereford.djw9349.objects.Delivery;
 import uk.ac.hereford.djw9349.objects.Ingredient;
 import uk.ac.hereford.djw9349.objects.Supplier;
+import uk.ac.hereford.djw9349.ui.delivery.AddDelivery;
 import uk.ac.hereford.djw9349.ui.stock.AddStock;
 import uk.ac.hereford.djw9349.ui.supplier.AddSupplier;
 

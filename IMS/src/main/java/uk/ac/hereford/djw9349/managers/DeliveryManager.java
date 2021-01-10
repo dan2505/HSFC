@@ -3,7 +3,10 @@ package uk.ac.hereford.djw9349.managers;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
+import uk.ac.hereford.djw9349.enums.Status;
 import uk.ac.hereford.djw9349.objects.Delivery;
+import uk.ac.hereford.djw9349.objects.Ingredient;
+import uk.ac.hereford.djw9349.objects.Supplier;
 
 import java.io.*;
 import java.lang.reflect.Type;
@@ -42,6 +45,18 @@ public class DeliveryManager {
     public void removeDelivery(Delivery delivery) throws IOException {
         deliveries.remove(delivery);
         save();
+    }
+
+    public Delivery getDeliveryFromString(String date) {
+        for (Delivery delivery : deliveries) if (delivery.getDate().equals(date)) return delivery;
+        return null;
+    }
+
+    public void cancelDelivery(Delivery delivery) throws IOException {
+        Delivery temp = delivery;
+        removeDelivery(delivery);
+        temp.setStatus(Status.CANCELLED);
+        addDelivery(temp);
     }
     
     public ArrayList<Delivery> getDeliveries() {
