@@ -10,6 +10,7 @@ import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
 import uk.ac.hereford.djw9349.enums.Category;
+import uk.ac.hereford.djw9349.objects.User;
 
 public class StockManager {
     private ArrayList<Ingredient> ingredients = new ArrayList<Ingredient>();
@@ -45,6 +46,21 @@ public class StockManager {
     public void removeStock(Ingredient ingredient) throws IOException {
         ingredients.remove(ingredient);
         save();
+    }
+
+    public Ingredient getStockFromString(String name) {
+        for (Ingredient ingredient : ingredients) if (ingredient.getName().equals(name)) return ingredient;
+        return null;
+    }
+
+    public void deductQuantity(Ingredient ingredient) throws IOException {
+        Ingredient temp = ingredient;
+        removeStock(ingredient);
+        temp.setQuantity(temp.getQuantity() - 1);
+
+        if (temp.getQuantity() != 0) {
+            addStock(temp);
+        }
     }
     
     public ArrayList<Ingredient> getStock() {

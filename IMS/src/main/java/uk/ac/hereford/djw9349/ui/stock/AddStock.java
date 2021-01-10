@@ -1,5 +1,7 @@
 package uk.ac.hereford.djw9349.ui.stock;
 
+import uk.ac.hereford.djw9349.enums.Category;
+import uk.ac.hereford.djw9349.objects.Ingredient;
 import uk.ac.hereford.djw9349.ui.users.*;
 import lombok.SneakyThrows;
 import uk.ac.hereford.djw9349.IMS;
@@ -13,12 +15,12 @@ import java.awt.event.ActionListener;
 public class AddStock implements ActionListener {
     private JFrame frame = new JFrame("Add Stock");
     private JPanel panel = new JPanel();
-    private JLabel userLabel;
-    private JTextField userField;
-    private JLabel passwordLabel;
-    private JPasswordField passwordField;
-    private JLabel roleLabel;
-    private JComboBox roleSelector;
+    private JLabel nameLabel;
+    private JTextField nameField;
+    private JLabel quantityLabel;
+    private JTextField quantityField;
+    private JLabel categoryLabel;
+    private JComboBox categorySelector;
     private JButton button;
     private JLabel label;
 
@@ -29,41 +31,41 @@ public class AddStock implements ActionListener {
         panel.setBackground(new Color(247, 247, 247));
         panel.setLayout(null);
 
-        userLabel = new JLabel("Name");
-        userLabel.setFont(new Font("Segoe UI", Font.PLAIN, 15));
-        userLabel.setForeground(new Color(0, 0, 0));
-        userLabel.setBounds(10, 20, 80, 25);
-        panel.add(userLabel);
+        nameLabel = new JLabel("Name");
+        nameLabel.setFont(new Font("Segoe UI", Font.PLAIN, 15));
+        nameLabel.setForeground(new Color(0, 0, 0));
+        nameLabel.setBounds(10, 20, 80, 25);
+        panel.add(nameLabel);
 
-        userField = new JTextField(20);
-        userField.setBounds(100, 20, 165, 25);
-        panel.add(userField);
+        nameField = new JTextField(20);
+        nameField.setBounds(100, 20, 165, 25);
+        panel.add(nameField);
 
-        passwordLabel = new JLabel("Quantity");
-        passwordLabel.setFont(new Font("Segoe UI", Font.PLAIN, 15));
-        passwordLabel.setForeground(new Color(0, 0, 0));
-        passwordLabel.setBounds(10, 50, 80, 25);
-        panel.add(passwordLabel);
+        quantityLabel = new JLabel("Quantity");
+        quantityLabel.setFont(new Font("Segoe UI", Font.PLAIN, 15));
+        quantityLabel.setForeground(new Color(0, 0, 0));
+        quantityLabel.setBounds(10, 50, 80, 25);
+        panel.add(quantityLabel);
 
-        passwordField = new JPasswordField(20);
-        passwordField.setBounds(100, 50, 165, 25);
-        panel.add(passwordField);
+        quantityField = new JTextField(20);
+        quantityField.setBounds(100, 50, 165, 25);
+        panel.add(quantityField);
 
-        roleLabel = new JLabel("Category");
-        roleLabel.setFont(new Font("Segoe UI", Font.PLAIN, 15));
-        roleLabel.setForeground(new Color(0, 0, 0));
-        roleLabel.setBounds(10, 80, 80, 25);
-        panel.add(roleLabel);
+        categoryLabel = new JLabel("Category");
+        categoryLabel.setFont(new Font("Segoe UI", Font.PLAIN, 15));
+        categoryLabel.setForeground(new Color(0, 0, 0));
+        categoryLabel.setBounds(10, 80, 80, 25);
+        panel.add(categoryLabel);
 
-        roleSelector = new JComboBox();
-        roleSelector.addItem("MEAT + FISH");
-        roleSelector.addItem("FRUIT + VEG");
-        roleSelector.addItem("HERBS + SPICES");
-        roleSelector.addItem("BAKERY");
-        roleSelector.addItem("DAIRY");
-        roleSelector.addItem("PASTA");
-        roleSelector.setBounds(100, 80, 165, 25);
-        panel.add(roleSelector);
+        categorySelector = new JComboBox();
+        categorySelector.addItem("MEAT + FISH");
+        categorySelector.addItem("FRUIT + VEG");
+        categorySelector.addItem("HERBS + SPICES");
+        categorySelector.addItem("BAKERY");
+        categorySelector.addItem("DAIRY");
+        categorySelector.addItem("PASTA");
+        categorySelector.setBounds(100, 80, 165, 25);
+        panel.add(categorySelector);
 
         button = new JButton("Add Stock");
         button.setBounds(10, 120, 150, 25);
@@ -86,21 +88,24 @@ public class AddStock implements ActionListener {
 
     @SneakyThrows
     public void actionPerformed(ActionEvent event) {
-        String username = userField.getText();
-        String password = passwordField.getText();
-        String role = roleSelector.getSelectedItem().toString();
-        if ((username.isEmpty()) || (password.isEmpty())) {
+        String name = nameField.getText();
+        String quantity = quantityField.getText();
+        String category = categorySelector.getSelectedItem().toString();
+        if ((name.isEmpty()) || (quantity.isEmpty())) {
             label.setText("Please provide the appropriate fields.");
             return;
         }
 
-        if (IMS.userManager.alreadyExists(username)) {
-            label.setText("This user already exists!");
+        if (IMS.stockManager.alreadyExists(name)) {
+            label.setText("This item already exists!");
             return;
         }
 
-        IMS.userManager.addUser(username, password, Role.valueOf(role));
+        if (category.contains("MEAT")) category = "MEAT";
+        if (category.contains("FRUIT")) category = "FRUIT";
+        if (category.contains("HERBS")) category = "HERBSANDSPICES";
+        IMS.stockManager.addStock(new Ingredient(name, Integer.valueOf(quantity), Category.valueOf(category)));
         frame.setVisible(false);
-        UserManagement.main(null);
+        StockManagement.main(null);
     }
 }

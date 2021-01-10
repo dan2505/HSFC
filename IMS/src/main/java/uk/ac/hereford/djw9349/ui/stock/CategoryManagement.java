@@ -34,7 +34,11 @@ public class CategoryManagement extends javax.swing.JFrame {
         model.setRowCount(0);
         for (Ingredient ingredient : IMS.stockManager.getStock()) {
             if (ingredient.getCategory().equals(category)) {
-                model.addRow(new Object[]{ingredient.getName(), ingredient.getQuantity(), ingredient.getCategory(), ingredient.getRecipes()});
+                String temp = category.toString();
+                if (category.equals(Category.MEAT)) temp = "MEAT + FISH";
+                if (category.equals(Category.FRUIT)) temp = "FRUIT + VEG";
+                if (category.equals(Category.HERBSANDSPICES)) temp = "HERBS + SPICES";
+                model.addRow(new Object[]{ingredient.getName(), ingredient.getQuantity(), temp, ingredient.getRecipes()});
             }
         }
     }

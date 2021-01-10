@@ -5,6 +5,8 @@ import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 
 import java.util.ArrayList;
+
+import lombok.Setter;
 import uk.ac.hereford.djw9349.enums.Category;
 
 @RequiredArgsConstructor
@@ -13,6 +15,7 @@ public class Ingredient {
     @NonNull
     private String name;
     @NonNull
+    @Setter
     private Integer quantity;
     @NonNull
     private Category category;

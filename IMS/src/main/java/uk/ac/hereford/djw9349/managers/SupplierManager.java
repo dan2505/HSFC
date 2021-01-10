@@ -4,6 +4,7 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
 import uk.ac.hereford.djw9349.objects.Supplier;
+import uk.ac.hereford.djw9349.objects.User;
 
 import java.io.*;
 import java.lang.reflect.Type;
@@ -51,6 +52,11 @@ public class SupplierManager {
     private Supplier getSupplierFromString(String name) {
         for (Supplier supplier : suppliers) if (supplier.getName().equals(name)) return supplier;
         return null;
+    }
+
+    public boolean alreadyExists(String name) {
+        for (Supplier supplier : suppliers) if (supplier.getName().equals(name)) return true;
+        return false;
     }
     
     public ArrayList<Supplier> getSuppliers() {

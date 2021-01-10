@@ -1,5 +1,6 @@
 package uk.ac.hereford.djw9349.ui.stock;
 
+import uk.ac.hereford.djw9349.objects.Ingredient;
 import uk.ac.hereford.djw9349.ui.users.*;
 import lombok.SneakyThrows;
 import uk.ac.hereford.djw9349.IMS;
@@ -29,18 +30,18 @@ public class RemoveStock implements ActionListener {
         panel.setBackground(new Color(247, 247, 247));
         panel.setLayout(null);
 
-        userLabel = new JLabel("Username");
+        userLabel = new JLabel("Name");
         userLabel.setFont(new Font("Segoe UI", Font.PLAIN, 15));
         userLabel.setForeground(new Color(0, 0, 0));
         userLabel.setBounds(10, 20, 80, 25);
         panel.add(userLabel);
 
         roleSelector = new JComboBox();
-        for (User user : IMS.userManager.getUsers()) roleSelector.addItem(user.getUsername());
+        for (Ingredient ingredient : IMS.stockManager.getStock()) roleSelector.addItem(ingredient.getName());
         roleSelector.setBounds(100, 20, 165, 25);
         panel.add(roleSelector);
 
-        button = new JButton("Remove User");
+        button = new JButton("Deduct");
         button.setBounds(10, 50, 150, 25);
         button.addActionListener(this);
         panel.add(button);
@@ -63,12 +64,11 @@ public class RemoveStock implements ActionListener {
     public void actionPerformed(ActionEvent event) {
         Object role = roleSelector.getSelectedItem();
         if (role == null) {
-            label.setText("Please select a user.");
+            label.setText("Please select an ingredient.");
             return;
         }
-
-        IMS.userManager.removeUser(role.toString());
+        IMS.stockManager.deductQuantity(IMS.stockManager.getStockFromString(role.toString()));
         frame.setVisible(false);
-        UserManagement.main(null);
+        StockManagement.main(null);
     }
 }
