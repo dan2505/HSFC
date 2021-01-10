@@ -5,14 +5,17 @@
  */
 package uk.ac.hereford.djw9349.ui.delivery;
 
+import java.awt.Color;
+import javax.swing.Icon;
 import uk.ac.hereford.djw9349.ui.users.*;
 import uk.ac.hereford.djw9349.IMS;
-import uk.ac.hereford.djw9349.objects.User;
 import uk.ac.hereford.djw9349.ui.Login;
 import uk.ac.hereford.djw9349.ui.home.Home;
-
+import jiconfont.icons.font_awesome.FontAwesome;
 import javax.swing.table.DefaultTableModel;
+import jiconfont.swing.IconFontSwing;
 import uk.ac.hereford.djw9349.enums.Role;
+import uk.ac.hereford.djw9349.objects.Delivery;
 import uk.ac.hereford.djw9349.ui.stock.StockManagement;
 
 /**
@@ -34,8 +37,8 @@ public class DeliveryManagement extends javax.swing.JFrame {
         
         DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
         model.setRowCount(0);
-        for (User user : IMS.userManager.getUsers()) {
-            model.addRow(new Object[]{user.getUsername(), user.getRole().toString()});
+        for (Delivery delivery : IMS.deliveryManager.getDeliveries()) {
+            model.addRow(new Object[]{delivery.getStatus(), delivery.getDate(), delivery.getIngredients(), delivery.getSupplier()});
         }
     }
     
@@ -127,6 +130,7 @@ public class DeliveryManagement extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        plusLabel1 = new javax.swing.JLabel();
         leftBar = new javax.swing.JPanel();
         logo = new javax.swing.JPanel();
         titleLabel1 = new javax.swing.JLabel();
@@ -149,7 +153,21 @@ public class DeliveryManagement extends javax.swing.JFrame {
         loggedInLabel = new javax.swing.JLabel();
         usernameLabel = new javax.swing.JLabel();
         titleLabel = new javax.swing.JLabel();
-        plusLabel = new javax.swing.JLabel();
+        IconFontSwing.register(FontAwesome.getIconFont());
+
+        Icon icon = IconFontSwing.buildIcon(FontAwesome.SMILE_O, 40, new Color(0, 150, 0));
+        plusLabel = new javax.swing.JLabel(icon);
+        plusLabel2 = new javax.swing.JLabel();
+
+        plusLabel1.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        plusLabel1.setForeground(new java.awt.Color(96, 83, 150));
+        plusLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        plusLabel1.setText("+");
+        plusLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                plusLabel1MouseClicked(evt);
+            }
+        });
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(204, 204, 204));
@@ -464,18 +482,36 @@ public class DeliveryManagement extends javax.swing.JFrame {
         plusLabel.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
         plusLabel.setForeground(new java.awt.Color(96, 83, 150));
         plusLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        plusLabel.setText("+");
         plusLabel.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 plusLabelMouseClicked(evt);
             }
         });
-        mainPanel.add(plusLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 60, 50, 40));
+        mainPanel.add(plusLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 60, 50, 40));
+
+        plusLabel2.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        plusLabel2.setForeground(new java.awt.Color(96, 83, 150));
+        plusLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        plusLabel2.setText("+");
+        plusLabel2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                plusLabel2MouseClicked(evt);
+            }
+        });
+        mainPanel.add(plusLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 60, 50, 40));
 
         getContentPane().add(mainPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 0, 530, 530));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void plusLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_plusLabel1MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_plusLabel1MouseClicked
+
+    private void plusLabel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_plusLabel2MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_plusLabel2MouseClicked
 
     /**
      * @param args the command line arguments
@@ -529,6 +565,8 @@ public class DeliveryManagement extends javax.swing.JFrame {
     private javax.swing.JPanel mainPanel;
     private javax.swing.JLabel minusLabel;
     private javax.swing.JLabel plusLabel;
+    private javax.swing.JLabel plusLabel1;
+    private javax.swing.JLabel plusLabel2;
     private javax.swing.JPanel statusBar;
     private javax.swing.JPanel stockButton;
     private javax.swing.JLabel stockLabel;

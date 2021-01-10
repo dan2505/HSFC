@@ -11,7 +11,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class AddStock implements ActionListener {
-    private JFrame frame = new JFrame("Add User");
+    private JFrame frame = new JFrame("Add Stock");
     private JPanel panel = new JPanel();
     private JLabel userLabel;
     private JTextField userField;
@@ -29,7 +29,7 @@ public class AddStock implements ActionListener {
         panel.setBackground(new Color(247, 247, 247));
         panel.setLayout(null);
 
-        userLabel = new JLabel("Username");
+        userLabel = new JLabel("Name");
         userLabel.setFont(new Font("Segoe UI", Font.PLAIN, 15));
         userLabel.setForeground(new Color(0, 0, 0));
         userLabel.setBounds(10, 20, 80, 25);
@@ -39,7 +39,7 @@ public class AddStock implements ActionListener {
         userField.setBounds(100, 20, 165, 25);
         panel.add(userField);
 
-        passwordLabel = new JLabel("Password");
+        passwordLabel = new JLabel("Quantity");
         passwordLabel.setFont(new Font("Segoe UI", Font.PLAIN, 15));
         passwordLabel.setForeground(new Color(0, 0, 0));
         passwordLabel.setBounds(10, 50, 80, 25);
@@ -49,20 +49,23 @@ public class AddStock implements ActionListener {
         passwordField.setBounds(100, 50, 165, 25);
         panel.add(passwordField);
 
-        roleLabel = new JLabel("Role");
+        roleLabel = new JLabel("Category");
         roleLabel.setFont(new Font("Segoe UI", Font.PLAIN, 15));
         roleLabel.setForeground(new Color(0, 0, 0));
         roleLabel.setBounds(10, 80, 80, 25);
         panel.add(roleLabel);
 
         roleSelector = new JComboBox();
-        roleSelector.addItem("OWNER");
-        roleSelector.addItem("MANAGER");
-        roleSelector.addItem("STAFF");
+        roleSelector.addItem("MEAT + FISH");
+        roleSelector.addItem("FRUIT + VEG");
+        roleSelector.addItem("HERBS + SPICES");
+        roleSelector.addItem("BAKERY");
+        roleSelector.addItem("DAIRY");
+        roleSelector.addItem("PASTA");
         roleSelector.setBounds(100, 80, 165, 25);
         panel.add(roleSelector);
 
-        button = new JButton("Add User");
+        button = new JButton("Add Stock");
         button.setBounds(10, 120, 150, 25);
         button.addActionListener(this);
         panel.add(button);
@@ -87,7 +90,7 @@ public class AddStock implements ActionListener {
         String password = passwordField.getText();
         String role = roleSelector.getSelectedItem().toString();
         if ((username.isEmpty()) || (password.isEmpty())) {
-            label.setText("Please provide a username and password.");
+            label.setText("Please provide the appropriate fields.");
             return;
         }
 

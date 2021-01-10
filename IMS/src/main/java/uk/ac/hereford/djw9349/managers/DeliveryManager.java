@@ -43,5 +43,8 @@ public class DeliveryManager {
         deliveries.remove(delivery);
         save();
     }
-
+    
+    public ArrayList<Delivery> getDeliveries() {
+        return deliveries;
+    }
 }

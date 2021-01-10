@@ -50,5 +50,9 @@ public class StockManager {
     public ArrayList<Ingredient> getStock() {
         return ingredients;
     }
-
+    
+    public boolean alreadyExists(String name) {
+       for (Ingredient ingredient : ingredients) if (ingredient.getName().equals(name)) return true;
+        return false;
+    } 
 }

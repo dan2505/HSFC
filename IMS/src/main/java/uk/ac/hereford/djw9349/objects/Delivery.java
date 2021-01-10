@@ -23,4 +23,12 @@ public class Delivery {
     public void addIngredient(Ingredient ingredient) {
         ingredients.add(ingredient);
     }
+    
+    public String getIngredients() {
+        String temp = "";
+        for (Ingredient ingredient : ingredients) {
+            temp = temp + ingredient.getName() + ",";
+        }
+        return temp;
+    }
 }
