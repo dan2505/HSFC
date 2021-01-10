@@ -6,11 +6,16 @@
 package uk.ac.hereford.djw9349.ui.home;
 
 import uk.ac.hereford.djw9349.IMS;
+import uk.ac.hereford.djw9349.enums.Category;
 import uk.ac.hereford.djw9349.enums.Role;
+import uk.ac.hereford.djw9349.enums.Status;
+import uk.ac.hereford.djw9349.objects.Delivery;
 import uk.ac.hereford.djw9349.ui.Login;
 import uk.ac.hereford.djw9349.ui.delivery.DeliveryManagement;
 import uk.ac.hereford.djw9349.ui.stock.StockManagement;
 import uk.ac.hereford.djw9349.ui.users.UserManagement;
+
+import java.util.Date;
 
 /**
  *
@@ -28,6 +33,22 @@ public class Home extends javax.swing.JFrame {
             userLabel.setVisible(false);
             userButton.setVisible(false);
         }
+
+        stockUsedLabel.setText(String.valueOf(IMS.stockManager.getStock().size()));
+
+        int count = 0;
+        long mintime = Long.MAX_VALUE;
+        for (Delivery delivery : IMS.deliveryManager.getDeliveries()) {
+            if (delivery.getStatus().equals(Status.PENDING)) {
+                long time = delivery.getDate().getTime() - new Date().getTime();
+                if ((time > 0) && (time < mintime)) mintime = time;
+                count++;
+            }
+
+        }
+        System.out.print(mintime + " ");
+        pendingLabel.setText(String.valueOf(count));
+        restockLabel.setText((mintime / (1000 * 60 * 60 * 24)) + " days");
     }
     
     private void stockButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_stockButtonMouseClicked
@@ -350,7 +371,7 @@ public class Home extends javax.swing.JFrame {
         stockUsedLabel.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         stockUsedLabel.setForeground(new java.awt.Color(96, 83, 150));
         stockUsedLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        stockUsedLabel.setText("500");
+        stockUsedLabel.setText("5");
 
         stockUsedBar.setBackground(new java.awt.Color(158, 144, 219));
 
@@ -396,7 +417,7 @@ public class Home extends javax.swing.JFrame {
         pendingLabel.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         pendingLabel.setForeground(new java.awt.Color(96, 83, 150));
         pendingLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        pendingLabel.setText("500");
+        pendingLabel.setText("5");
 
         differenceBar.setBackground(new java.awt.Color(158, 144, 219));
 
@@ -417,7 +438,7 @@ public class Home extends javax.swing.JFrame {
             differencePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(differenceBar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(differencePanelLayout.createSequentialGroup()
-                .addGap(44, 44, 44)
+                .addGap(61, 61, 61)
                 .addComponent(pendingLabel)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
